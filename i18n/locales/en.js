@@ -1,0 +1,7 @@
+export default {
+  index: {
+    title: 'Blog',
+    description: 'Blog'
+  },
+  readingTime: '0 min read | {count} min read | {count} min read'
+}

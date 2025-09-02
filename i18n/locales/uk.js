@@ -1,0 +1,7 @@
+export default {
+  index: {
+    title: 'Блог',
+    description: 'Блог'
+  },
+  readingTime: 'читання на 0 хвилин | читання на {count} хвилину | читання на {count} хвилини | читання на {count} хвилин'
+}
