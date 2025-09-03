@@ -25,8 +25,15 @@
           >
             <template #leading>
               <UIcon
-                :name="colorMode === 'light' ? 'i-lucide:moon' : 'i-lucide:sun'"
-                class="size-5"
+                v-if="colorMode === 'light'"
+                name="i-lucide:moon"
+                class="!size-5"
+              />
+
+              <UIcon
+                v-else
+                name="i-lucide:sun"
+                class="!size-5"
               />
             </template>
           </UButton>
@@ -42,8 +49,15 @@
           >
             <template #leading>
               <UIcon
-                :name="isOpen ? 'i-lucide:x' : 'i-lucide:menu'"
-                class="size-5"
+                v-if="isOpen"
+                name="i-lucide:x"
+                class="!size-5"
+              />
+
+              <UIcon
+                v-else
+                name="i-lucide:menu"
+                class="!size-5"
               />
             </template>
           </UButton>
