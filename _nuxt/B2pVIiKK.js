@@ -1,1 +1,0 @@
-const t={index:{title:{t:0,b:{t:2,i:[{t:3}],s:"Blog"}},description:{t:0,b:{t:2,i:[{t:3}],s:"Blog"}}},readingTime:{t:0,b:{t:1,c:[{t:2,i:[{t:3}],s:"0 min read"},{t:2,i:[{t:4,k:"count"},{t:3,v:" min read"}]},{t:2,i:[{t:4,k:"count"},{t:3,v:" min read"}]}]}}};export{t as default};
