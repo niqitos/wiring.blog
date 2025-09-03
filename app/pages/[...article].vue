@@ -73,6 +73,7 @@
 import type { BreadcrumbItem } from '@nuxt/ui'
 
 const route = useRoute()
+const localePath = useLocalePath()
 const { formatDate } = useDate()
 
 const { data: page } = await useAsyncData(() => queryCollection('content').path(`/${route.params.article}`).first())
@@ -81,7 +82,7 @@ const breadcrumbs = ref<BreadcrumbItem[]>([
   {
     label: 'Home',
     icon: 'i-lucide-house',
-    to: '/'
+    to: localePath('index')
   }
 ])
 
