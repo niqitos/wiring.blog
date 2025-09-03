@@ -16,7 +16,7 @@
     }"
   >
     <UButton
-      icon="i-lucide-languages"
+      icon="i-lucide:languages"
       color="neutral"
       variant="ghost"
       size="lg"

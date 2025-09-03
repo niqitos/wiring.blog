@@ -18,29 +18,35 @@
 
         <div class="flex items-center gap-2">
           <UButton
-            :icon="colorMode === 'light' ? 'i-lucide-moon' : 'i-lucide-sun'"
             color="neutral"
             variant="ghost"
             size="lg"
-            :ui="{
-              leadingIcon: '!size-5'
-            }"
             @click="toggleColorMode"
-          />
+          >
+            <template #leading>
+              <UIcon
+                :name="colorMode === 'light' ? 'i-lucide:moon' : 'i-lucide:sun'"
+                class="size-5"
+              />
+            </template>
+          </UButton>
 
           <LangSwitcher />
 
           <UButton
             class="md:hidden"
-            :icon="isOpen ? 'i-lucide-x' : 'i-lucide-menu'"
             color="neutral"
             variant="ghost"
             size="lg"
-            :ui="{
-              leadingIcon: '!size-5'
-            }"
             @click="isOpen = !isOpen"
-          />
+          >
+            <template #leading>
+              <UIcon
+                :name="isOpen ? 'i-lucide:x' : 'i-lucide:menu'"
+                class="size-5"
+              />
+            </template>
+          </UButton>
         </div>
       </nav>
     </UContainer>
