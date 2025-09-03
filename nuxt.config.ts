@@ -43,7 +43,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     prerender: {
-      routes: ['/']
+      failOnError: false
     }
   },
   hooks: {
