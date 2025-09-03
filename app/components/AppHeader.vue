@@ -28,6 +28,8 @@
             @click="toggleColorMode"
           />
 
+          <LangSwitcher />
+
           <UButton
             class="md:hidden"
             :icon="isOpen ? 'i-lucide:x' : 'i-lucide:menu'"
@@ -39,8 +41,6 @@
             }"
             @click="isOpen = !isOpen"
           />
-
-          <LangSwitcher />
         </div>
       </nav>
     </UContainer>

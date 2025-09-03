@@ -61,7 +61,7 @@
         class="prose dark:prose-invert"
       />
 
-      <footer class="mt-12">
+      <footer class="mt-8">
         <div class="flex flex-wrap gap-2">
           <UBadge
             v-for="tag in article.tags"
