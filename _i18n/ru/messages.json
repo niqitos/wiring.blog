@@ -1,1 +1,1 @@
-{"ru":{"index":{"title":"Блог","description":"Блог"},"about":{"title":"О нас","description":"О нас"},"readingTime":"0 минут | {count} минута | {count} минуты | {count} минут","error":{"404":"Страница не найдена"}}}
+{"ru":{"home":{"title":"Главная"},"index":{"title":"Блог","description":"Блог"},"about":{"title":"О нас","description":"О нас"},"readingTime":"0 минут | {count} минута | {count} минуты | {count} минут","error":{"404":"Страница не найдена"}}}
