@@ -1,1 +1,1 @@
-{"uk":{"index":{"title":"Блог","description":"Блог"},"about":{"title":"Про нас","description":"Про нас"},"readingTime":"читання на 0 хвилин | читання на {count} хвилину | читання на {count} хвилини | читання на {count} хвилин"}}
+{"uk":{"index":{"title":"Блог","description":"Блог"},"about":{"title":"Про нас","description":"Про нас"},"readingTime":"0 хвилин | {count} хвилина | {count} хвилини | {count} хвилин","error":{"404":"Сторінка не знайдена"}}}
