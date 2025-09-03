@@ -63,14 +63,14 @@
 
       <footer class="mt-8">
         <div class="flex flex-wrap gap-2">
-          <UBadge
+          <UButton
             v-for="tag in article.tags"
             :key="tag"
+            :to="`/?tag=${tag}`"
             color="primary"
             variant="soft"
-          >
-            {{ tag }}
-          </UBadge>
+            :label="tag"
+          />
         </div>
       </footer>
     </article>
