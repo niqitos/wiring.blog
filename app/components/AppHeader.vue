@@ -25,13 +25,13 @@
           >
             <template #leading>
               <UIcon
-                v-if="colorMode === 'light'"
+                v-show="colorMode === 'light'"
                 name="i-lucide:moon"
                 class="!size-5"
               />
 
               <UIcon
-                v-else
+                v-show="colorMode === 'dark'"
                 name="i-lucide:sun"
                 class="!size-5"
               />
@@ -49,13 +49,13 @@
           >
             <template #leading>
               <UIcon
-                v-if="isOpen"
+                v-show="isOpen"
                 name="i-lucide:x"
                 class="!size-5"
               />
 
               <UIcon
-                v-else
+                v-show="!isOpen"
                 name="i-lucide:menu"
                 class="!size-5"
               />
