@@ -1,14 +1,13 @@
 ---
-date: 2025-09-02
 title: Test page
+cover: /images/test/cover.jpg
 description: Test page description
-tags:
-  - nuxt
-  - vue
-  - blog
+date: 2025-09-02
 authors:
   - name: Jon Doe
   - name: Jane Doe
+tags:
+  - test
 ---
 
 Test page content

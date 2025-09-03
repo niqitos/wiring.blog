@@ -5,7 +5,7 @@
       v-text="$t('index.title')"
     />
 
-    <div class="grid md:grid-cols-2 gap-6">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
       <GridArticle
         v-for="(article, index) in articles"
         :key="`article-${index}`"
@@ -19,6 +19,7 @@
 const { t } = useI18n()
 
 const { data: articles } = await useAsyncData(() => queryCollection('content')
+  .select('path', 'cover', 'title', 'description', 'date', 'tags', 'authors')
   .limit(12)
   .all()
 )

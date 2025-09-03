@@ -1,2 +1,6 @@
 @import 'tailwindcss';
 @import '@nuxt/ui';
+
+img {
+  border-radius: var(--radius-lg);
+}

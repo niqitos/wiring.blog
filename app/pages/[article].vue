@@ -6,24 +6,29 @@
     />
 
     <article
-      v-if="page"
+      v-if="article"
       class="prose prose-lg max-w-3xl mx-auto"
     >
-      <header class="mb-8">
+      <header class="space-y-4 mb-8">
         <h1
-          class="text-3xl font-bold mb-2"
-          v-text="page.title"
+          class="text-xl sm:text-2xl md:text-3xl font-bold"
+          v-text="article.title"
+        />
+
+        <NuxtImg
+          v-if="article.cover"
+          :src="String(article.cover)"
         />
 
         <p
           class="text-gray-500"
-          v-text="page.description"
+          v-text="article.description"
         />
 
-        <div class="flex gap-4 items-center mt-4">
+        <div class="flex gap-4 items-center">
           <UAvatarGroup>
             <UAvatar
-              v-for="(author, index) in page.meta.authors"
+              v-for="(author, index) in article.authors"
               :key="`author-avatar-${index}`"
               size="lg"
               :alt="author?.name"
@@ -34,7 +39,7 @@
           <div class="text-sm">
             <div class="flex gap-1">
               <span
-                v-for="(author, index) in page.meta.authors"
+                v-for="(author, index) in article.authors"
                 :key="`author-name-${index}`"
                 class="after:content-[','] last:after:content-['']"
                 v-text="author?.name"
@@ -42,20 +47,24 @@
             </div>
 
             <div class="flex items-center gap-2 text-gray-400">
-              <span v-text="formatDate(String(page.meta.date))" />
+              <span v-text="formatDate(String(article.date))" />
               <span v-text="'•'" />
-              <span v-text="$t('readingTime', Number(page.readingTime))" />
+              <span v-text="$t('readingTime', Number(article.readingTime))" />
             </div>
           </div>
         </div>
       </header>
 
-      <ContentRenderer :value="page" class="prose dark:prose-invert" />
+      <ContentRenderer
+        v-if="article"
+        :value="article"
+        class="prose dark:prose-invert"
+      />
 
       <footer class="mt-12">
         <div class="flex flex-wrap gap-2">
           <UBadge
-            v-for="tag in page.meta.tags"
+            v-for="tag in article.tags"
             :key="tag"
             color="primary"
             variant="soft"
@@ -65,7 +74,21 @@
         </div>
       </footer>
     </article>
-    <div v-else>Page not found</div>
+
+    <div
+      v-else
+      class="grid place-items-center min-h-[calc(100dvh-149px)]"
+    >
+      <h1
+        class="text-3xl font-bold"
+        v-text="$t('error.404')"
+      />
+
+      <NuxtImg
+        src="/404.gif"
+        class="fixed bottom-0"
+      />
+    </div>
   </UContainer>
 </template>
 
@@ -76,18 +99,23 @@ const route = useRoute()
 const localePath = useLocalePath()
 const { formatDate } = useDate()
 
-const { data: page } = await useAsyncData(() => queryCollection('content').path(`/${route.params.article}`).first())
+const { data: article } = await useAsyncData(() => queryCollection('content')
+  .select('path', 'cover', 'title', 'description', 'body', 'date', 'tags', 'authors', 'readingTime')
+  .path(`/${route.params.article}`)
+  .first()
+)
+console.log(article)
 
 const breadcrumbs = ref<BreadcrumbItem[]>([
   {
     label: 'Home',
-    icon: 'i-lucide-house',
+    icon: 'i-lucide:house',
     to: localePath('index')
   }
 ])
 
 useSeoMeta({
-  title: page.value?.title,
-  description: page.value?.description
+  title: article.value?.title,
+  description: article.value?.description
 })
 </script>

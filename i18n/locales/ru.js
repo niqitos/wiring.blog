@@ -7,5 +7,8 @@ export default {
     title: 'О нас',
     description: 'О нас'
   },
-  readingTime: 'чтение на 0 минут | чтение на {count} минуту | чтение на {count} минуты | чтение на {count} минут'
+  readingTime: '0 минут | {count} минута | {count} минуты | {count} минут',
+  error: {
+    404: 'Страница не найдена'
+  }
 }

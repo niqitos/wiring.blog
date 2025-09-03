@@ -7,5 +7,8 @@ export default {
     title: 'About',
     description: 'About'
   },
-  readingTime: '0 min read | {count} min read | {count} min read'
+  readingTime: '0 min read | {count} min read | {count} min read',
+  error: {
+    404: 'Page not found'
+  }
 }
