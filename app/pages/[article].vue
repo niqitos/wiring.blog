@@ -110,7 +110,7 @@ const { data: article } = await useAsyncData(() => queryCollection(`content_${lo
 const breadcrumbs = ref<BreadcrumbItem[]>([
   {
     label: t('home.title'),
-    icon: 'i-lucide:house',
+    icon: 'i-lucide-house',
     to: localePath('index')
   }
 ])

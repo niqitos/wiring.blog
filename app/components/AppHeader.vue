@@ -18,7 +18,7 @@
 
         <div class="flex items-center gap-2">
           <UButton
-            :icon="colorMode === 'light' ? 'i-lucide:moon' : 'i-lucide:sun'"
+            :icon="colorMode === 'light' ? 'i-lucide-moon' : 'i-lucide-sun'"
             color="neutral"
             variant="ghost"
             size="lg"
@@ -32,7 +32,7 @@
 
           <UButton
             class="md:hidden"
-            :icon="isOpen ? 'i-lucide:x' : 'i-lucide:menu'"
+            :icon="isOpen ? 'i-lucide-x' : 'i-lucide-menu'"
             color="neutral"
             variant="ghost"
             size="lg"
