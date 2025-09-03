@@ -6,9 +6,7 @@
       onSelect: (e: Event) => setLocale(l.code)
     }))"
     :content="{
-      align: 'start',
-      side: 'bottom',
-      sideOffset: 8
+      align: 'start'
     }"
     :ui="{
       content: 'min-w-[var(--reka-popper-anchor-width)]',

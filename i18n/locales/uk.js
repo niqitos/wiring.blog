@@ -14,6 +14,11 @@ export default {
   tags: {
     all: 'Всі'
   },
+  theme: {
+    dark: 'Темна',
+    light: 'Світла',
+    system: 'Системна'
+  },
   error: {
     404: 'Сторінка не знайдена'
   }

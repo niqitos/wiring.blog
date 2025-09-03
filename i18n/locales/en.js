@@ -14,6 +14,11 @@ export default {
   tags: {
     all: 'All'
   },
+  theme: {
+    dark: 'Dark',
+    light: 'Light',
+    system: 'System'
+  },
   error: {
     404: 'Page not found'
   }

@@ -17,26 +17,7 @@
         </ul>
 
         <div class="flex items-center gap-2">
-          <UButton
-            color="neutral"
-            variant="ghost"
-            size="lg"
-            @click="toggleColorMode"
-          >
-            <template #leading>
-              <UIcon
-                v-show="colorMode === 'light'"
-                name="i-lucide:moon"
-                class="!size-5"
-              />
-
-              <UIcon
-                v-show="colorMode === 'dark'"
-                name="i-lucide:sun"
-                class="!size-5"
-              />
-            </template>
-          </UButton>
+          <ThemeSwitcher />
 
           <LangSwitcher />
 
@@ -77,12 +58,10 @@
 </template>
 
 <script lang="ts" setup>
-import { useColorMode } from '@vueuse/core'
 import type { NavigationMenuItem } from '@nuxt/ui'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
-const colorMode = useColorMode()
 const isOpen = ref(false)
 
 const menu = ref<NavigationMenuItem[]>([
@@ -95,8 +74,4 @@ const menu = ref<NavigationMenuItem[]>([
     to: localePath('about')
   }
 ])
-
-const toggleColorMode = () => {
-  colorMode.value = colorMode.value === 'dark' ? 'light' : 'dark'
-}
 </script>
