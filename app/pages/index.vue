@@ -16,9 +16,9 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
-const { data: articles } = await useAsyncData(() => queryCollection('content')
+const { data: articles } = await useAsyncData(() => queryCollection(`content_${locale.value}`)
   .select('path', 'cover', 'title', 'description', 'date', 'tags', 'authors')
   .limit(12)
   .all()

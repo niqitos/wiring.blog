@@ -39,6 +39,8 @@
             }"
             @click="isOpen = !isOpen"
           />
+
+          <LangSwitcher />
         </div>
       </nav>
     </UContainer>
@@ -58,17 +60,18 @@
 import { useColorMode } from '@vueuse/core'
 import type { NavigationMenuItem } from '@nuxt/ui'
 
+const { t } = useI18n()
 const localePath = useLocalePath()
 const colorMode = useColorMode()
 const isOpen = ref(false)
 
 const menu = ref<NavigationMenuItem[]>([
   {
-    label: 'Home',
+    label: t('home.title'),
     to: localePath('index')
   },
   {
-    label: 'About',
+    label: t('about.title'),
     to: localePath('about')
   }
 ])

@@ -1,4 +1,7 @@
 export default {
+  home: {
+    title: 'Home'
+  },
   index: {
     title: 'Blog',
     description: 'Blog'

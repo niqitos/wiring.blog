@@ -1,4 +1,7 @@
 export default {
+  home: {
+    title: 'Главная'
+  },
   index: {
     title: 'Блог',
     description: 'Блог'

@@ -95,11 +95,12 @@
 <script lang="ts" setup>
 import type { BreadcrumbItem } from '@nuxt/ui'
 
+const { t, locale } = useI18n()
 const route = useRoute()
 const localePath = useLocalePath()
 const { formatDate } = useDate()
 
-const { data: article } = await useAsyncData(() => queryCollection('content')
+const { data: article } = await useAsyncData(() => queryCollection(`content_${locale.value}`)
   .select('path', 'cover', 'title', 'description', 'body', 'date', 'tags', 'authors', 'readingTime')
   .path(`/${route.params.article}`)
   .first()
@@ -108,7 +109,7 @@ console.log(article)
 
 const breadcrumbs = ref<BreadcrumbItem[]>([
   {
-    label: 'Home',
+    label: t('home.title'),
     icon: 'i-lucide:house',
     to: localePath('index')
   }
