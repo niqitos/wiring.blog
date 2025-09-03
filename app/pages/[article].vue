@@ -1,9 +1,9 @@
 <template>
   <UContainer class="py-6">
-    <!-- <UBreadcrumb
+    <UBreadcrumb
       :items="breadcrumbs"
       class="mb-4"
-    /> -->
+    />
 
     <article
       v-if="page"
@@ -78,13 +78,13 @@ const { formatDate } = useDate()
 
 const { data: page } = await useAsyncData(() => queryCollection('content').path(`/${route.params.article}`).first())
 
-// const breadcrumbs = ref<BreadcrumbItem[]>([
-//   {
-//     label: 'Home',
-//     icon: 'i-lucide-house',
-//     to: localePath('index')
-//   }
-// ])
+const breadcrumbs = ref<BreadcrumbItem[]>([
+  {
+    label: 'Home',
+    icon: 'i-lucide-house',
+    to: localePath('index')
+  }
+])
 
 useSeoMeta({
   title: page.value?.title,
