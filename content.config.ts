@@ -14,9 +14,9 @@ const schema = z.object({
       })
     )
     .optional(),
-  readingTime: z.number().optional()
+  readingTime: z.number().optional(),
+  published: z.boolean()
 })
-
 
 export default defineContentConfig({
   collections: {

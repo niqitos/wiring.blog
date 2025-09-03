@@ -103,9 +103,9 @@ const { formatDate } = useDate()
 const { data: article } = await useAsyncData(() => queryCollection(`content_${locale.value}`)
   .select('path', 'cover', 'title', 'description', 'body', 'date', 'tags', 'authors', 'readingTime')
   .path(`/${route.params.article}`)
+  .where('published', '=', true)
   .first()
 )
-console.log(article)
 
 const breadcrumbs = ref<BreadcrumbItem[]>([
   {

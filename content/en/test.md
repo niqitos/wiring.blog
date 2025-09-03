@@ -7,7 +7,8 @@ authors:
   - name: Jon Doe
   - name: Jane Doe
 tags:
-  - test
+  - Test
+published: true
 ---
 
 Test page content

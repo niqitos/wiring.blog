@@ -74,7 +74,6 @@ export default defineNuxtConfig({
   },
   hooks: {
     'content:file:afterParse'(ctx) {
-      console.log(ctx)
       const { file, content } = ctx;
 
       const wordsPerMinute = 180;

@@ -11,6 +11,9 @@ export default {
     description: 'Про нас'
   },
   readingTime: '0 хвилин | {count} хвилина | {count} хвилини | {count} хвилин',
+  tags: {
+    all: 'Всі'
+  },
   error: {
     404: 'Сторінка не знайдена'
   }

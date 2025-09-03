@@ -7,7 +7,8 @@ authors:
   - name: Джон Доу
   - name: Джейн Доу
 tags:
-  - тест
+  - Тест
+published: true
 ---
 
 Текст тестовой статьи
