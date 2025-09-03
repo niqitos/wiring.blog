@@ -8,9 +8,9 @@ tags:
   - blog
 authors:
   - name: "Jon Doe"
-    avatar: "/avatars/jon.png"
+    # avatar: "/avatars/jon.png"
   - name: "Jane Doe"
-    avatar: "/avatars/jane.png"
+    # avatar: "/avatars/jane.png"
 ---
 
 Test page content
