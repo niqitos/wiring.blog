@@ -1,0 +1,1 @@
+var l={};const r=(e,t)=>{if(e===0)return 0;const n=e>10&&e<20,u=e%10===1;return!n&&u?1:!n&&e%10>=2&&e%10<=4||t<4?2:3},s=()=>({legacy:!1,locale:l.DEFAULT_LOCALE,pluralRules:{uk:r,ru:r}});export{s as default};

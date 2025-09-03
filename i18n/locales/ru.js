@@ -1,7 +1,0 @@
-export default {
-  index: {
-    title: 'Блог',
-    description: 'Блог'
-  },
-  readingTime: 'чтение на 0 минут | чтение на {count} минуту | чтение на {count} минуты | чтение на {count} минут'
-}
