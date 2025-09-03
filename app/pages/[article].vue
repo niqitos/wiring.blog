@@ -11,7 +11,7 @@
     >
       <header class="mb-8">
         <h1
-          class="text-4xl font-bold mb-2"
+          class="text-3xl font-bold mb-2"
           v-text="page.title"
         />
 
@@ -69,7 +69,7 @@
   </UContainer>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import type { BreadcrumbItem } from '@nuxt/ui'
 
 const route = useRoute()

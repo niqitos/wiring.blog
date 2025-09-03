@@ -3,5 +3,9 @@ export default {
     title: 'Блог',
     description: 'Блог'
   },
+  about: {
+    title: 'О нас',
+    description: 'О нас'
+  },
   readingTime: 'чтение на 0 минут | чтение на {count} минуту | чтение на {count} минуты | чтение на {count} минут'
 }

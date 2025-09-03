@@ -3,5 +3,9 @@ export default {
     title: 'Blog',
     description: 'Blog'
   },
+  about: {
+    title: 'About',
+    description: 'About'
+  },
   readingTime: '0 min read | {count} min read | {count} min read'
 }
