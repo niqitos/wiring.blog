@@ -17,7 +17,14 @@
         </ul>
 
         <div class="flex items-center gap-2">
-          <ThemeSwitcher />
+          <ClientOnly v-if="mounted">
+            <ThemeSwitcher />
+          </ClientOnly>
+
+          <USkeleton
+            v-else
+            class="size-7 m-1"
+          />
 
           <LangSwitcher />
 
@@ -63,6 +70,7 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 const { t } = useI18n()
 const localePath = useLocalePath()
 const isOpen = ref(false)
+const mounted = ref(false)
 
 const menu = ref<NavigationMenuItem[]>([
   {
@@ -74,4 +82,8 @@ const menu = ref<NavigationMenuItem[]>([
     to: localePath('about')
   }
 ])
+
+onMounted(() => {
+  mounted.value = true
+})
 </script>

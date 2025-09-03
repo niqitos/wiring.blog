@@ -33,21 +33,26 @@ const modes = ref([
     label: t('theme.light'),
     value: 'light',
     icon: 'i-lucide:sun',
-    onSelect: () => colorMode.value = 'light'
+    onSelect: () => setTheme('light')
   },
   {
     label: t('theme.dark'),
     value: 'dark',
     icon: 'i-lucide:moon',
-    onSelect: () => colorMode.value = 'dark'
+    onSelect: () => setTheme('dark')
   },
   {
     label: t('theme.system'),
     value: 'system',
     icon: 'i-lucide:monitor',
-    onSelect: () => colorMode.value = 'system'
+    onSelect: () => setTheme('system')
   }
 ])
 
 const currentMode = computed(() => modes.value.find(m => m.value === colorMode.value) || modes.value[0])
+
+const setTheme = (theme: string) => {
+  colorMode.value = theme
+  colorMode.preference = theme
+}
 </script>
