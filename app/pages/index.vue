@@ -12,14 +12,14 @@
         class="hover:shadow-lg transition"
       >
         <UCardHeader>
-          <h2 class="text-xl font-semibold">
+          <!-- <h2 class="text-xl font-semibold">
             <NuxtLink
               :to="article.path"
               class="hover:underline"
             >
               {{ article.title }}
             </NuxtLink>
-          </h2>
+          </h2> -->
 
           <p
             class="text-sm text-gray-500"
