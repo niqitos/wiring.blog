@@ -63,7 +63,8 @@ jobs:
         env:
           NITRO_PRESET: github_pages
           NUXT_CONTENT_PREVIEW_API: https://api.nuxt.studio
-          
+          COUNTRY: ${{ secrets.COUNTRY }}
+DEFAULT_LOCALE: ${{ secrets.DEFAULT_LOCALE }}
 
       # Deployment job
       - name: Deploy 🚀
