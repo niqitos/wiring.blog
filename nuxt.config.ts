@@ -72,6 +72,12 @@ export default defineNuxtConfig({
     ],
     defaultLocale: process.env.DEFAULT_LOCALE as 'uk' | 'ru' | 'en' | undefined,
   },
+  icon: {
+    serverBundle: {
+      collections: ['lucide'],
+    },
+    provider: 'server'
+  },
   hooks: {
     'content:file:afterParse'(ctx) {
       const { file, content } = ctx;

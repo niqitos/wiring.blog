@@ -2,11 +2,13 @@
   <UDropdownMenu
     :items="modes"
     :content="{
-      align: 'start'
+      align: 'start',
+      sideOffset: 8
     }"
     :ui="{
       content: 'min-w-[var(--reka-popper-anchor-width)]',
-      item: 'cursor-pointer'
+      item: 'cursor-pointer',
+      itemLeadingIcon: '!size-4'
     }"
   >
     <UButton
