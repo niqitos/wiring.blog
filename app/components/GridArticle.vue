@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to="article.path">
+  <NuxtLink :to="localePath(article.path)">
     <UCard
       :ui="{
         root: 'hover:shadow-lg transition p-0 divide-none',
@@ -48,6 +48,7 @@
 <script lang="ts" setup>
 const { formatDate } = useDate()
 const { placeholders } = useImages()
+const localePath = useLocalePath()
 
 defineProps({
   article: {
