@@ -41,6 +41,11 @@ export default defineNuxtConfig({
     ],
     defaultLocale: process.env.DEFAULT_LOCALE as 'uk' | 'ru' | 'en' | undefined,
   },
+  nitro: {
+    prerender: {
+      routes: ['/']
+    }
+  },
   hooks: {
     'content:file:afterParse'(ctx) {
       console.log(ctx)
