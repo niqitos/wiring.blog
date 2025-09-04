@@ -22,7 +22,7 @@
         </div>
       </aside>
 
-      <article class="col-span-12 md:col-span-8 lg:col-span-8 xl:col-span-9">
+      <article class="col-span-12 md:col-span-8 lg:col-span-8 xl:col-span-9 wrap-break-word">
         <header class="space-y-5 mb-5 prose dark:prose-invert">
           <h1 v-text="article.title" />
 

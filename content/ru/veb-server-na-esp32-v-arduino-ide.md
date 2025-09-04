@@ -26,9 +26,10 @@ sitemap: true
 ## Режимы работы ESP32
 
 ESP32 имеет 3 режима работы:
-1\. режим станции (STA)
-2\. режим программной точки доступа (SoftAP)
-3\. оба одновременно.
+1. режим станции (STA)
+2. режим программной точки доступа (SoftAP)
+3. оба одновременно.
+
 Это обеспечивает возможность построения ячеистых сетей.
 
 ## Режим станции (STA)
@@ -59,13 +60,13 @@ ESP32 имеет 3 режима работы:
 
 ## Как это работает
 
-Когда вы вводите URL-адрес в веб-браузере и нажимаете клавишу ВВОД, браузер отправляет HTTP-запрос, а точнее GET-запрос, на веб-сервер. В ответ на ваш запрос по данному адресу веб сервер выполнит определенную последовательность действий и вернет HTTP-ответ. Например, мы вводим URL-адрес <http://192.168.1.1/ledon> в браузере. Затем браузер отправляет HTTP-запрос в ESP32 для обработки. Когда ESP32 читает этот запрос, он знает, что пользователь хочет включить светодиод. Таким образом, веб сервер включает светодиод и в ответ отправляет динамическую веб-страницу, отображающую состояние светодиода: ВКЛ.
+Когда вы вводите URL-адрес в веб-браузере и нажимаете клавишу ВВОД, браузер отправляет HTTP-запрос, а точнее GET-запрос, на веб-сервер. В ответ на ваш запрос по данному адресу веб сервер выполнит определенную последовательность действий и вернет HTTP-ответ. Например, мы вводим URL-адрес `http://192.168.1.1/ledon` в браузере. Затем браузер отправляет HTTP-запрос в ESP32 для обработки. Когда ESP32 читает этот запрос, он знает, что пользователь хочет включить светодиод. Таким образом, веб сервер включает светодиод и в ответ отправляет динамическую веб-страницу, отображающую состояние светодиода: ВКЛ.
 
 ## HTTP сервер на ESP32 в режиме программной точки доступа WiFi
 
 Подсоедините ESP32 к компьютеру и загрузите скетч приведенный ниже. Далее я расскажу как он работает.
 
-```text
+```
   #include <WiFi.h>
   #include <WebServer.h>
 
@@ -205,14 +206,14 @@ ESP32 имеет 3 режима работы:
 
 Скетч начинается с подключения библиотеки WiFi.h. Эта библиотека предоставляет специальные методы для работы с WiFi на ESP32, например, для подключения к сети. Затем подключается библиотека WebServer.h, в которой есть несколько методов для настройки сервера и обработки входящих HTTP-запросов.
 
-```text
+```
 #include <WiFi.h>
 #include <WebServer.h>
 ```
 
 Так как мы используем ESP32 в режиме программной точки доступа, необходимо создать сеть WiFi. Для этого нужно указать SSID, Пароль, IP адрес, IP маску подсети и IP шлюз.
 
-```text
+```
 /* Название и пароль точки доступа */
 const char* ssid = "ESP32";
 const char* password = "12345678";
@@ -225,14 +226,14 @@ IPAddress subnet(255,255,255,0);
 
 Далее объявляем объект библиотеки WebServer, чтобы получить доступ к ее функциям. Конструктор этого объекта принимает порт в качестве параметра. Портом по умолчанию для HTTP протокола — 80. Теперь подключится к серверу можно без указания порта в URL.
 
-```text
+```
 // объявляем объект библиотеки WebServer
 WebServer server(80);
 ```
 
 Далее объявляем выводы GPIO ESP32, к которым подключены светодиоды, и их начальное состояние.
 
-```text
+```
 uint8_t LED1pin = 4;
 bool LED1status = LOW;
 
@@ -240,23 +241,21 @@ uint8_t LED2pin = 5;
 bool LED2status = LOW;
 ```
 
-Функция Setup()
+## Функция Setup()
 
 Перед запуском HTTP-сервера нужно его настроить.
 
 Откроем монитор серийного порта для отладки и установим режим роботы портов GPIO в OUTPUT.
 
-```text
+```
 Serial.begin(115200);
 pinMode(LED1pin, OUTPUT);
 pinMode(LED2pin, OUTPUT);
 ```
 
-Then, we set up a soft access point to establish a Wi-Fi network by proving SSID, Password, IP address, IP subnet mask and IP gateway.
-
 Затем указываем SSID, пароль, IP-адрес, IP-маску подсети и IP-шлюз для создания сети Wi-Fi точки доступа.
 
-```text
+```
 WiFi.softAP(ssid, password);
 WiFi.softAPConfig(local_ip, gateway, subnet);
 delay(100);
@@ -264,17 +263,17 @@ delay(100);
 
 Чтобы обрабатывать входящие HTTP-запросы, нам нужно указать, какой код выполнять при запросе по определенному URL. Для этого мы используем метод on объекта server. Этот метод принимает два параметра: URL-адрес запроса и имя функции, которую мы хотим выполнить при запросе по этому URL.
 
-For example, the first line of below code snippet indicates that when a server receives an HTTP request on the root (/) path, it will trigger the handle\_OnConnect() function. Note that the URL specified is a relative path.
+For example, the first line of below code snippet indicates that when a server receives an HTTP request on the root (/) path, it will trigger the handle_OnConnect() function. Note that the URL specified is a relative path.
 
-Например, первая строка приведенного ниже фрагмента кода указывает, что когда сервер получает HTTP-запрос по корневому пути (/), он запускает функцию handle\_OnConnect(). Обратите внимание, что указанный URL-адрес является относительным путем.
+Например, первая строка приведенного ниже фрагмента кода указывает, что когда сервер получает HTTP-запрос по корневому пути (/), он запускает функцию handle_OnConnect(). Обратите внимание, что указанный URL-адрес является относительным путем.
 
-```text
+```
 server.on("/", handle_OnConnect);
 ```
 
 Аналогично, нам нужно указать еще 4 URL-адреса для обработки двух состояний двух светодиодов.
 
-```text
+```
 server.on("/led1on", handle_led1on);
 server.on("/led1off", handle_led1off);
 server.on("/led2on", handle_led2on);
@@ -283,13 +282,13 @@ server.on("/led2off", handle_led2off);
 
 Если клиент запрашивает какой-либо URL, отличный от указанных в server.on(), сервер должен ответить с HTTP-статусом 404 (Not Found) и сообщением для пользователя. Для этого используем метод onNotFound() объекта server.
 
-```text
+```
 server.onNotFound(handle_NotFound);
 ```
 
 Затем запускаем сервер вызвав метод begin() объекта server.
 
-```text
+```
 server.begin();
 Serial.println("HTTP server started");
 ```
@@ -298,7 +297,7 @@ Serial.println("HTTP server started");
 
 Для обработки входящих HTTP-запросов используется метод handleClient() объекта server. После получения запроса проверяем изменение состояния светодиодов.
 
-```text
+```
 void loop() {
   server.handleClient();
 
@@ -316,11 +315,11 @@ void loop() {
 }
 ```
 
-Далее создаем функцию handle\_OnConnect(), которую мы привязали к корневому URL (/) с помощью server.on. В начале этой функции установим изначальное состояние обоих светодиодов как LOW (выключены) и выведем состояние в монитор серийного порта. Чтобы ответить на HTTP-запрос, используется метод send(), которому передается код HTTP-ответа, тип контента и сам контент.
+Далее создаем функцию handle_OnConnect(), которую мы привязали к корневому URL `/` с помощью `server.on`. В начале этой функции установим изначальное состояние обоих светодиодов как LOW (выключены) и выведем состояние в монитор серийного порта. Чтобы ответить на HTTP-запрос, используется метод send(), которому передается код HTTP-ответа, тип контента и сам контент.
 
 В нашем случае мы отправляем код 200 (один из кодов состояния HTTP), который соответствует ответу OK. Затем указываем тип содержимого «text/html» и вызываем пользовательскую функцию SendHTML(), которая создает динамическую HTML-страницу, и передаем ей состояние светодиодов в качестве параметров.
 
-```text
+```
 void handle_OnConnect() {
   LED1status = LOW;
   LED2status = LOW;
@@ -331,7 +330,7 @@ void handle_OnConnect() {
 
 Аналогично, создаем четыре функции для обработки запросов на включение/выключение светодиодов, а так же страницу ошибки 404.
 
-```text
+```
 void handle_led1on() {
   LED1status = HIGH;
   Serial.println("GPIO4 Status: ON");
@@ -363,24 +362,24 @@ void handle_NotFound(){
 
 ## Отображение веб-страницы HTML
 
-Функция SendHTML() генерирует веб-страницу всякий раз, когда веб-сервер ESP32 получает запрос от веб-клиента. Эта функция просто объединяет HTML-код в большую строку и возвращает его в функцию server.send(), о которой мы говорили ранее. Функция принимает состояние светодиодов в качестве параметров для динамической генерации HTML-страницы.
+Функция `SendHTML()` генерирует веб-страницу всякий раз, когда веб-сервер ESP32 получает запрос от веб-клиента. Эта функция просто объединяет HTML-код в большую строку и возвращает его в функцию `server.send()`, о которой мы говорили ранее. Функция принимает состояние светодиодов в качестве параметров для динамической генерации HTML-страницы.
 
 Вначале HTML документа всегда должен стоять — элемент который указывает, что мы отправляем HTML-код.
 
-```text
+```
 String SendHTML(uint8_t led1stat,uint8_t led2stat){
 String ptr = "<!DOCTYPE html> <html>\n";
 ```
 
-Элемент viewport делает веб-страницу отзывчивой в любом веб-браузере.
+Элемент `viewport` делает веб-страницу отзывчивой в любом веб-браузере.
 
-```text
+```
 ptr +="<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
 ```
 
 Тег
 
-```text
+```
 ptr +="<title>LED Control</title>\n";
 ```
 
@@ -388,20 +387,20 @@ ptr +="<title>LED Control</title>\n";
 
 Добавим CSS для стилизации кнопок и внешнего вида веб-страницы. Шрифт Helvetica, отображение содержимого в виде встроенного блока и выровняем по центру.
 
-```text
+```
 ptr +="<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}\n";
 ```
 
-Далее задаем цвет, размер шрифт и отступы для тегов body, h1, h3 и p.
+Далее задаем цвет, размер шрифт и отступы для тегов `body`, `h1`, `h3` и `p`.
 
-```text
+```
 ptr +="body{margin-top: 50px;} h1 {color: #444444;margin: 50px auto 30px;} h3 {color: #444444;margin-bottom: 50px;}\n";
 ptr +="p {font-size: 14px;color: #888;margin-bottom: 10px;}\n";
 ```
 
 Стилизуем цвет, размер, отступы и границы кнопок. Кнопки ВКЛ и ВЫКЛ должны быть разного цвета, а селектор :active создаст эффект нажатия.
 
-```text
+```
 ptr +=".button {display: block;width: 80px;background-color: #3498db;border: none;color: white;padding: 13px 30px;text-decoration: none;font-size: 25px;margin: 0px auto 35px;cursor: pointer;border-radius: 4px;}\n";
 ptr +=".button-on {background-color: #3498db;}\n";
 ptr +=".button-on:active {background-color: #2980b9;}\n";
@@ -413,16 +412,16 @@ ptr +=".button-off:active {background-color: #2c3e50;}\n";
 
 Далее выведем заголовок веб-страницы. Вы можете изменить этот текст под вашего приложение.
 
-```text
+```
 ptr +="<h1>ESP32 Web Server</h1>\n";
 ptr +="<h3>Using Access Point(AP) Mode</h3>\n";
 ```
 
 ## Отображение кнопок и соответствующего состояния
 
-Для динамического отображения кнопок и состояния светодиодов мы используем оператор if. Таким образом, в зависимости от состояния выводов GPIO, отображается кнопка Вкл/Выкл.
+Для динамического отображения кнопок и состояния светодиодов мы используем оператор `if`. Таким образом, в зависимости от состояния выводов GPIO, отображается кнопка Вкл/Выкл.
 
-```text
+```
 if (led1stat) {
   ptr +="<p>Статус светодиода 1: Вкл</p><a class=\"button button-off\" href=\"/led1off\">Выкл</a>\n";
 } else {
@@ -438,17 +437,13 @@ if (led2stat) {
 
 ## Доступ к веб-серверу в режиме станции (STA)
 
-Now let’s move on to our next example which demonstrates how to turn the ESP32 into Station (STA) mode, and serve up web pages to any connected client under existing network.
 Теперь давайте перейдем к нашему следующему примеру, который демонстрирует, как переключить ESP32 в режим Station (STA) и обслуживать веб-страницы для любого подключенного клиента в существующей сети.
-
-Before you head for uploading the sketch, you need to make some changes to make it work for you. You need to modify the following two variables with your network credentials, so that ESP32 can establish a connection with existing network.
 
 Прежде чем приступить к загрузке скетча, необходимо внести некоторые изменения. Вам необходимо изменить следующие две переменные с вашими сетевыми учетными данными, чтобы ESP32 мог установить соединение с существующей сетью.
 
-Once you are done, go ahead and try the sketch out.
 Как только вы закончите, попробуйте набросок.
 
-```text
+```
 #include <WiFi.h>
 #include <WebServer.h>
 
@@ -579,35 +574,26 @@ String SendHTML(uint8_t led1stat,uint8_t led2stat){
 
 ## Доступ к веб-серверу в режиме STA
 
-After uploading the sketch, open the Serial Monitor at a baud rate of 115200. And press the RESET button on ESP32. If everything is OK, it will output the dynamic IP address obtained from your router and show HTTP server started message.
-
 После загрузки эскиза откройте последовательный монитор со скоростью 115200 бод. И нажмите кнопку RESET на ESP32. Если все в порядке, он выведет динамический IP-адрес, полученный от вашего маршрутизатора, и покажет сообщение HTTP-сервер запущен.
-
-Next, load up a browser and point it to the IP address shown on the serial monitor. The ESP32 should serve up a web page showing current status of LEDs and two buttons to control them. If take a look at the serial monitor at the same time, you can see status of ESP32’s GPIO pins.
 
 Затем загрузите браузер и укажите IP-адрес, указанный на последовательном мониторе. ESP32 должен отображать веб-страницу с текущим состоянием светодиодов и двумя кнопками для управления ими. Если одновременно взглянуть на последовательный монитор, вы увидите состояние выводов GPIO ESP32.
 
-Now, click the button to turn LED1 ON while keeping an eye on the URL. Once you click the button, the ESP32 receives a request for /led1on URL. It then turns the LED1 ON and serves a web page with status of LED updated. It also prints the status of GPIO pin on the serial monitor.
-
 Теперь нажмите кнопку, чтобы включить LED1, следя за URL. Как только вы нажмете кнопку, ESP32 получит запрос на URL / led1on. Затем он включает светодиод1 и отображает веб-страницу с обновленным статусом светодиодов. Он также печатает состояние вывода GPIO на последовательном мониторе.
 
-You can test LED2 button and check that it works in a similar way.
 Вы можете проверить кнопку LED2 и убедиться, что она работает аналогичным образом.
 
 ## Объяснение кода
 
-If you observe this code with the previous code, the only difference is that we are not setting the soft Access Point, Instead we are joining existing network using WiFi.begin() function.
 Если вы наблюдаете этот код с предыдущим кодом, единственное отличие состоит в том, что мы не устанавливаем программную точку доступа, вместо этого мы присоединяемся к существующей сети с помощью функции WiFi.begin ().
 
-```text
+```
 //connect to your local wi-fi network
 WiFi.begin(ssid, password);
 ```
 
-While the ESP32 tries to connect to the network, we can check the connectivity status with WiFi.status() function.
 Пока ESP32 пытается подключиться к сети, мы можем проверить состояние подключения с помощью функции WiFi.status ().
 
-```text
+```
 //check wi-fi is connected to wi-fi network
 while (WiFi.status() != WL_CONNECTED)
 {
@@ -616,47 +602,35 @@ while (WiFi.status() != WL_CONNECTED)
 }
 ```
 
-Just for your information, this function returns the following statuses:
 Для вашей информации эта функция возвращает следующие статусы:
 
-- WL\_CONNECTED: assigned when connected to a Wi-Fi network
-- WL\_NO\_SHIELD: assigned when no Wi-Fi shield is present
-- WL\_IDLE\_STATUS: a temporary status assigned when WiFi.begin() is called and remains active until the number of attempts expires (resulting in WL\_CONNECT\_FAILED) or a connection is established (resulting in WL\_CONNECTED)
-- WL\_NO\_SSID\_AVAIL: assigned when no SSID are available
-- WL\_SCAN\_COMPLETED: assigned when the scan networks is completed
-- WL\_CONNECT\_FAILED: assigned when the connection fails for all the attempts
-- WL\_CONNECTION\_LOST: assigned when the connection is lost
-- WL\_DISCONNECTED: assigned when disconnected from a network
-- WL\_CONNECTED: назначается при подключении к сети Wi-Fi
-- WL\_NO\_SHIELD: назначается, когда нет экрана Wi-Fi
-- WL\_IDLE\_STATUS: временное состояние, назначаемое при вызове WiFi.begin (), и остается активным до истечения количества попыток (в результате WL\_CONNECT\_FAILED) или до установления соединения (в результате WL\_CONNECTED)
-- WL\_NO\_SSID\_AVAIL: назначается, когда нет доступных SSID
-- WL\_SCAN\_COMPLETED: назначается, когда сканирование сетей завершено
-- WL\_CONNECT\_FAILED: назначается при сбое подключения для всех попыток
-- WL\_CONNECTION\_LOST: назначается при потере соединения
-- WL\_DISCONNECTED: назначается при отключении от сети
-
-Once the ESP32 is connected to the network, the sketch prints the IP address assigned to ESP32 by displaying WiFi.localIP() value on serial monitor.
+- WL_CONNECTED: assigned when connected to a Wi-Fi network
+- WL_NO_SHIELD: assigned when no Wi-Fi shield is present
+- WL_IDLE_STATUS: a temporary status assigned when WiFi.begin() is called and remains active until the number of attempts expires (resulting in WL_CONNECT_FAILED) or a connection is established (resulting in WL_CONNECTED)
+- WL_NO_SSID_AVAIL: assigned when no SSID are available
+- WL_SCAN_COMPLETED: assigned when the scan networks is completed
+- WL_CONNECT_FAILED: assigned when the connection fails for all the attempts
+- WL_CONNECTION_LOST: assigned when the connection is lost
+- WL_DISCONNECTED: assigned when disconnected from a network
+- WL_CONNECTED: назначается при подключении к сети Wi-Fi
+- WL_NO_SHIELD: назначается, когда нет экрана Wi-Fi
+- WL_IDLE_STATUS: временное состояние, назначаемое при вызове WiFi.begin (), и остается активным до истечения количества попыток (в результате WL_CONNECT_FAILED) или до установления соединения (в результате WL_CONNECTED)
+- WL_NO_SSID_AVAIL: назначается, когда нет доступных SSID
+- WL_SCAN_COMPLETED: назначается, когда сканирование сетей завершено
+- WL_CONNECT_FAILED: назначается при сбое подключения для всех попыток
+- WL_CONNECTION_LOST: назначается при потере соединения
+- WL_DISCONNECTED: назначается при отключении от сети
 
 Как только ESP32 подключен к сети, эскиз распечатывает IP-адрес, назначенный для ESP32, отображая значение WiFi.localIP () на последовательном мониторе.
 
-```text
+```
 Serial.println("");
 Serial.println("WiFi connected..!");
 Serial.print("Got IP: ");  Serial.println(WiFi.localIP());
 ```
 
-The only difference between AP & STA mode is one creates the network and other joins the existing network. So, rest of the code for handling HTTP requests and serving web page in STA mode is same as that of AP mode explained above. This includes:
-
 Единственная разница между режимами AP и STA состоит в том, что один создает сеть, а другой присоединяется к существующей сети. Итак, остальная часть кода для обработки HTTP-запросов и обслуживания веб-страницы в режиме STA такая же, как и в режиме AP, описанном выше. Это включает:
 
-- Declaring ESP32’s GPIO pins to which LEDs are connected
-- Defining multiple server.on() methods to handle incoming HTTP requests
-- Defining server.onNotFound() method to handle HTTP 404 error
-- Creating custom functions that are executed when specific URL is hit
-- Creating HTML page
-- Styling the web page
-- Creating buttons and displaying their status
 - Объявление выводов GPIO ESP32, к которым подключены светодиоды
 - Определение нескольких методов server.on () для обработки входящих HTTP-запросов.
 - Определение метода server.onNotFound () для обработки ошибки HTTP 404

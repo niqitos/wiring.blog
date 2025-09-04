@@ -27,7 +27,7 @@
       />
 
       <p
-        class="text-gray-600"
+        class="text-gray-600 wrap-break-word"
         v-text="article.description"
       />
 

@@ -19,15 +19,9 @@ date: 2025-09-03T00:00:00.000Z
 sitemap: true
 ---
 
-Смотрите также
-best ESP8266 development boards
-
 Вы можете найти ESP32 как отдельный модуль или как полнофункциональную плату разработки. Доступно множество плат разработки ESP32. В этом обзоре мы просто рассмотрим самые популярные платы для разработки ESP32.
 
-Смотрите также
-Getting Started with ESP32 Development Board
-
-## ESP32 Development Boards Comparison
+## Сравнение плат разработки ESP32
 
 Особенности и характеристики ESP32
 
@@ -50,9 +44,6 @@ Getting Started with ESP32 Development Board
 - Разъем для подключения батареи. Если вы хотите питать ESP32 от батарей, есть платы для разработки, которые поставляются с разъемами для подключения LiPo батарей.
 - Дополнительные функции. Существуют платы разработки ESP32 с дополнительными функциями, такими как OLED-дисплей или модуль LoRa.
 
-Смотрите также
-Сравнение ESP32 и ESP8266
-
 ## ESP32 DEVKIT V1
 
 Есть две версии этой платы, с 30 и с 36 GPIO. Обе работают одинаково, но я предпочитаю версию с 30 GPIO, потому что она поставляется с двумя выводами GND. Кроме того, хотя другая модель поставляется с большим количеством GPIO, использовать дополнительные выводы не рекомендуется (они подключены к встроенной флэш-памяти ESP32). Пины помечены в верхней части платы, поэтому их легко идентифицировать.
@@ -70,45 +61,15 @@ ESP32 Thing — это основанная на ESP32 плата от Sparkfun.
 
 ## ESP32 с держателем батареи
 
-This ESP32 development board comes with a battery holder at the back to provide power though a 18650 battery. This board also includes 18650 battery charging system and two LEDs to indicate the battery state. This is a great choice if you want something compact running on batteries. Additionally, this board is able to charge and work at the same time.
-
 Эта плата разработки ESP32 оснащена держателем для аккумулятора формата 18650 с возможностью зарядки и двумя светодиодами для индикации состояния аккумулятора. Это хороший выбор для компактных носимых устройств на батарейках. Кроме того, эта плата может заряжаться и работать одновременно.
 
 ## ESP32 с OLED дисплеем
-
-This ESP32 board is very similar with the previous one, but instead of a battery holder, it comes with a 0.96” OLED display. This is perfect to add some sort of feedback to your projects without worrying about the circuitry.
 
 Эта плата ESP32 очень похожа на предыдущую, но вместо держателя батареи она оснащена 0,96-дюймовым OLED-дисплеем. Это хороший вариант для получения обратной связи, не беспокоясь о схемотехнике.
 
 ## ESP32 SX1278 (LoRa)
 
 Эта плата ESP32 поставляется с чипом приемопередатчика LoRa SX1278. LoRa — это технология беспроводной передачи небольших объемов данных на большие расстояния при минимальном энергопотреблении. Плата поставляется с OLED-дисплеем для отображения сообщений LoRa. Если вы задумали проект с использованием LoRa на базе ESP32, это может быть отличным вариантом.
-
-## Get Started with the ESP32 Development Board
-
-You can easily get started with the ESP32 using our resources:
-
-- [Course] Learn ESP32 with Arduino IDE
-- Getting Started with ESP32 Dev Module
-- Installing the ESP32 Board in Arduino IDE
-- ESP32 Web Server – Arduino IDE
-- ESP32 Pinout Reference and GPIOs Guide
-- ESP32 Hall Effect Sensor
-  Here’s a list of free ESP32 projects with Arduino IDE you may like:
-- Getting Started with ESP32 Bluetooth Low Energy (BLE)
-- ESP32 Data Logging Temperature to MicroSD Card
-- ESP32 with DC Motor and L298N Motor Driver – Control Speed and Direction
-- Build an All-in-One ESP32 Weather Station Shield
-- ESP32 Publish Sensor Readings to Google Sheets 
-- Alexa (Echo) with ESP32 – Voice Controlled Relay
-  Here’s a list of free ESP32 projects with MicroPython firmware you may like:
-- Getting Started with uPyCraft IDE MicroPython for ESP32/ESP8266
-- Getting Started with Thonny MicroPython (Python) IDE for ESP32/ESP8266
-- MicroPython with ESP32/ESP8266 GPIOs
-- ESP32/ESP8266 Read Digital Inputs
-- ESP32/ESP8266 Control Digital Outputs
-- ESP32/ESP8266 Read Analog Inputs
-- ESP32/ESP8266 Generate PWM Signals
 
 ## В завершение
 
