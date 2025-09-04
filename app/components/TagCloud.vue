@@ -37,6 +37,7 @@ watchEffect(() => {
 
 const { data: articles } = await useAsyncData(() => queryCollection(`content_${locale.value}`)
   .select('tags')
+  .where('published', '=', true)
   .all()
 )
 

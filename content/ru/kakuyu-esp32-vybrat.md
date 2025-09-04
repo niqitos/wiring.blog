@@ -5,10 +5,10 @@ authors:
 tags:
   - Arduino
 title: Какую ESP32 выбрать
-description: ESP32 — это усовершенствованная версия платы ESP8266: плата оснащена модулями беспроводной связи Wi-Fi и Bluetooth и двухъядерный процессор.
+description: ESP32 — это усовершенствованная версия платы ESP8266. Плата оснащена модулями беспроводной связи Wi-Fi и Bluetooth и двухъядерный процессор.
 seo:
   title: Какую ESP32 выбрать
-  description: ESP32 — это усовершенствованная версия платы ESP8266: плата оснащена модулями беспроводной связи Wi-Fi и Bluetooth и двухъядерный процессор.
+  description: ESP32 — это усовершенствованная версия платы ESP8266. Плата оснащена модулями беспроводной связи Wi-Fi и Bluetooth и двухъядерный процессор.
 published: true
 date: 2025-09-03T00:00:00.000Z
 ---
@@ -26,24 +26,23 @@ Getting Started with ESP32 Development Board
 
 Особенности и характеристики ESP32
 
-	*	Беспроводная связь
-	*	WiFi: скорость передачи данных 150 Мбит/с с HT40
-	*	Bluetooth: BLE (Bluetooth Low Energy) и Legacy Bluetooth.
-	*	Процессор: Tensilica Xtensa Dual-Core 32-bit LX6 с тактовой частотой 160–240 MHz
-	*	ROM: 448 KB
-	*	SRAM: 520 KB
-	*	Режим низкого энергопотребления: позволяет использовать АЦП даже во время глубокого сна.
-	*	Периферийные вводы/выводы: периферийный интерфейс с DMA с поддержкой емкостного касания, АЦП (аналого-цифровой преобразователь), ЦАП (цифро-аналоговый преобразователь), I²C (последовательная асимметричная шина), UART (универсальный асинхронный приемник / передатчик), SPI (последовательный периферийный модуль) Интерфейс), I²S (интегрированный звук между микросхемами), RMII (уменьшенный медиа-независимый интерфейс) и ШИМ (широтно-импульсная модуляция).
+*	Беспроводная связь
+*	WiFi: скорость передачи данных 150 Мбит/с с HT40
+*	Bluetooth: BLE (Bluetooth Low Energy) и Legacy Bluetooth.
+*	Процессор: Tensilica Xtensa Dual-Core 32-bit LX6 с тактовой частотой 160–240 MHz
+*	ROM: 448 KB
+*	SRAM: 520 KB
+*	Режим низкого энергопотребления: позволяет использовать АЦП даже во время глубокого сна.
+*	Периферийные вводы/выводы: периферийный интерфейс с DMA с поддержкой емкостного касания, АЦП (аналого-цифровой преобразователь), ЦАП (цифро-аналоговый преобразователь), I²C (последовательная асимметричная шина), UART (универсальный асинхронный приемник / передатчик), SPI (последовательный периферийный модуль Интерфейс), I²S (интегрированный звук между микросхемами), RMII (уменьшенный медиа-независимый интерфейс) и ШИМ (широтно-импульсная модуляция).
 
 ## Как выбрать плату разработки ESP32
 
-
 При поиске платы разработки ESP32 необходимо учитывать несколько аспектов:
-	*	Конфигурация контактов и количество контактов. Чтобы правильно использовать ESP32 в своих проектах, удостоверитесь, что производитель предоставляет распиновку платы. В противном случае вы можете использовать ESP32 неправильно. Рекомендуем ознакомиться с нашей статьей о распиновке ESP32.
-	*	Интерфейс USB-UART и стабилизатор напряжения. Большинство полнофункциональных плат разработки имеют обе эти функции.
-	*	Кнопки загрузки (BOOT) и сброса (RESET).
-	*	Разъем для подключения батареи. Если вы хотите питать ESP32 от батарей, есть платы для разработки, которые поставляются с разъемами для подключения LiPo батарей.
-	*	Дополнительные функции. Существуют платы разработки ESP32 с дополнительными функциями, такими как OLED-дисплей или модуль LoRa.
+*	Конфигурация контактов и количество контактов. Чтобы правильно использовать ESP32 в своих проектах, удостоверитесь, что производитель предоставляет распиновку платы. В противном случае вы можете использовать ESP32 неправильно. Рекомендуем ознакомиться с нашей статьей о распиновке ESP32.
+*	Интерфейс USB-UART и стабилизатор напряжения. Большинство полнофункциональных плат разработки имеют обе эти функции.
+*	Кнопки загрузки (BOOT) и сброса (RESET).
+*	Разъем для подключения батареи. Если вы хотите питать ESP32 от батарей, есть платы для разработки, которые поставляются с разъемами для подключения LiPo батарей.
+*	Дополнительные функции. Существуют платы разработки ESP32 с дополнительными функциями, такими как OLED-дисплей или модуль LoRa.
 
 Смотрите также
 Сравнение ESP32 и ESP8266
@@ -84,27 +83,27 @@ This ESP32 board is very similar with the previous one, but instead of a battery
 ## Get Started with the ESP32 Development Board
 
 You can easily get started with the ESP32 using our resources:
-	*	[Course] Learn ESP32 with Arduino IDE
-	*	Getting Started with ESP32 Dev Module
-	*	Installing the ESP32 Board in Arduino IDE
-	*	ESP32 Web Server – Arduino IDE
-	*	ESP32 Pinout Reference and GPIOs Guide
-	*	ESP32 Hall Effect Sensor
+*	[Course] Learn ESP32 with Arduino IDE
+*	Getting Started with ESP32 Dev Module
+*	Installing the ESP32 Board in Arduino IDE
+*	ESP32 Web Server – Arduino IDE
+*	ESP32 Pinout Reference and GPIOs Guide
+*	ESP32 Hall Effect Sensor
 Here’s a list of free ESP32 projects with Arduino IDE you may like:
-	*	Getting Started with ESP32 Bluetooth Low Energy (BLE)
-	*	ESP32 Data Logging Temperature to MicroSD Card
-	*	ESP32 with DC Motor and L298N Motor Driver – Control Speed and Direction
-	*	Build an All-in-One ESP32 Weather Station Shield
-	*	ESP32 Publish Sensor Readings to Google Sheets 
-	*	Alexa (Echo) with ESP32 – Voice Controlled Relay
+*	Getting Started with ESP32 Bluetooth Low Energy (BLE)
+*	ESP32 Data Logging Temperature to MicroSD Card
+*	ESP32 with DC Motor and L298N Motor Driver – Control Speed and Direction
+*	Build an All-in-One ESP32 Weather Station Shield
+*	ESP32 Publish Sensor Readings to Google Sheets 
+*	Alexa (Echo) with ESP32 – Voice Controlled Relay
 Here’s a list of free ESP32 projects with MicroPython firmware you may like:
-	*	Getting Started with uPyCraft IDE MicroPython for ESP32/ESP8266
-	*	Getting Started with Thonny MicroPython (Python) IDE for ESP32/ESP8266
-	*	MicroPython with ESP32/ESP8266 GPIOs
-	*	ESP32/ESP8266 Read Digital Inputs
-	*	ESP32/ESP8266 Control Digital Outputs
-	*	ESP32/ESP8266 Read Analog Inputs
-	*	ESP32/ESP8266 Generate PWM Signals
+*	Getting Started with uPyCraft IDE MicroPython for ESP32/ESP8266
+*	Getting Started with Thonny MicroPython (Python) IDE for ESP32/ESP8266
+*	MicroPython with ESP32/ESP8266 GPIOs
+*	ESP32/ESP8266 Read Digital Inputs
+*	ESP32/ESP8266 Control Digital Outputs
+*	ESP32/ESP8266 Read Analog Inputs
+*	ESP32/ESP8266 Generate PWM Signals
 
 ## В завершение
 Если вы начинающий робототехник, советую присмотреться к ESP32 DEVKIT V1, Adafruit ESP32 Feather и ESP32 thing. Они не оснащены дополнительным оборудованием, поэтому их проще использовать. Плата ESP32 DEVKIT V1 отлично работают, но если вы хотите что-то действительно качественное, советую остановится на ESP32 Finger и ESP32 Thing.

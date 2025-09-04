@@ -604,23 +604,23 @@ while (WiFi.status() != WL_CONNECTED)
 Just for your information, this function returns the following statuses:
 Для вашей информации эта функция возвращает следующие статусы:
 
-	*	WL_CONNECTED: assigned when connected to a Wi-Fi network
-	*	WL_NO_SHIELD: assigned when no Wi-Fi shield is present
-	*	WL_IDLE_STATUS: a temporary status assigned when WiFi.begin() is called and remains active until the number of attempts expires (resulting in WL_CONNECT_FAILED) or a connection is established (resulting in WL_CONNECTED)
-	*	WL_NO_SSID_AVAIL: assigned when no SSID are available
-	*	WL_SCAN_COMPLETED: assigned when the scan networks is completed
-	*	WL_CONNECT_FAILED: assigned when the connection fails for all the attempts
-	*	WL_CONNECTION_LOST: assigned when the connection is lost
-	*	WL_DISCONNECTED: assigned when disconnected from a network
+-	WL_CONNECTED: assigned when connected to a Wi-Fi network
+-	WL_NO_SHIELD: assigned when no Wi-Fi shield is present
+-	WL_IDLE_STATUS: a temporary status assigned when WiFi.begin() is called and remains active until the number of attempts expires (resulting in WL_CONNECT_FAILED) or a connection is established (resulting in WL_CONNECTED)
+-	WL_NO_SSID_AVAIL: assigned when no SSID are available
+-	WL_SCAN_COMPLETED: assigned when the scan networks is completed
+-	WL_CONNECT_FAILED: assigned when the connection fails for all the attempts
+-	WL_CONNECTION_LOST: assigned when the connection is lost
+-	WL_DISCONNECTED: assigned when disconnected from a network
 
-	*	WL_CONNECTED: назначается при подключении к сети Wi-Fi
-	*	WL_NO_SHIELD: назначается, когда нет экрана Wi-Fi
-	*	WL_IDLE_STATUS: временное состояние, назначаемое при вызове WiFi.begin (), и остается активным до истечения количества попыток (в результате WL_CONNECT_FAILED) или до установления соединения (в результате WL_CONNECTED)
-	*	WL_NO_SSID_AVAIL: назначается, когда нет доступных SSID
-	*	WL_SCAN_COMPLETED: назначается, когда сканирование сетей завершено
-	*	WL_CONNECT_FAILED: назначается при сбое подключения для всех попыток
-	*	WL_CONNECTION_LOST: назначается при потере соединения
-	*	WL_DISCONNECTED: назначается при отключении от сети
+-	WL_CONNECTED: назначается при подключении к сети Wi-Fi
+-	WL_NO_SHIELD: назначается, когда нет экрана Wi-Fi
+-	WL_IDLE_STATUS: временное состояние, назначаемое при вызове WiFi.begin (), и остается активным до истечения количества попыток (в результате WL_CONNECT_FAILED) или до установления соединения (в результате WL_CONNECTED)
+-	WL_NO_SSID_AVAIL: назначается, когда нет доступных SSID
+-	WL_SCAN_COMPLETED: назначается, когда сканирование сетей завершено
+-	WL_CONNECT_FAILED: назначается при сбое подключения для всех попыток
+-	WL_CONNECTION_LOST: назначается при потере соединения
+-	WL_DISCONNECTED: назначается при отключении от сети
 
 Once the ESP32 is connected to the network, the sketch prints the IP address assigned to ESP32 by displaying WiFi.localIP() value on serial monitor.
 
@@ -636,18 +636,18 @@ The only difference between AP & STA mode is one creates the network and other j
 
 Единственная разница между режимами AP и STA состоит в том, что один создает сеть, а другой присоединяется к существующей сети. Итак, остальная часть кода для обработки HTTP-запросов и обслуживания веб-страницы в режиме STA такая же, как и в режиме AP, описанном выше. Это включает:
 
-	*	Declaring ESP32’s GPIO pins to which LEDs are connected
-	*	Defining multiple server.on() methods to handle incoming HTTP requests
-	*	Defining server.onNotFound() method to handle HTTP 404 error
-	*	Creating custom functions that are executed when specific URL is hit
-	*	Creating HTML page
-	*	Styling the web page
-	*	Creating buttons and displaying their status
+-	Declaring ESP32’s GPIO pins to which LEDs are connected
+-	Defining multiple server.on() methods to handle incoming HTTP requests
+-	Defining server.onNotFound() method to handle HTTP 404 error
+-	Creating custom functions that are executed when specific URL is hit
+-	Creating HTML page
+-	Styling the web page
+-	Creating buttons and displaying their status
 
-	*	Объявление выводов GPIO ESP32, к которым подключены светодиоды
-	*	Определение нескольких методов server.on () для обработки входящих HTTP-запросов.
-	*	Определение метода server.onNotFound () для обработки ошибки HTTP 404
-	*	Создание пользовательских функций, которые выполняются при нажатии определенного URL
-	*	Создание HTML-страницы
-	*	Стилизация веб-страницы
-	*	Создание кнопок и отображение их статуса
+-	Объявление выводов GPIO ESP32, к которым подключены светодиоды
+-	Определение нескольких методов server.on () для обработки входящих HTTP-запросов.
+-	Определение метода server.onNotFound () для обработки ошибки HTTP 404
+-	Создание пользовательских функций, которые выполняются при нажатии определенного URL
+-	Создание HTML-страницы
+-	Стилизация веб-страницы
+-	Создание кнопок и отображение их статуса

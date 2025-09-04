@@ -2,10 +2,10 @@
   <NuxtLink :to="localePath(article.path)">
     <UCard
       :ui="{
-        root: 'hover:shadow-lg transition p-0 divide-none',
+        root: 'hover:shadow-lg transition p-0 divide-none h-full flex flex-col',
         header: 'p-0 sm:px-0',
         body: 'p-4 sm:p-4 space-y-1',
-        footer: 'flex flex-wrap gap-2 p-4 sm:p-4 !pt-0'
+        footer: 'flex items-end flex-1 p-4 sm:p-4 !pt-0'
       }"
     >
       <template #header>
@@ -32,14 +32,15 @@
       />
 
       <template #footer>
-        <UBadge
-          v-for="tag in article.tags"
-          :key="tag"
-          color="primary"
-          variant="soft"
-        >
-          {{ tag }}
-        </UBadge>
+        <div class="flex flex-wrap gap-2 max-h-fit">
+          <UBadge
+            v-for="tag in article.tags"
+            :key="tag"
+            color="primary"
+            variant="soft"
+            :label="tag"
+          />
+        </div>
       </template>
     </UCard>
   </NuxtLink>
