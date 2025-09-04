@@ -10,7 +10,10 @@
       class="grid grid-cols-12 gap-8"
     >
       <aside class="hidden md:block md:col-span-4 lg:col-span-3 xl:col-span-3 mt-3">
-        <div class="sticky top-4">
+        <div
+          v-if="Array.isArray(article.body?.toc) && article.body?.toc.length"
+          class="sticky top-4"
+        >
           <p
             class="text-lg font-bold mb-5"
             v-text="$t('toc')"
@@ -38,6 +41,7 @@
           />
 
           <UCollapsible
+            v-if="Array.isArray(article.body?.toc) && article.body?.toc.length"
             :ui="{
               root: 'md:hidden',
               content: 'mt-5'
