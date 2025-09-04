@@ -8,8 +8,9 @@
     }))"
     :ui="{
       list: 'space-y-4',
-      link: 'p-0',
-      linkLeadingIcon: 'size-5 text-primary'
+      link: 'p-0 items-start',
+      linkLeadingIcon: 'size-5 text-primary',
+      linkLabel: 'whitespace-normal'
     }"
   />
 </template>
