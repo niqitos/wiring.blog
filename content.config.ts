@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { defineContentConfig, defineCollection } from '@nuxt/content'
+import { asSitemapCollection } from '@nuxtjs/sitemap/content'
 
 const schema = z.object({
   title: z.string(),
@@ -20,29 +21,35 @@ const schema = z.object({
 
 export default defineContentConfig({
   collections: {
-    content_uk: defineCollection({
-      type: 'page',
-      source: {
-        include: 'uk/**',
-        prefix: '',
-      },
-      schema
-    }),
-    content_ru: defineCollection({
-      type: 'page',
-      source: {
-        include: 'ru/**',
-        prefix: '',
-      },
-      schema
-    }),
-    content_en: defineCollection({
-      type: 'page',
-      source: {
-        include: 'en/**',
-        prefix: '',
-      },
-      schema
-    })
+    content_uk: defineCollection(
+      asSitemapCollection({
+        type: 'page',
+        source: {
+          include: 'uk/**',
+          prefix: '',
+        },
+        schema
+      })
+    ),
+    content_ru: defineCollection(
+      asSitemapCollection({
+        type: 'page',
+        source: {
+          include: 'ru/**',
+          prefix: '/ru',
+        },
+        schema
+      })
+    ),
+    content_en: defineCollection(
+      asSitemapCollection({
+        type: 'page',
+        source: {
+          include: 'en/**',
+          prefix: '/en',
+        },
+        schema
+      })
+    )
   }
 })

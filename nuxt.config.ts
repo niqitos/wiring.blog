@@ -35,13 +35,14 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    '@nuxtjs/i18n',
+    '@nuxtjs/sitemap',
     '@nuxt/content',
     '@nuxt/eslint',
     '@nuxt/image',
     '@nuxt/scripts',
     '@nuxt/test-utils',
     '@nuxt/ui',
-    '@nuxtjs/i18n',
     '@pinia/nuxt'
   ],
   css: [
