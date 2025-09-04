@@ -68,6 +68,7 @@ export default defineNuxtConfig({
       }
     ],
     defaultLocale: process.env.DEFAULT_LOCALE as 'uk' | 'ru' | 'en' | undefined,
+    detectBrowserLanguage: false
   },
   icon: {
     clientBundle: {
