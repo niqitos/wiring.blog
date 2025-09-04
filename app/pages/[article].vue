@@ -2,84 +2,86 @@
   <UContainer class="py-6">
     <UBreadcrumb
       :items="breadcrumbs"
-      class="mb-4"
+      class="mb-5"
     />
 
-    <article
+    <div
       v-if="article"
-      class="max-w-3xl mx-auto"
+      class="grid grid-cols-12 gap-8"
     >
-      <header class="space-y-4 mb-8">
-        <h1
-          class="text-xl sm:text-2xl md:text-3xl font-bold"
-          v-text="article.title"
-        />
+      <aside class="hidden md:block md:col-span-4 lg:col-span-3 xl:col-span-3 mt-3">
+        <div class="sticky top-4">
+          <p
+            class="text-lg font-bold mb-5"
+            v-text="$t('toc')"
+          />
 
-        <NuxtImg
-          v-if="article.cover"
-          :src="String(article.cover)"
-        />
-
-        <p
-          class="text-gray-500"
-          v-text="article.description"
-        />
-
-        <div class="flex gap-4 items-center">
-          <UAvatarGroup :max="2">
-            <UAvatar
-              v-for="(author, index) in article.authors"
-              :key="`author-avatar-${index}`"
-              size="lg"
-              :alt="author?.name"
-              :src="author?.avatar"
-              :ui="{
-                root: 'overflow-hidden'
-              }"
-            />
-          </UAvatarGroup>
-
-          <div class="text-sm">
-            <div class="flex gap-1">
-              <span
-                v-for="(author, index) in article.authors"
-                :key="`author-name-${index}`"
-                class="after:content-[','] last:after:content-['']"
-                v-text="author?.name"
-              />
-            </div>
-
-            <div class="flex items-center gap-2 text-gray-400">
-              <span v-text="formatDate(String(article.date))" />
-              <span v-text="'•'" />
-              <span v-text="$t('readingTime', Number(article.readingTime))" />
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <ContentRenderer
-        v-if="article"
-        :value="article"
-        class="prose dark:prose-invert"
-      />
-
-      <footer class="mt-8">
-        <div class="flex flex-wrap gap-2">
-          <UButton
-            v-for="tag in article.tags"
-            :key="tag"
-            :to="localePath({
-              name: 'index',
-              query: { tag }
-            })"
-            color="primary"
-            variant="subtle"
-            :label="tag"
+          <TableOfContents
+            :article="article"
           />
         </div>
-      </footer>
-    </article>
+      </aside>
+
+      <article class="col-span-12 md:col-span-8 lg:col-span-8 xl:col-span-9">
+        <header class="space-y-5 mb-5 prose dark:prose-invert">
+          <h1 v-text="article.title" />
+
+          <NuxtImg
+            v-if="article.cover"
+            :src="String(article.cover)"
+          />
+
+          <p v-text="article.description" />
+
+          <AuthorCloud
+            :article="article"
+          />
+
+          <UCollapsible
+            :ui="{
+              root: 'md:hidden',
+              content: 'mt-5'
+            }"
+          >
+            <UButton
+              :label="$t('toc')"
+              color="neutral"
+              variant="soft"
+              trailing-icon="i-lucide:chevron-down"
+              block
+            />
+
+            <template #content>
+              <TableOfContents
+                :article="article"
+              />
+            </template>
+          </UCollapsible>
+        </header>
+
+        <ContentRenderer
+          v-if="article"
+          :value="article"
+          class="prose dark:prose-invert"
+        />
+
+        <footer class="mt-8">
+          <div class="flex flex-wrap gap-2">
+            <UButton
+              v-for="tag in article.tags"
+              :key="tag"
+              :to="localePath({
+                name: 'index',
+                query: { tag }
+              })"
+              color="primary"
+              variant="subtle"
+              :label="tag"
+            />
+          </div>
+        </footer>
+      </article>
+    </div>
 
     <div
       v-else
@@ -104,7 +106,6 @@ import type { BreadcrumbItem } from '@nuxt/ui'
 const { t, locale, defaultLocale } = useI18n()
 const route = useRoute()
 const localePath = useLocalePath()
-const { formatDate } = useDate()
 
 const { data: article } = await useAsyncData(() => queryCollection(`content_${locale.value}`)
   .select('path', 'cover', 'title', 'description', 'body', 'date', 'tags', 'authors', 'readingTime')
@@ -120,6 +121,12 @@ const breadcrumbs = ref<BreadcrumbItem[]>([
     to: localePath('index')
   }
 ])
+
+useHead({
+  htmlAttrs: {
+    class: 'scroll-smooth'
+  }
+})
 
 useSeoMeta({
   title: article.value?.title,
