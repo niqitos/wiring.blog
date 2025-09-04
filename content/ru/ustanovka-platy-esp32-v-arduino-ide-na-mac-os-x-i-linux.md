@@ -6,10 +6,14 @@ tags:
   - Arduino
   - ESP32
 title: Установка платы ESP32 в Arduino IDE на Mac OS X и Linux
-description: В этом руководстве мы расскажем, как установить плату ESP32 в Arduino IDE для Windows. Если вы используете Mac OS или Linux, следуйте этой инструкции.
+description: В этом руководстве мы расскажем, как установить плату ESP32 в
+  Arduino IDE для Windows. Если вы используете Mac OS или Linux, следуйте этой
+  инструкции.
 seo:
   title: Установка платы ESP32 в Arduino IDE на Mac OS X и Linux
-  description: В этом руководстве мы расскажем, как установить плату ESP32 в Arduino IDE для Windows. Если вы используете Mac OS или Linux, следуйте этой инструкции.
+  description: В этом руководстве мы расскажем, как установить плату ESP32 в
+    Arduino IDE для Windows. Если вы используете Mac OS или Linux, следуйте этой
+    инструкции.
 published: true
 date: 2025-09-03T00:00:00.000Z
 sitemap: true
@@ -24,7 +28,7 @@ sitemap: true
 Чтобы установить плату ESP32 в IDE Arduino, выполните следующие действия:
 
 1. Откройте окно настроек в Arduino IDE перейдя в *Файл > Настройки*
-2. Введите `https://dl.espressif.com/dl/package_esp32_index.json` в поле **«Additional Board Manager URLs»**, как показано на рисунке ниже. Затем нажмите кнопку **«ОК»**:
+2. Введите `https://dl.espressif.com/dl/package_esp32_index.json&#x60; в поле **«Additional Board Manager URLs»**, как показано на рисунке ниже. Затем нажмите кнопку **«ОК»**:
 
 Если у вас уже есть URL-адрес плат ESP8266, вы указать их через запятую: `https://dl.espressif.com/dl/package_esp32_index.json, http://arduino.esp8266.com/stable/package_esp8266com_index.json`
 
@@ -46,8 +50,8 @@ sitemap: true
 8. Откройте монитор серийного порта Arduino IDE и установите скорость 115200 бод:
 9. Нажмите кнопку «EN» ESP32 на плате, и вы увидите сети, доступные рядом с вашим ESP32:
 
-
 ## В завершение
+
 Это простое руководство, которое иллюстрирует, как подготовить вашу Arduino IDE для работы с ESP32 на ПК с Mac или Linux.
 
 Установка Arduino IDE на Mac OS или Linux
