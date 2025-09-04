@@ -1,21 +1,22 @@
 ---
+id: 6
 authors:
   - name: Niqitos
     avatar: /images/avatars/niqitos.jpg
 tags:
   - Arduino
   - ESP32
-title: Какую ESP32 выбрать
+title: Which ESP32 to choose
 description: ESP32 — это усовершенствованная версия платы ESP8266. Плата
   оснащена модулями беспроводной связи Wi-Fi и Bluetooth и двухъядерный
   процессор.
 seo:
-  title: Какую ESP32 выбрать
+  title: Which ESP32 to choose
   description: ESP32 — это усовершенствованная версия платы ESP8266. Плата
     оснащена модулями беспроводной связи Wi-Fi и Bluetooth и двухъядерный
     процессор.
 published: true
-date: 2025-09-03T00:00:00.000Z
+date: 2025-09-06T00:00:00.000Z
 sitemap: true
 ---
 

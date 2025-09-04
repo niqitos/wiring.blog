@@ -1,21 +1,22 @@
 ---
+id: 4
 authors:
   - name: Niqitos
     avatar: /images/avatars/niqitos.jpg
 tags:
   - Arduino
   - ESP32
-title: Распиновка ESP32
+title: ESP32 pinout
 description: ESP32 — популярный микроконтроллер с встроенным Wi-Fi и Bluetooth,
   используемый в IoT-проектах. Для успешной работы с платой важно понимать
   назначение её контактов.
 seo:
-  title: Распиновка ESP32
+  title: ESP32 pinout
   description: ESP32 — популярный микроконтроллер с встроенным Wi-Fi и Bluetooth,
     используемый в IoT-проектах. Для успешной работы с платой важно понимать
     назначение её контактов.
 published: true
-date: 2025-09-03T00:00:00.000Z
+date: 2025-09-04T00:00:00.000Z
 sitemap: true
 ---
 

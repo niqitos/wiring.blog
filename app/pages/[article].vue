@@ -11,7 +11,7 @@
     >
       <aside class="hidden md:block md:col-span-4 lg:col-span-3 xl:col-span-3 mt-3">
         <div
-          v-if="Array.isArray(article.body?.toc) && article.body?.toc.length"
+          v-if="Array.isArray(article.body?.toc?.links) && article.body?.toc?.links.length"
           class="sticky top-4"
         >
           <p
@@ -41,7 +41,7 @@
           />
 
           <UCollapsible
-            v-if="Array.isArray(article.body?.toc) && article.body?.toc.length"
+            v-if="Array.isArray(article.body?.toc?.links) && article.body?.toc?.links.length"
             :ui="{
               root: 'md:hidden',
               content: 'mt-5'
@@ -106,17 +106,59 @@
 
 <script lang="ts" setup>
 import type { BreadcrumbItem } from '@nuxt/ui'
+import type { LocaleObject } from '@nuxtjs/i18n'
 
-const { t, locale, defaultLocale } = useI18n()
+const { t, locale, locales, defaultLocale } = useI18n()
 const route = useRoute()
 const localePath = useLocalePath()
+const setI18nParams = useSetI18nParams()
 
 const { data: article } = await useAsyncData(() => queryCollection(`content_${locale.value}`)
-  .select('path', 'cover', 'title', 'description', 'body', 'date', 'tags', 'authors', 'readingTime')
+  .select('path', 'cover', 'title', 'description', 'body', 'date', 'tags', 'authors', 'readingTime', 'seo')
   .path(`${locale.value !== defaultLocale ? `/${locale.value}` : ''}/${route.params.article}`)
   .where('published', '=', true)
   .first()
 )
+
+const alternate = computed(() => {
+  const alternate = {}
+
+  if (article.value?.seo?.alternate && Array.isArray(article.value?.seo.alternate)) {
+    article.value?.seo.alternate.forEach((item: any) => {
+      const key = Object.keys(item)[0]
+
+      if (typeof key === 'string' && locales.value.find((l: LocaleObject) => l.code === key)) {
+        Object.assign(alternate, {
+          [key]: {
+            article: item[key]
+          }
+        })
+      }
+    })
+  }
+
+  return alternate
+})
+
+// const link = computed(() => {
+//   const links = [] as any[]
+
+//   if (article.value?.seo?.alternate && Array.isArray(article.value?.seo.alternate)) {
+//     article.value?.seo.alternate.forEach((item: any) => {
+//       const key = Object.keys(item)[0]
+
+//       if (typeof key === 'string' && locales.value.find((l: LocaleObject) => l.code === key)) {
+//         links.push({
+//           rel: 'alternate',
+//           hreflang: key,
+//           href: `${item[key]}`
+//         })
+//       }
+//     })
+//   }
+
+//   return links
+// })
 
 const breadcrumbs = ref<BreadcrumbItem[]>([
   {
@@ -126,7 +168,13 @@ const breadcrumbs = ref<BreadcrumbItem[]>([
   }
 ])
 
+setI18nParams(alternate.value)
+
+// const i18nHead = useLocaleHead()
+// console.log(i18nHead)
+
 useHead({
+  // link,
   htmlAttrs: {
     class: 'scroll-smooth'
   }

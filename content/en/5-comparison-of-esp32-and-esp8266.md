@@ -1,19 +1,20 @@
 ---
+id: 5
 authors:
   - name: Niqitos
     avatar: /images/avatars/niqitos.jpg
 tags:
   - Arduino
   - ESP32
-title: Сравнение ESP32 и ESP8266
+title: Comparison of ESP32 and ESP8266
 description: ESP32 и ESP8266 — это недорогие модули с поддержкой Wi-Fi, которые
   подходят для проектов в области интернета вещей (IoT).
 seo:
-  title: Сравнение ESP32 и ESP8266
+  title: Comparison of ESP32 and ESP8266
   description: ESP32 и ESP8266 — это недорогие модули с поддержкой Wi-Fi, которые
     подходят для проектов в области интернета вещей (IoT).
 published: true
-date: 2025-09-03T00:00:00.000Z
+date: 2025-09-05T00:00:00.000Z
 sitemap: true
 ---
 

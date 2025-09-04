@@ -52,7 +52,8 @@ export default defineNuxtConfig({
         name: 'Українська',
         code: 'uk',
         language: process.env.COUNTRY ? `uk-${process.env.COUNTRY.toUpperCase()}` : 'uk',
-        file: 'uk.js'
+        file: 'uk.js',
+        isCatchallLocale: true
       },
       {
         name: 'Русский',
@@ -67,6 +68,7 @@ export default defineNuxtConfig({
         file: 'en.js'
       }
     ],
+    baseUrl: process.env.NUXT_PUBLIC_SITE_URL,
     defaultLocale: process.env.DEFAULT_LOCALE as 'uk' | 'ru' | 'en' | undefined,
     detectBrowserLanguage: false
   },

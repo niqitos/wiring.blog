@@ -1,23 +1,27 @@
 ---
+id: 1
 authors:
   - name: Niqitos
     avatar: /images/avatars/niqitos.jpg
 tags:
   - Arduino
   - ESP32
-title: Начало работы с ESP32
+title: Getting Started with ESP32
 description: Статья предназначена для тех, кто только начинает знакомство с
   платой разработки ESP32. Если вы знакомы с ESP8266, ESP32 — это его
   усовершенствованная версия. Плата сочетает в себе беспроводные возможности
   Wi-Fi и Bluetooth и двухъядерный процессор.
 seo:
-  title: Начало работы с ESP32
+  title: Getting Started with ESP32
   description: Статья предназначена для тех, кто только начинает знакомство с
     платой разработки ESP32. Если вы знакомы с ESP8266, ESP32 — это его
     усовершенствованная версия. Плата сочетает в себе беспроводные возможности
     Wi-Fi и Bluetooth и двухъядерный процессор.
+  alternate:
+    - ru: 1-nachalo-raboty-s-esp32
+    - uk: 1-pochatok-roboty-z-esp32
 published: true
-date: 2025-09-03T00:00:00.000Z
+date: 2025-09-01T00:00:00.000Z
 sitemap: true
 ---
 

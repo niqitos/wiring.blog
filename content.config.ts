@@ -3,6 +3,7 @@ import { defineContentConfig, defineCollection } from '@nuxt/content'
 import { asSitemapCollection } from '@nuxtjs/sitemap/content'
 
 const schema = z.object({
+  id: z.bigint(),
   title: z.string(),
   cover: z.string(),
   description: z.string().optional(),
