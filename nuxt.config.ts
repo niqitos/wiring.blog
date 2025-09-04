@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-08-01',
   devtools: { enabled: true },
-
   app: {
     head: {
       link: [
@@ -33,7 +32,6 @@ export default defineNuxtConfig({
       ]
     }
   },
-
   modules: [
     '@nuxtjs/i18n',
     '@nuxtjs/sitemap',
