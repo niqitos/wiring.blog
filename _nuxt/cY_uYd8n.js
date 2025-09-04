@@ -1,0 +1,1 @@
+import{_ as o,d as t,i as s,I as r}from"#entry";const a={},n={class:"not-prose bg-gray-300 text-black dark:bg-gray-700 dark:text-white px-1.5 py-0.5 rounded-md font-mono text-sm"};function c(e,d){return s(),t("code",n,[r(e.$slots,"default")])}const l=Object.assign(o(a,[["render",c]]),{__name:"ProseCode"});export{l as default};
