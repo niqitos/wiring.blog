@@ -37,7 +37,7 @@
             v-for="tag in article.tags"
             :key="tag"
             color="primary"
-            variant="soft"
+            variant="subtle"
             :label="tag"
           />
         </div>

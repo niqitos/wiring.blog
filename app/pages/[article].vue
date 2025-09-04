@@ -7,7 +7,7 @@
 
     <article
       v-if="article"
-      class="prose prose-lg max-w-3xl mx-auto"
+      class="max-w-3xl mx-auto"
     >
       <header class="space-y-4 mb-8">
         <h1
@@ -69,9 +69,12 @@
           <UButton
             v-for="tag in article.tags"
             :key="tag"
-            :to="`/?tag=${tag}`"
+            :to="localePath({
+              name: 'index',
+              query: { tag }
+            })"
             color="primary"
-            variant="soft"
+            variant="subtle"
             :label="tag"
           />
         </div>
