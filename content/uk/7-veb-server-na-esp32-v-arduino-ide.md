@@ -48,11 +48,11 @@ ESP32 имеет 3 режима работы:
 ## Управление светодиодами с ESP32 через веб сервер
 
 Для сборки схемы нам понадобятся:
-1\. ESP32
-2\. макетная плата
-3\. 2 светодиода
-4\. 2 токоограничивающих резистора на 220 Ом
-5\. джамперы
+1. ESP32
+2. макетная плата
+3. 2 светодиода
+4. 2 токоограничивающих резистора на 220 Ом
+5. джамперы
 Важно: убедитесь, что ноги ESP32 расположены по разные стороны макетной платы.
 
 Подключите анод (+) светодиодов к пинам 4 и 5 через резистор на 220 Ом, как показано на схеме ниже.
@@ -67,7 +67,7 @@ ESP32 имеет 3 режима работы:
 
 Подсоедините ESP32 к компьютеру и загрузите скетч приведенный ниже. Далее я расскажу как он работает.
 
-```
+```cpp
   #include <WiFi.h>
   #include <WebServer.h>
 
@@ -207,14 +207,14 @@ ESP32 имеет 3 режима работы:
 
 Скетч начинается с подключения библиотеки WiFi.h. Эта библиотека предоставляет специальные методы для работы с WiFi на ESP32, например, для подключения к сети. Затем подключается библиотека WebServer.h, в которой есть несколько методов для настройки сервера и обработки входящих HTTP-запросов.
 
-```
+```cpp
 #include <WiFi.h>
 #include <WebServer.h>
 ```
 
 Так как мы используем ESP32 в режиме программной точки доступа, необходимо создать сеть WiFi. Для этого нужно указать SSID, Пароль, IP адрес, IP маску подсети и IP шлюз.
 
-```
+```cpp
 /* Название и пароль точки доступа */
 const char* ssid = "ESP32";
 const char* password = "12345678";
@@ -227,14 +227,14 @@ IPAddress subnet(255,255,255,0);
 
 Далее объявляем объект библиотеки WebServer, чтобы получить доступ к ее функциям. Конструктор этого объекта принимает порт в качестве параметра. Портом по умолчанию для HTTP протокола — 80. Теперь подключится к серверу можно без указания порта в URL.
 
-```
+```cpp
 // объявляем объект библиотеки WebServer
 WebServer server(80);
 ```
 
 Далее объявляем выводы GPIO ESP32, к которым подключены светодиоды, и их начальное состояние.
 
-```
+```cpp
 uint8_t LED1pin = 4;
 bool LED1status = LOW;
 
@@ -248,7 +248,7 @@ bool LED2status = LOW;
 
 Откроем монитор серийного порта для отладки и установим режим роботы портов GPIO в OUTPUT.
 
-```
+```cpp
 Serial.begin(115200);
 pinMode(LED1pin, OUTPUT);
 pinMode(LED2pin, OUTPUT);
@@ -256,7 +256,7 @@ pinMode(LED2pin, OUTPUT);
 
 Затем указываем SSID, пароль, IP-адрес, IP-маску подсети и IP-шлюз для создания сети Wi-Fi точки доступа.
 
-```
+```cpp
 WiFi.softAP(ssid, password);
 WiFi.softAPConfig(local_ip, gateway, subnet);
 delay(100);
@@ -268,13 +268,13 @@ For example, the first line of below code snippet indicates that when a server r
 
 Например, первая строка приведенного ниже фрагмента кода указывает, что когда сервер получает HTTP-запрос по корневому пути (/), он запускает функцию handle_OnConnect(). Обратите внимание, что указанный URL-адрес является относительным путем.
 
-```
+```cpp
 server.on("/", handle_OnConnect);
 ```
 
 Аналогично, нам нужно указать еще 4 URL-адреса для обработки двух состояний двух светодиодов.
 
-```
+```cpp
 server.on("/led1on", handle_led1on);
 server.on("/led1off", handle_led1off);
 server.on("/led2on", handle_led2on);
@@ -283,13 +283,13 @@ server.on("/led2off", handle_led2off);
 
 Если клиент запрашивает какой-либо URL, отличный от указанных в server.on(), сервер должен ответить с HTTP-статусом 404 (Not Found) и сообщением для пользователя. Для этого используем метод onNotFound() объекта server.
 
-```
+```cpp
 server.onNotFound(handle_NotFound);
 ```
 
 Затем запускаем сервер вызвав метод begin() объекта server.
 
-```
+```cpp
 server.begin();
 Serial.println("HTTP server started");
 ```
@@ -298,7 +298,7 @@ Serial.println("HTTP server started");
 
 Для обработки входящих HTTP-запросов используется метод handleClient() объекта server. После получения запроса проверяем изменение состояния светодиодов.
 
-```
+```cpp
 void loop() {
   server.handleClient();
 
@@ -320,7 +320,7 @@ void loop() {
 
 В нашем случае мы отправляем код 200 (один из кодов состояния HTTP), который соответствует ответу OK. Затем указываем тип содержимого «text/html» и вызываем пользовательскую функцию SendHTML(), которая создает динамическую HTML-страницу, и передаем ей состояние светодиодов в качестве параметров.
 
-```
+```cpp
 void handle_OnConnect() {
   LED1status = LOW;
   LED2status = LOW;
@@ -331,7 +331,7 @@ void handle_OnConnect() {
 
 Аналогично, создаем четыре функции для обработки запросов на включение/выключение светодиодов, а так же страницу ошибки 404.
 
-```
+```cpp
 void handle_led1on() {
   LED1status = HIGH;
   Serial.println("GPIO4 Status: ON");
@@ -367,20 +367,20 @@ void handle_NotFound(){
 
 Вначале HTML документа всегда должен стоять — элемент который указывает, что мы отправляем HTML-код.
 
-```
+```cpp
 String SendHTML(uint8_t led1stat,uint8_t led2stat){
 String ptr = "<!DOCTYPE html> <html>\n";
 ```
 
 Элемент `viewport` делает веб-страницу отзывчивой в любом веб-браузере.
 
-```
+```cpp
 ptr +="<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
 ```
 
 Тег
 
-```
+```cpp
 ptr +="<title>LED Control</title>\n";
 ```
 
@@ -388,20 +388,20 @@ ptr +="<title>LED Control</title>\n";
 
 Добавим CSS для стилизации кнопок и внешнего вида веб-страницы. Шрифт Helvetica, отображение содержимого в виде встроенного блока и выровняем по центру.
 
-```
+```cpp
 ptr +="<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}\n";
 ```
 
 Далее задаем цвет, размер шрифт и отступы для тегов `body`, `h1`, `h3` и `p`.
 
-```
+```cpp
 ptr +="body{margin-top: 50px;} h1 {color: #444444;margin: 50px auto 30px;} h3 {color: #444444;margin-bottom: 50px;}\n";
 ptr +="p {font-size: 14px;color: #888;margin-bottom: 10px;}\n";
 ```
 
 Стилизуем цвет, размер, отступы и границы кнопок. Кнопки ВКЛ и ВЫКЛ должны быть разного цвета, а селектор :active создаст эффект нажатия.
 
-```
+```cpp
 ptr +=".button {display: block;width: 80px;background-color: #3498db;border: none;color: white;padding: 13px 30px;text-decoration: none;font-size: 25px;margin: 0px auto 35px;cursor: pointer;border-radius: 4px;}\n";
 ptr +=".button-on {background-color: #3498db;}\n";
 ptr +=".button-on:active {background-color: #2980b9;}\n";
@@ -413,7 +413,7 @@ ptr +=".button-off:active {background-color: #2c3e50;}\n";
 
 Далее выведем заголовок веб-страницы. Вы можете изменить этот текст под вашего приложение.
 
-```
+```cpp
 ptr +="<h1>ESP32 Web Server</h1>\n";
 ptr +="<h3>Using Access Point(AP) Mode</h3>\n";
 ```
@@ -422,7 +422,7 @@ ptr +="<h3>Using Access Point(AP) Mode</h3>\n";
 
 Для динамического отображения кнопок и состояния светодиодов мы используем оператор `if`. Таким образом, в зависимости от состояния выводов GPIO, отображается кнопка Вкл/Выкл.
 
-```
+```cpp
 if (led1stat) {
   ptr +="<p>Статус светодиода 1: Вкл</p><a class=\"button button-off\" href=\"/led1off\">Выкл</a>\n";
 } else {
@@ -444,7 +444,7 @@ if (led2stat) {
 
 Как только вы закончите, попробуйте набросок.
 
-```
+```cpp
 #include <WiFi.h>
 #include <WebServer.h>
 
@@ -587,14 +587,14 @@ String SendHTML(uint8_t led1stat,uint8_t led2stat){
 
 Если вы наблюдаете этот код с предыдущим кодом, единственное отличие состоит в том, что мы не устанавливаем программную точку доступа, вместо этого мы присоединяемся к существующей сети с помощью функции WiFi.begin ().
 
-```
+```cpp
 //connect to your local wi-fi network
 WiFi.begin(ssid, password);
 ```
 
 Пока ESP32 пытается подключиться к сети, мы можем проверить состояние подключения с помощью функции WiFi.status ().
 
-```
+```cpp
 //check wi-fi is connected to wi-fi network
 while (WiFi.status() != WL_CONNECTED)
 {
@@ -624,7 +624,7 @@ while (WiFi.status() != WL_CONNECTED)
 
 Как только ESP32 подключен к сети, эскиз распечатывает IP-адрес, назначенный для ESP32, отображая значение WiFi.localIP () на последовательном мониторе.
 
-```
+```cpp
 Serial.println("");
 Serial.println("WiFi connected..!");
 Serial.print("Got IP: ");  Serial.println(WiFi.localIP());

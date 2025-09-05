@@ -82,6 +82,24 @@ export default defineNuxtConfig({
         h5: false,
         h6: false,
       }
+    },
+    build: {
+      markdown: {
+        highlight: {
+          theme: {
+            // default: 'github-light',
+            // light: 'github-light',
+            // dark: 'github-dark'
+            default: 'one-light',
+            dark: 'one-dark-pro'
+          },
+          preload: [
+            'cpp',
+            'js',
+            'ts'
+          ]
+        }
+      }
     }
   },
   icon: {
