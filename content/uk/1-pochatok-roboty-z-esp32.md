@@ -58,7 +58,7 @@ ESP32 можна програмувати за допомогою:
 - JavaScript
 - LUA
 
-## Підготовка до роботи з ESP32 серед Arduino IDE
+## Підготовка до роботи з ESP32 в середовищі Arduino IDE
 
 [Інструкція для Windows](2-vstanovlennya-platy-esp32-v-arduino-ide-na-windows)
 
