@@ -1,2 +1,0 @@
-import{B as s,d as a,i as r,A as l,I as n,n as o}from"#entry";const p=s({__name:"ProsePre",props:{code:{type:String,default:""},language:{type:String,default:null},filename:{type:String,default:null},highlights:{type:Array,default:()=>[]},meta:{type:String,default:null},class:{type:String,default:null}},setup(u){return(t,e)=>(r(),a("pre",{class:o(["bg-elevated",t.$props.class])},[e[0]||(e[0]=l("    ",-1)),n(t.$slots,"default"),e[1]||(e[1]=l(`
-  `,-1))],2))}}),i=Object.assign(p,{__name:"ProsePre"});export{i as default};
