@@ -119,6 +119,15 @@ export default defineNuxtConfig({
       ]
     }
   },
+  $production: {
+    scripts: {
+      registry: {
+        googleTagManager: {
+          id: process.env.GOOGLE_TAG_MANAGER_ID
+        } as any
+      }
+    }
+  },
   hooks: {
     'content:file:afterParse'(ctx) {
       const { file, content } = ctx;
