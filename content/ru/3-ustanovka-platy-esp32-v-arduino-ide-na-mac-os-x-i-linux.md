@@ -32,7 +32,7 @@ sitemap: true
 2. В поле **«Additional Board Manager URLs»** введите следующее:
 
 ```text
-  https://dl.espressif.com/dl/package_esp32_index.json
+https://dl.espressif.com/dl/package_esp32_index.json
 ```
 
 3. Нажмите **«ОК»**:
