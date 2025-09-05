@@ -39,15 +39,15 @@ ESP32 board examples:
 
 Specifications
 
-| Number of cores | 2 (Dual Core) |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Clock frequency | up to 240 MHz |
-| Architecture | 32-bit |
-| RAM | 512 KB |
-| Wi-Fi | 2.4 GHz, up to 150 Mbps |
-| Bluetooth | BLE (Bluetooth Low Energy) and Legacy Bluetooth |
-| Number of I/O pins (GPIO) | 30 or 36 depending on the model |
-| Peripherals | ADC (Analog-to-Digital Converter), DAC (Digital-to-Analog Converter), UART (Universal Asynchronous Receiver/Transmitter), SPI (Serial Peripheral Interface), I2C (Isolated Circuit Card) and more. |
+| Number of cores           | 2 (Dual Core)                                                                                                                                                                                      |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Clock frequency           | up to 240 MHz                                                                                                                                                                                      |
+| Architecture              | 32-bit                                                                                                                                                                                             |
+| RAM                       | 512 KB                                                                                                                                                                                             |
+| Wi-Fi                     | 2.4 GHz, up to 150 Mbps                                                                                                                                                                            |
+| Bluetooth                 | BLE (Bluetooth Low Energy) and Legacy Bluetooth                                                                                                                                                    |
+| Number of I/O pins (GPIO) | 30 or 36 depending on the model                                                                                                                                                                    |
+| Peripherals               | ADC (Analog-to-Digital Converter), DAC (Digital-to-Analog Converter), UART (Universal Asynchronous Receiver/Transmitter), SPI (Serial Peripheral Interface), I2C (Isolated Circuit Card) and more. |
 
 ## Development Environment
 
@@ -81,7 +81,7 @@ Let's look at a simple example of blinking the built-in LED.
 
 Open the Arduino IDE on your computer and copy the following code:
 
-```cpp
+```cpp [ESP-32-Blinking-LED]
 /*
   Blinking LED
 */
