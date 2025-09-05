@@ -64,10 +64,10 @@ jobs:
           NITRO_PRESET: github_pages
           NUXT_CONTENT_PREVIEW_API: https://api.nuxt.studio
           COUNTRY: ${{ secrets.COUNTRY }}
-DEFAULT_LOCALE: ${{ secrets.DEFAULT_LOCALE }}
-GOOGLE_ADSENSE_ID: ${{ secrets.GOOGLE_ADSENSE_ID }}
-GOOGLE_TAG_MANAGER_ID: ${{ secrets.GOOGLE_TAG_MANAGER_ID }}
-NUXT_PUBLIC_SITE_URL: ${{ secrets.NUXT_PUBLIC_SITE_URL }}
+          DEFAULT_LOCALE: ${{ secrets.DEFAULT_LOCALE }}
+          GOOGLE_ADSENSE_ID: ${{ secrets.GOOGLE_ADSENSE_ID }}
+          GOOGLE_TAG_MANAGER_ID: ${{ secrets.GOOGLE_TAG_MANAGER_ID }}
+          NUXT_PUBLIC_SITE_URL: ${{ secrets.NUXT_PUBLIC_SITE_URL }}
 
       # Deployment job
       - name: Deploy 🚀

@@ -124,7 +124,11 @@ export default defineNuxtConfig({
       registry: {
         googleTagManager: {
           id: process.env.GOOGLE_TAG_MANAGER_ID
-        } as any
+        } as any,
+        googleAdsense: {
+          client: process.env.GOOGLE_ADSENSE_ID,
+          autoAds: true
+        }
       }
     }
   },
