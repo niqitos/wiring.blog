@@ -111,7 +111,11 @@ export default defineNuxtConfig({
         'lucide:sun',
         'lucide:moon',
         'lucide:monitor',
-        'lucide:house'
+        'lucide:house',
+        'lucide:hash',
+        'lucide:chevron-down',
+        'lucide:copy',
+        'lucide:copy-check',
       ]
     }
   },

@@ -1,16 +1,32 @@
 <template>
-  <pre
-    :class="[
-      'bg-elevated',
-      $props.class
-    ]"
-  >
-    <slot />
-  </pre>
+  <div class="relative">
+    <UButton
+      color="neutral"
+      variant="soft"
+      :trailing-icon="copied ? 'i-lucide:copy-check' : 'i-lucide:copy'"
+      :label="copied ? 'Copied' : 'Copy'"
+      :ui="{
+        base: 'absolute top-2 right-2 opacity-50 group-hover:opacity-100 transition',
+        trailingIcon: 'size-4'
+      }"
+      @click="copyCode"
+    />
+
+    <pre
+      :class="[
+        'bg-elevated',
+        $props.class
+      ]"
+    >
+      <slot />
+    </pre>
+  </div>
 </template>
 
 <script setup lang="ts">
-defineProps({
+import { useClipboard } from '@vueuse/core'
+
+const props = defineProps({
   code: {
     type: String,
     default: ''
@@ -36,6 +52,15 @@ defineProps({
     default: null
   }
 })
+
+const copied = ref(false)
+const { copy } = useClipboard()
+
+const copyCode = async () => {
+  await copy(props.code)
+  copied.value = true
+  setTimeout(() => (copied.value = false), 2000)
+}
 </script>
 
 <style>
