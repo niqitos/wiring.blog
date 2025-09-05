@@ -2,6 +2,8 @@
 @import '@nuxt/ui';
 @plugin "@tailwindcss/typography";
 
+@source inline("text-red-500");
+
 img {
   border-radius: var(--radius-lg);
 }
