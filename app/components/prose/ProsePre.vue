@@ -1,5 +1,11 @@
 <template>
   <div class="relative">
+    <code
+      v-if="filename"
+      class="not-prose text-sm text-mono text-gray-500 absolute top-3.5 left-4"
+      v-text="filename"
+    />
+
     <UButton
       color="neutral"
       variant="soft"
@@ -15,6 +21,7 @@
     <pre
       :class="[
         'bg-elevated',
+        filename ? 'pt-8' : '',
         $props.class
       ]"
     >

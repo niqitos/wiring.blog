@@ -81,11 +81,7 @@ Let's look at a simple example of blinking the built-in LED.
 
 Open the Arduino IDE on your computer and copy the following code:
 
-```cpp [ESP-32-Blinking-LED]
-/*
-  Blinking LED
-*/
-
+```cpp [esp-32-blinking-led.ino]
 // LED on ESP32 is connected to GPIO 23
 const int ledPin = 23;
 
@@ -104,11 +100,11 @@ void loop () {
 }
 ```
 
-This code turns the LED connected to GPIO 23 on and off at intervals of one second.
+This code turns the LED connected to `GPIO 23` on and off at intervals of one second.
 
 ## Let's complicate the example
 
-In addition to turning on/off the built-in pin, you can connect an external LED to port 23.
+In addition to turning on/off the built-in pin, you can connect an external LED to port `23`.
 
 [**Important!**]{.not-prose.!text-red-500}&#x20;Always check the pinout of your board before connecting.
 
@@ -128,17 +124,17 @@ After connecting all components, connect the ESP32 to the computer and follow th
 
 ## Demo
 
-After uploading the code, the onboard LED connected to GPIO 23 will blink at 1 second intervals.
+After uploading the code, the onboard LED connected to `GPIO 23` will blink at 1 second intervals.
 
 ## Possible errors
 
-Failed to connect to ESP32: Timed out... Connecting...
+*Failed to connect to ESP32: Timed out... Connecting...*
 
 First of all, make sure that the correct board and port are selected in the Arduino IDE settings.
 
 If the error persists, it means that your ESP32 board is not in flashing/uploading mode. To upload code in this situation, follow these steps:
 
-- Press and hold the “BOOT” button on the ESP32 board
+- Press and hold the `BOOT` button on the ESP32 board
 - After you see the **Connecting….** message in the Arduino IDE console, release your finger from the `BOOT` button:
 - After that, you should see the **Done uploading** message.
 
