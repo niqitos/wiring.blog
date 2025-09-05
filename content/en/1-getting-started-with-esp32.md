@@ -31,27 +31,27 @@ navigation:
 
 ## ESP32 DEVKIT V1
 
-В этой статье я буду использовать ESP32 DEVKIT V1. Но все примеры совместимы с другими платами разработки ESP32 на чипе ESP-WROOM-32.
+This article covers the ESP32 DEVKIT V1. But all examples are compatible with other ESP32 development boards on the ESP-WROOM-32 chip.
 
-Примеры плат ESP32:
+ESP32 board examples:
 
-## Какую ESP32 выбрать
+## Which ESP32 to choose
 
-Характеристики
+Specifications
 
-| Количество ядер                      | 2 (Dual Core)                                                                                                                                                                                                                               |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Тактовая частота                     | до 240 МГц                                                                                                                                                                                                                                  |
-| Архитектура                          | 32-bit                                                                                                                                                                                                                                      |
-| RAM                                  | 512 КБ                                                                                                                                                                                                                                      |
-| Wi-Fi                                | 2.4 ГГц, до 150 Мбит/с                                                                                                                                                                                                                      |
-| Bluetooth                            | BLE (Bluetooth Low Energy) и Legacy Bluetooth                                                                                                                                                                                               |
-| Количество пинов ввода/вывода (GPIO) | 30 или 36 в зависимости от модели                                                                                                                                                                                                           |
-| Периферия                            | АЦП (аналого-цифровой преобразователь), ЦАП (цифро-аналоговый преобразователь), UART (универсальный асинхронный приёмопередатчик), SPI (последовательный периферийный интерфейс), I2C(последовательная асимметричная шина) и многое другое. |
+| Number of cores | 2 (Dual Core) |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Clock frequency | up to 240 MHz |
+| Architecture | 32-bit |
+| RAM | 512 KB |
+| Wi-Fi | 2.4 GHz, up to 150 Mbps |
+| Bluetooth | BLE (Bluetooth Low Energy) and Legacy Bluetooth |
+| Number of I/O pins (GPIO) | 30 or 36 depending on the model |
+| Peripherals | ADC (Analog-to-Digital Converter), DAC (Digital-to-Analog Converter), UART (Universal Asynchronous Receiver/Transmitter), SPI (Serial Peripheral Interface), I2C (Isolated Circuit Card) and more. |
 
-## Среда разработки
+## Development Environment
 
-ESP32 можно программировать используя:
+The ESP32 can be programmed using:
 
 - Arduino IDE
 - Espressif IDF (IoT Development Framework)
@@ -59,96 +59,91 @@ ESP32 можно программировать используя:
 - JavaScript
 - LUA
 
-Я буду использовать среду Arduino IDE.
+## Preparing to work with the ESP32 in the Arduino IDE
 
-## Подготовка к работе с платой ESP32 в среде Arduino IDE
+[Instructions for Windows](2-installing-esp32-board-in-arduino-ide-on-windows)
 
-- Инструкция для Windows
-- Инструкция для Mac and Linux
+[Instructions for Mac and Linux](3-installing-esp32-board-in-arduino-ide-on-mac-os-x-and-linux)
 
-## Распиновка ESP32
+## ESP32 Pinout
 
-ESP32 имеет больше пинов GPIO с большей функциональностью по сравнению с ESP826. С ESP32 вы можете установить в коде программы режим работы GPIO пинов: UART, I2C или SPI. Это возможно благодаря функции мультиплексирования микросхемы ESP32, которая позволяет назначать несколько функций одному и тому же выводу. Если вы не установите их в коде, контакты будут использоваться по умолчанию как показано на рисунке ниже (расположение контактов может меняться в зависимости от производителя).
+The ESP32 has more GPIO pins with more functionality compared to the ESP826. In the program code, you can set the operating mode of the GPIO pins: UART, I2C or SPI. This is possible thanks to the multiplexing function of the ESP32 chip, which allows you to assign several functions to the same pin. If not set in the code, the default pins will be used as shown in the figure below (the pin layout may vary depending on the manufacturer).
 
-Версия с 30 панами входа/выхода
+30 I/O pin version
 
-Версия с 36 панами входа/выхода
+36 I/O pin version
 
-Смотри также:
-Распиновка ESP32: Какие GPIO пины следует использовать?
+[ESP32 Pinout: Which GPIO pins should I use?](4-esp32-pinout)
 
-## Загрузка кода программы в ESP32 через Arduino IDE
+## Uploading code to ESP32 via Arduino IDE
 
-Рассмотрим простой пример мигания встроенным светодиодом.
+Let's look at a simple example of blinking the built-in LED.
 
-Откройте Arduino IDE на своем компьютере и скопируйте следующий код:
+Open the Arduino IDE on your computer and copy the following code:
 
 ```cpp
 /*
-  Мигание светодиодом
+  Blinking LED
 */
 
-// светодиод на ESP32 подключен к GPIO 23
+// LED on ESP32 is connected to GPIO 23
 const int ledPin = 23;
 
-// функция setup выполняется один раз при подключении питания или перезагрузке платы
-void setup() {
-  // инициализация режима работы цифрового пина ledPin в качестве выходного
+// the setup function is executed once when power is applied or the board is rebooted
+void setup () {
+  // initialize the digital pin ledPin as an output
   pinMode(ledPin, OUTPUT);
 }
 
-// функция loop выполняется бесконечное количество раз по кругу
-void loop() {
-  digitalWrite(ledPin, HIGH);  // подаем цифровой сигнал высокого уровня (HIGH) на пин ledPin, т. е. включаем светодиод
-  delay(1000); // ждем 1 секунду
-  digitalWrite(ledPin, LOW); // подаем сигнал низкого уровня (LOW), т. е. выключаем светодиод
-  delay(1000); // ждем 1 секунду
+// the loop function is executed an infinite number of times in a loop
+void loop () {
+  digitalWrite(ledPin, HIGH); // apply a high-level digital signal (HIGH) to the ledPin pin, i.e. turn on the LED
+  delay(1000); // wait 1 second
+  digitalWrite(ledPin, LOW); // apply a low-level signal (LOW), i.e. turn off the LED
+  delay(1000); // wait 1 second
 }
 ```
 
-Этот код включает и выключает светодиод, подключенный к GPIO 23 с интервалом в одну секунду.
+This code turns the LED connected to GPIO 23 on and off at intervals of one second.
 
-## Усложним пример
+## Let's complicate the example
 
-Помимо включения/выключения встроенного пина, можно подсоединить внешний светодиод к порту 23.
+In addition to turning on/off the built-in pin, you can connect an external LED to port 23.
 
-Важно: всегда проверяйте распиновку вашей платы перед подключением.
+[**Important!**]{.not-prose.!text-red-500}&#x20;Always check the pinout of your board before connecting.
 
-Для данной сборки нам понадобится:
+For this build you will need:
 
-- Плата ESP32 DEVKIT V1
-- 5мм светодиод
-- резистор на 330 Ом
-- Джамперы
-- Макетная плата (необязательно)
+- ESP32 DEVKIT V1 board
+- 5mm LED
+- 330 Ohm resistor
+- Jumpers
+- Breadboard (optional)
 
-После подключения всех компонентов подсоедините ESP32 к компьютеру и следуйте инструкциям:
+After connecting all components, connect the ESP32 to the computer and follow the instructions:
 
-1. Перейдите в меню Инструменты > Плата. Найдите раздел ESP32 и выберите свою плату ESP32. В моем случае ESP32 DEVKIT V1.
-2. В меню Инструменты > Порт выберите порт, к которому подключена ESP32. Если вы не уверены в названии порта, отсоедините плату и проверьте какой порт исчез из списка
-3. Нажмите на кнопку «Загрузить».
+1. Go to the **Tools > Board** menu. Find the ESP32 section and select your ESP32 board, for example ESP32 DEVKIT V1.
+2. In the **Tools > Port** menu, select the port to which the ESP32 is connected. If you are not sure of the port name, disconnect the board and check which port has disappeared from the list.
+3. Click `Upload`.
 
-## Демонстрация
+## Demo
 
-После загрузки кода, встроенный светодиод, подключенный к GPIO 23 будет мигать с интервалом в 1 секунду.
+After uploading the code, the onboard LED connected to GPIO 23 will blink at 1 second intervals.
 
-## Возможные ошибки
+## Possible errors
 
 Failed to connect to ESP32: Timed out... Connecting...
 
-В первую очередь убедитесь, что в настройках Arduino IDE выбрана правильная плата и порт.
+First of all, make sure that the correct board and port are selected in the Arduino IDE settings.
 
-Если ошибка не исчезла, это означает, что ваша плата ESP32 не находится в режиме перепрошивки/загрузки. Для загрузки кода в такой ситуации выполните следующие шаги:
+If the error persists, it means that your ESP32 board is not in flashing/uploading mode. To upload code in this situation, follow these steps:
 
-- Зажмите кнопку “BOOT” на плате ESP32
-- После того, как вы увидите сообщение «Connecting….» в консоли Arduino IDE, отпустите палец с кнопки «BOOT»:
-- После этого вы должны увидеть сообщение «Done uploading».
+- Press and hold the “BOOT” button on the ESP32 board
+- After you see the **Connecting….** message in the Arduino IDE console, release your finger from the `BOOT` button:
+- After that, you should see the **Done uploading** message.
 
-После загрузки скетча нажмите кнопку «ENABLE» для перезагрузки ESP32.
+After uploading the sketch, press the `ENABLE` button to reboot the ESP32.
 
-Смотрите также:
-Перманентное устранение ошибки «Failed to connect to ESP32: Timed out waiting for packet header».
+## In conclusion
 
-## В завершение
-
-Мигание светодиодом — это простой проект, который поможет вам начать работать с ESP32 и узнать, как загружать прошивку в плату.
+Blinking an LED is a simple project that will help you get started with your ESP32 and learn how to upload firmware to the board.
