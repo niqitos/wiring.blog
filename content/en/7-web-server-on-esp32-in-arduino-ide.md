@@ -59,7 +59,8 @@ ESP32 имеет 3 режима работы:
 3. 2 светодиода
 4. 2 токоограничивающих резистора на 220 Ом
 5. джамперы
-   Важно: убедитесь, что ноги ESP32 расположены по разные стороны макетной платы.
+
+**Важно!**{.text-red-500} Убедитесь, что ноги ESP32 расположены по разные стороны макетной платы.
 
 Подключите анод (+) светодиодов к пинам 4 и 5 через резистор на 220 Ом, как показано на схеме ниже.
 
@@ -74,127 +75,132 @@ ESP32 имеет 3 режима работы:
 Подсоедините ESP32 к компьютеру и загрузите скетч приведенный ниже. Далее я расскажу как он работает.
 
 ```cpp
-  #include <WiFi.h>
-  #include <WebServer.h>
+#include <WiFi.h>
+#include <WebServer.h>
 
-  /* Название и пароль точки доступа */
-  const char* ssid = "ESP32";
-  const char* password = "12345678";
+/* Название и пароль точки доступа */
+const char* ssid = "ESP32";
+const char* password = "12345678";
 
-  /* Детали IP адреса */
-  IPAddress local_ip(192,168,1,1);
-  IPAddress gateway(192,168,1,1);
-  IPAddress subnet(255,255,255,0);
+/* Детали IP адреса */
+IPAddress local_ip(192, 168, 1, 1);
+IPAddress gateway(192, 168, 1, 1);
+IPAddress subnet(255, 255, 255, 0);
 
-  // объявляем объект библиотеки WebServer
-  WebServer server(80);
+// объявляем объект библиотеки WebServer
+WebServer server(80);
 
-  uint8_t LED1pin = 4;
-  bool LED1status = LOW;
+uint8_t LED1pin = 4;
+bool LED1status = LOW;
 
-  uint8_t LED2pin = 5;
-  bool LED2status = LOW;
+uint8_t LED2pin = 5;
+bool LED2status = LOW;
 
-  void setup() {
-    Serial.begin(115200);
-    pinMode(LED1pin, OUTPUT);
-    pinMode(LED2pin, OUTPUT);
+void setup() {
+  Serial.begin(115200);
+  pinMode(LED1pin, OUTPUT);
+  pinMode(LED2pin, OUTPUT);
 
-    WiFi.softAP(ssid, password);
-    WiFi.softAPConfig(local_ip, gateway, subnet);
-    delay(100);
+  WiFi.softAP(ssid, password);
+  WiFi.softAPConfig(local_ip, gateway, subnet);
+  delay(100);
 
-    server.on("/", handle_OnConnect);
-    server.on("/led1on", handle_led1on);
-    server.on("/led1off", handle_led1off);
-    server.on("/led2on", handle_led2on);
-    server.on("/led2off", handle_led2off);
-    server.onNotFound(handle_NotFound);
+  server.on("/", handle_OnConnect);
+  server.on("/led1on", handle_led1on);
+  server.on("/led1off", handle_led1off);
+  server.on("/led2on", handle_led2on);
+  server.on("/led2off", handle_led2off);
+  server.onNotFound(handle_NotFound);
 
-    server.begin();
-    Serial.println("HTTP сервер запущен");
+  server.begin();
+  Serial.println("HTTP сервер запущен");
+}
+
+void loop() {
+  server.handleClient();
+
+  if (LED1status) {
+    digitalWrite(LED1pin, HIGH);
+  } else {
+    digitalWrite(LED1pin, LOW);
   }
 
-  void loop() {
-    server.handleClient();
-    if(LED1status)
-    {digitalWrite(LED1pin, HIGH);}
-    else
-    {digitalWrite(LED1pin, LOW);}
+  if (LED2status) {
+    digitalWrite(LED2pin, HIGH);
+  } else {
+    digitalWrite(LED2pin, LOW);
+  }
+}
 
-    if(LED2status)
-    {digitalWrite(LED2pin, HIGH);}
-    else
-    {digitalWrite(LED2pin, LOW);}
+void handle_OnConnect() {
+  LED1status = LOW;
+  LED2status = LOW;
+  Serial.println("Статус GPIO4: Выкл | Статус GPIO5: Вкл");
+  server.send(200, "text/html", SendHTML(LED1status,LED2status));
+}
+
+void handle_led1on() {
+  LED1status = HIGH;
+  Serial.println("Статус GPIO4: Вкл");
+  server.send(200, "text/html", SendHTML(true,LED2status));
+}
+
+void handle_led1off() {
+  LED1status = LOW;
+  Serial.println("Статус GPIO4: Выкл");
+  server.send(200, "text/html", SendHTML(false,LED2status));
+}
+
+void handle_led2on() {
+  LED2status = HIGH;
+  Serial.println("Статус GPIO5: Вкл");
+  server.send(200, "text/html", SendHTML(LED1status,true));
+}
+
+void handle_led2off() {
+  LED2status = LOW;
+  Serial.println("Статус GPIO5: Выкл");
+  server.send(200, "text/html", SendHTML(LED1status,false));
+}
+
+void handle_NotFound() {
+  server.send(404, "text/plain", "Не найдено");
+}
+
+String SendHTML(uint8_t led1stat,uint8_t led2stat) {
+  String ptr = "<!DOCTYPE html> <html>\n";
+  ptr += "<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
+  ptr += "<title>LED Control</title>\n";
+  ptr += "<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}\n";
+  ptr += "body{margin-top: 50px;} h1 {color: #444444;margin: 50px auto 30px;} h3 {color: #444444;margin-bottom: 50px;}\n";
+  ptr += ".button {display: block;width: 80px;background-color: #3498db;border: none;color: white;padding: 13px 30px;text-decoration: none;font-size: 25px;margin: 0px auto 35px;cursor: pointer;border-radius: 4px;}\n";
+  ptr += ".button-on {background-color: #3498db;}\n";
+  ptr += ".button-on:active {background-color: #2980b9;}\n";
+  ptr += ".button-off {background-color: #34495e;}\n";
+  ptr += ".button-off:active {background-color: #2c3e50;}\n";
+  ptr += "p {font-size: 14px;color: #888;margin-bottom: 10px;}\n";
+  ptr += "</style>\n";
+  ptr += "</head>\n";
+  ptr += "<body>\n";
+  ptr += "<h1>Веб сервер ESP32</h1>\n";
+  ptr += "<h3>В режиме программной точки доступа</h3>\n";
+
+  if (led1stat) {
+    ptr += "<p>Статус LED1: Вкл</p><a class=\"button button-off\" href=\"/led1off\">OFF</a>\n";
+  } else {
+    ptr += "<p>Статус LED1: Выкл</p><a class=\"button button-on\" href=\"/led1on\">ON</a>\n";
   }
 
-  void handle_OnConnect() {
-    LED1status = LOW;
-    LED2status = LOW;
-    Serial.println("Статус GPIO4: Выкл | Статус GPIO5: Вкл");
-    server.send(200, "text/html", SendHTML(LED1status,LED2status));
+  if (led2stat) {
+    ptr += "<p>Статус LED2: Вкл</p><a class=\"button button-off\" href=\"/led2off\">OFF</a>\n";
+  } else {
+    ptr += "<p>Статус LED2: Выкл</p><a class=\"button button-on\" href=\"/led2on\">ON</a>\n";
   }
 
-  void handle_led1on() {
-    LED1status = HIGH;
-    Serial.println("Статус GPIO4: Вкл");
-    server.send(200, "text/html", SendHTML(true,LED2status));
-  }
-
-  void handle_led1off() {
-    LED1status = LOW;
-    Serial.println("Статус GPIO4: Выкл");
-    server.send(200, "text/html", SendHTML(false,LED2status));
-  }
-
-  void handle_led2on() {
-    LED2status = HIGH;
-    Serial.println("Статус GPIO5: Вкл");
-    server.send(200, "text/html", SendHTML(LED1status,true));
-  }
-
-  void handle_led2off() {
-    LED2status = LOW;
-    Serial.println("Статус GPIO5: Выкл");
-    server.send(200, "text/html", SendHTML(LED1status,false));
-  }
-
-  void handle_NotFound(){
-    server.send(404, "text/plain", "Не найдено");
-  }
-
-  String SendHTML(uint8_t led1stat,uint8_t led2stat){
-    String ptr = "<!DOCTYPE html> <html>\n";
-    ptr +="<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
-    ptr +="<title>LED Control</title>\n";
-    ptr +="<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}\n";
-    ptr +="body{margin-top: 50px;} h1 {color: #444444;margin: 50px auto 30px;} h3 {color: #444444;margin-bottom: 50px;}\n";
-    ptr +=".button {display: block;width: 80px;background-color: #3498db;border: none;color: white;padding: 13px 30px;text-decoration: none;font-size: 25px;margin: 0px auto 35px;cursor: pointer;border-radius: 4px;}\n";
-    ptr +=".button-on {background-color: #3498db;}\n";
-    ptr +=".button-on:active {background-color: #2980b9;}\n";
-    ptr +=".button-off {background-color: #34495e;}\n";
-    ptr +=".button-off:active {background-color: #2c3e50;}\n";
-    ptr +="p {font-size: 14px;color: #888;margin-bottom: 10px;}\n";
-    ptr +="</style>\n";
-    ptr +="</head>\n";
-    ptr +="<body>\n";
-    ptr +="<h1>Веб сервер ESP32</h1>\n";
-    ptr +="<h3>В режиме программной точки доступа</h3>\n";
-
-    if(led1stat)
-    {ptr +="<p>Статус LED1: Вкл</p><a class=\"button button-off\" href=\"/led1off\">OFF</a>\n";}
-    else
-    {ptr +="<p>Статус LED1: Выкл</p><a class=\"button button-on\" href=\"/led1on\">ON</a>\n";}
-
-    if(led2stat)
-    {ptr +="<p>Статус LED2: Вкл</p><a class=\"button button-off\" href=\"/led2off\">OFF</a>\n";}
-    else
-    {ptr +="<p>Статус LED2: Выкл</p><a class=\"button button-on\" href=\"/led2on\">ON</a>\n";}
-
-    ptr +="</body>\n";
-    ptr +="</html>\n";
-    return ptr;
-  }
+  ptr += "</body>\n";
+  ptr += "</html>\n";
+  return ptr;
+}
 ```
 
 ## Доступ к веб серверу в режиме программной точки доступа
@@ -226,9 +232,9 @@ const char* ssid = "ESP32";
 const char* password = "12345678";
 
 /* Детали IP адреса */
-IPAddress local_ip(192,168,1,1);
-IPAddress gateway(192,168,1,1);
-IPAddress subnet(255,255,255,0);
+IPAddress local_ip(192, 168, 1, 1);
+IPAddress gateway(192, 168, 1, 1);
+IPAddress subnet(255, 255, 255, 0);
 ```
 
 Далее объявляем объект библиотеки WebServer, чтобы получить доступ к ее функциям. Конструктор этого объекта принимает порт в качестве параметра. Портом по умолчанию для HTTP протокола — 80. Теперь подключится к серверу можно без указания порта в URL.
@@ -270,9 +276,9 @@ delay(100);
 
 Чтобы обрабатывать входящие HTTP-запросы, нам нужно указать, какой код выполнять при запросе по определенному URL. Для этого мы используем метод on объекта server. Этот метод принимает два параметра: URL-адрес запроса и имя функции, которую мы хотим выполнить при запросе по этому URL.
 
-For example, the first line of below code snippet indicates that when a server receives an HTTP request on the root (/) path, it will trigger the handle\_OnConnect() function. Note that the URL specified is a relative path.
+For example, the first line of below code snippet indicates that when a server receives an HTTP request on the root (/) path, it will trigger the handle_OnConnect() function. Note that the URL specified is a relative path.
 
-Например, первая строка приведенного ниже фрагмента кода указывает, что когда сервер получает HTTP-запрос по корневому пути (/), он запускает функцию handle\_OnConnect(). Обратите внимание, что указанный URL-адрес является относительным путем.
+Например, первая строка приведенного ниже фрагмента кода указывает, что когда сервер получает HTTP-запрос по корневому пути (/), он запускает функцию handle_OnConnect(). Обратите внимание, что указанный URL-адрес является относительным путем.
 
 ```cpp
 server.on("/", handle_OnConnect);
@@ -322,7 +328,7 @@ void loop() {
 }
 ```
 
-Далее создаем функцию handle\_OnConnect(), которую мы привязали к корневому URL `/` с помощью `server.on`. В начале этой функции установим изначальное состояние обоих светодиодов как LOW (выключены) и выведем состояние в монитор серийного порта. Чтобы ответить на HTTP-запрос, используется метод send(), которому передается код HTTP-ответа, тип контента и сам контент.
+Далее создаем функцию handle_OnConnect(), которую мы привязали к корневому URL `/` с помощью `server.on`. В начале этой функции установим изначальное состояние обоих светодиодов как LOW (выключены) и выведем состояние в монитор серийного порта. Чтобы ответить на HTTP-запрос, используется метод send(), которому передается код HTTP-ответа, тип контента и сам контент.
 
 В нашем случае мы отправляем код 200 (один из кодов состояния HTTP), который соответствует ответу OK. Затем указываем тип содержимого «text/html» и вызываем пользовательскую функцию SendHTML(), которая создает динамическую HTML-страницу, и передаем ей состояние светодиодов в качестве параметров.
 
@@ -362,7 +368,7 @@ void handle_led2off() {
   server.send(200, "text/html", SendHTML(LED1status,false));
 }
 
-void handle_NotFound(){
+void handle_NotFound() {
   server.send(404, "text/plain", "Not found");
 }
 ```
@@ -374,20 +380,20 @@ void handle_NotFound(){
 Вначале HTML документа всегда должен стоять — элемент который указывает, что мы отправляем HTML-код.
 
 ```cpp
-String SendHTML(uint8_t led1stat,uint8_t led2stat){
+String SendHTML(uint8_t led1stat,uint8_t led2stat) {
 String ptr = "<!DOCTYPE html> <html>\n";
 ```
 
 Элемент `viewport` делает веб-страницу отзывчивой в любом веб-браузере.
 
 ```cpp
-ptr +="<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
+ptr += "<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
 ```
 
 Тег
 
 ```cpp
-ptr +="<title>LED Control</title>\n";
+ptr += "<title>LED Control</title>\n";
 ```
 
 ## Стилизация веб-страницы
@@ -395,24 +401,24 @@ ptr +="<title>LED Control</title>\n";
 Добавим CSS для стилизации кнопок и внешнего вида веб-страницы. Шрифт Helvetica, отображение содержимого в виде встроенного блока и выровняем по центру.
 
 ```cpp
-ptr +="<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}\n";
+ptr += "<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}\n";
 ```
 
 Далее задаем цвет, размер шрифт и отступы для тегов `body`, `h1`, `h3` и `p`.
 
 ```cpp
-ptr +="body{margin-top: 50px;} h1 {color: #444444;margin: 50px auto 30px;} h3 {color: #444444;margin-bottom: 50px;}\n";
-ptr +="p {font-size: 14px;color: #888;margin-bottom: 10px;}\n";
+ptr += "body{margin-top: 50px;} h1 {color: #444444;margin: 50px auto 30px;} h3 {color: #444444;margin-bottom: 50px;}\n";
+ptr += "p {font-size: 14px;color: #888;margin-bottom: 10px;}\n";
 ```
 
 Стилизуем цвет, размер, отступы и границы кнопок. Кнопки ВКЛ и ВЫКЛ должны быть разного цвета, а селектор :active создаст эффект нажатия.
 
 ```cpp
-ptr +=".button {display: block;width: 80px;background-color: #3498db;border: none;color: white;padding: 13px 30px;text-decoration: none;font-size: 25px;margin: 0px auto 35px;cursor: pointer;border-radius: 4px;}\n";
-ptr +=".button-on {background-color: #3498db;}\n";
-ptr +=".button-on:active {background-color: #2980b9;}\n";
-ptr +=".button-off {background-color: #34495e;}\n";
-ptr +=".button-off:active {background-color: #2c3e50;}\n";
+ptr += ".button {display: block;width: 80px;background-color: #3498db;border: none;color: white;padding: 13px 30px;text-decoration: none;font-size: 25px;margin: 0px auto 35px;cursor: pointer;border-radius: 4px;}\n";
+ptr += ".button-on {background-color: #3498db;}\n";
+ptr += ".button-on:active {background-color: #2980b9;}\n";
+ptr += ".button-off {background-color: #34495e;}\n";
+ptr += ".button-off:active {background-color: #2c3e50;}\n";
 ```
 
 ## Заголовок веб-страницы
@@ -420,8 +426,8 @@ ptr +=".button-off:active {background-color: #2c3e50;}\n";
 Далее выведем заголовок веб-страницы. Вы можете изменить этот текст под вашего приложение.
 
 ```cpp
-ptr +="<h1>ESP32 Web Server</h1>\n";
-ptr +="<h3>Using Access Point(AP) Mode</h3>\n";
+ptr += "<h1>ESP32 Web Server</h1>\n";
+ptr += "<h3>Using Access Point(AP) Mode</h3>\n";
 ```
 
 ## Отображение кнопок и соответствующего состояния
@@ -430,15 +436,15 @@ ptr +="<h3>Using Access Point(AP) Mode</h3>\n";
 
 ```cpp
 if (led1stat) {
-  ptr +="<p>Статус светодиода 1: Вкл</p><a class=\"button button-off\" href=\"/led1off\">Выкл</a>\n";
+  ptr += "<p>Статус светодиода 1: Вкл</p><a class=\"button button-off\" href=\"/led1off\">Выкл</a>\n";
 } else {
-  ptr +="<p>Статус светодиода 1: Выкл</p><a class=\"button button-on\" href=\"/led1on\">Вкл</a>\n";
+  ptr += "<p>Статус светодиода 1: Выкл</p><a class=\"button button-on\" href=\"/led1on\">Вкл</a>\n";
 }
 
 if (led2stat) {
-  ptr +="<p>Статус светодиода 2: Вкл</p><a class=\"button button-off\" href=\"/led2off\">Выкл</a>\n";
+  ptr += "<p>Статус светодиода 2: Вкл</p><a class=\"button button-off\" href=\"/led2off\">Выкл</a>\n";
 } else {
-  ptr +="<p>Статус светодиода 2: Выкл</p><a class=\"button button-on\" href=\"/led2on\">Вкл</a>\n";
+  ptr += "<p>Статус светодиода 2: Выкл</p><a class=\"button button-on\" href=\"/led2on\">Вкл</a>\n";
 }
 ```
 
@@ -480,9 +486,10 @@ void setup() {
 
   //check wi-fi is connected to wi-fi network
   while (WiFi.status() != WL_CONNECTED) {
-  delay(1000);
-  Serial.print(".");
+    delay(1000);
+    Serial.print(".");
   }
+
   Serial.println("");
   Serial.println("WiFi connected..!");
   Serial.print("Got IP: ");  Serial.println(WiFi.localIP());
@@ -497,84 +504,90 @@ void setup() {
   server.begin();
   Serial.println("HTTP server started");
 }
+
 void loop() {
   server.handleClient();
-  if(LED1status)
-  {digitalWrite(LED1pin, HIGH);}
-  else
-  {digitalWrite(LED1pin, LOW);}
 
-  if(LED2status)
-  {digitalWrite(LED2pin, HIGH);}
-  else
-  {digitalWrite(LED2pin, LOW);}
+  if (LED1status) {
+    digitalWrite(LED1pin, HIGH);
+  } else {
+    digitalWrite(LED1pin, LOW);
+  }
+
+  if (LED2status) {
+    digitalWrite(LED2pin, HIGH);
+  } else {
+    digitalWrite(LED2pin, LOW);
+  }
 }
 
-void handle_OnConnect() {
+void handle_OnConnect () {
   LED1status = LOW;
   LED2status = LOW;
   Serial.println("GPIO4 Status: OFF | GPIO5 Status: OFF");
   server.send(200, "text/html", SendHTML(LED1status,LED2status));
 }
 
-void handle_led1on() {
+void handle_led1on () {
   LED1status = HIGH;
   Serial.println("GPIO4 Status: ON");
   server.send(200, "text/html", SendHTML(true,LED2status));
 }
 
-void handle_led1off() {
+void handle_led1off () {
   LED1status = LOW;
   Serial.println("GPIO4 Status: OFF");
   server.send(200, "text/html", SendHTML(false,LED2status));
 }
 
-void handle_led2on() {
+void handle_led2on () {
   LED2status = HIGH;
   Serial.println("GPIO5 Status: ON");
   server.send(200, "text/html", SendHTML(LED1status,true));
 }
 
-void handle_led2off() {
+void handle_led2off () {
   LED2status = LOW;
   Serial.println("GPIO5 Status: OFF");
   server.send(200, "text/html", SendHTML(LED1status,false));
 }
 
-void handle_NotFound(){
+void handle_NotFound () {
   server.send(404, "text/plain", "Not found");
 }
 
-String SendHTML(uint8_t led1stat,uint8_t led2stat){
+String SendHTML (uint8_t led1stat,uint8_t led2stat) {
   String ptr = "<!DOCTYPE html> <html>\n";
-  ptr +="<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
-  ptr +="<title>LED Control</title>\n";
-  ptr +="<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}\n";
-  ptr +="body{margin-top: 50px;} h1 {color: #444444;margin: 50px auto 30px;} h3 {color: #444444;margin-bottom: 50px;}\n";
-  ptr +=".button {display: block;width: 80px;background-color: #3498db;border: none;color: white;padding: 13px 30px;text-decoration: none;font-size: 25px;margin: 0px auto 35px;cursor: pointer;border-radius: 4px;}\n";
-  ptr +=".button-on {background-color: #3498db;}\n";
-  ptr +=".button-on:active {background-color: #2980b9;}\n";
-  ptr +=".button-off {background-color: #34495e;}\n";
-  ptr +=".button-off:active {background-color: #2c3e50;}\n";
-  ptr +="p {font-size: 14px;color: #888;margin-bottom: 10px;}\n";
-  ptr +="</style>\n";
-  ptr +="</head>\n";
-  ptr +="<body>\n";
-  ptr +="<h1>ESP32 Web Server</h1>\n";
-    ptr +="<h3>Using Station(STA) Mode</h3>\n";
+  ptr += "<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
+  ptr += "<title>LED Control</title>\n";
+  ptr += "<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}\n";
+  ptr += "body{margin-top: 50px;} h1 {color: #444444;margin: 50px auto 30px;} h3 {color: #444444;margin-bottom: 50px;}\n";
+  ptr += ".button {display: block;width: 80px;background-color: #3498db;border: none;color: white;padding: 13px 30px;text-decoration: none;font-size: 25px;margin: 0px auto 35px;cursor: pointer;border-radius: 4px;}\n";
+  ptr += " .button-on {background-color: #3498db;}\n";
+  ptr += ".button-on:active {background-color: #2980b9;}\n";
+  ptr += ".button-off {background-color: #34495e;}\n";
+  ptr += ".button-off:active {background-color: #2c3e50;}\n";
+  ptr += "p {font-size: 14px;color: #888;margin-bottom: 10px;}\n";
+  ptr += "</style>\n";
+  ptr += "</head>\n";
+  ptr += "<body>\n";
+  ptr += "<h1>ESP32 Web Server</h1>\n";
+  ptr += "<h3>Using Station(STA) Mode</h3>\n";
 
-   if(led1stat)
-  {ptr +="<p>LED1 Status: ON</p><a class=\"button button-off\" href=\"/led1off\">OFF</a>\n";}
-  else
-  {ptr +="<p>LED1 Status: OFF</p><a class=\"button button-on\" href=\"/led1on\">ON</a>\n";}
+  if (led1stat) {
+    ptr += "<p>LED1 Status: ON</p><a class=\"button button-off\" href=\"/led1off\">OFF</a>\n";
+  } else {
+    ptr += "<p>LED1 Status: OFF</p><a class=\"button button-on\" href=\"/led1on\">ON</a>\n";
+  }
 
-  if(led2stat)
-  {ptr +="<p>LED2 Status: ON</p><a class=\"button button-off\" href=\"/led2off\">OFF</a>\n";}
-  else
-  {ptr +="<p>LED2 Status: OFF</p><a class=\"button button-on\" href=\"/led2on\">ON</a>\n";}
+  if (led2stat) {
+    ptr += "<p>LED2 Status: ON</p><a class=\"button button-off\" href=\"/led2off\">OFF</a>\n";
+  } else {
+    ptr += "<p>LED2 Status: OFF</p><a class=\"button button-on\" href=\"/led2on\">ON</a>\n";
+  }
 
-  ptr +="</body>\n";
-  ptr +="</html>\n";
+  ptr += "</body>\n";
+  ptr += "</html>\n";
   return ptr;
 }
 ```
@@ -611,29 +624,30 @@ while (WiFi.status() != WL_CONNECTED)
 
 Для вашей информации эта функция возвращает следующие статусы:
 
-- WL\_CONNECTED: assigned when connected to a Wi-Fi network
-- WL\_NO\_SHIELD: assigned when no Wi-Fi shield is present
-- WL\_IDLE\_STATUS: a temporary status assigned when WiFi.begin() is called and remains active until the number of attempts expires (resulting in WL\_CONNECT\_FAILED) or a connection is established (resulting in WL\_CONNECTED)
-- WL\_NO\_SSID\_AVAIL: assigned when no SSID are available
-- WL\_SCAN\_COMPLETED: assigned when the scan networks is completed
-- WL\_CONNECT\_FAILED: assigned when the connection fails for all the attempts
-- WL\_CONNECTION\_LOST: assigned when the connection is lost
-- WL\_DISCONNECTED: assigned when disconnected from a network
-- WL\_CONNECTED: назначается при подключении к сети Wi-Fi
-- WL\_NO\_SHIELD: назначается, когда нет экрана Wi-Fi
-- WL\_IDLE\_STATUS: временное состояние, назначаемое при вызове WiFi.begin (), и остается активным до истечения количества попыток (в результате WL\_CONNECT\_FAILED) или до установления соединения (в результате WL\_CONNECTED)
-- WL\_NO\_SSID\_AVAIL: назначается, когда нет доступных SSID
-- WL\_SCAN\_COMPLETED: назначается, когда сканирование сетей завершено
-- WL\_CONNECT\_FAILED: назначается при сбое подключения для всех попыток
-- WL\_CONNECTION\_LOST: назначается при потере соединения
-- WL\_DISCONNECTED: назначается при отключении от сети
+- WL_CONNECTED: assigned when connected to a Wi-Fi network
+- WL_NO_SHIELD: assigned when no Wi-Fi shield is present
+- WL_IDLE_STATUS: a temporary status assigned when WiFi.begin() is called and remains active until the number of attempts expires (resulting in WL_CONNECT_FAILED) or a connection is established (resulting in WL_CONNECTED)
+- WL_NO_SSID_AVAIL: assigned when no SSID are available
+- WL_SCAN_COMPLETED: assigned when the scan networks is completed
+- WL_CONNECT_FAILED: assigned when the connection fails for all the attempts
+- WL_CONNECTION_LOST: assigned when the connection is lost
+- WL_DISCONNECTED: assigned when disconnected from a network
+- WL_CONNECTED: назначается при подключении к сети Wi-Fi
+- WL_NO_SHIELD: назначается, когда нет экрана Wi-Fi
+- WL_IDLE_STATUS: временное состояние, назначаемое при вызове WiFi.begin (), и остается активным до истечения количества попыток (в результате WL_CONNECT_FAILED) или до установления соединения (в результате WL_CONNECTED)
+- WL_NO_SSID_AVAIL: назначается, когда нет доступных SSID
+- WL_SCAN_COMPLETED: назначается, когда сканирование сетей завершено
+- WL_CONNECT_FAILED: назначается при сбое подключения для всех попыток
+- WL_CONNECTION_LOST: назначается при потере соединения
+- WL_DISCONNECTED: назначается при отключении от сети
 
 Как только ESP32 подключен к сети, эскиз распечатывает IP-адрес, назначенный для ESP32, отображая значение WiFi.localIP () на последовательном мониторе.
 
 ```cpp
 Serial.println("");
 Serial.println("WiFi connected..!");
-Serial.print("Got IP: ");  Serial.println(WiFi.localIP());
+Serial.print("Got IP: ");
+Serial.println(WiFi.localIP());
 ```
 
 Единственная разница между режимами AP и STA состоит в том, что один создает сеть, а другой присоединяется к существующей сети. Итак, остальная часть кода для обработки HTTP-запросов и обслуживания веб-страницы в режиме STA такая же, как и в режиме AP, описанном выше. Это включает:
