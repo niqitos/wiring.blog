@@ -87,7 +87,7 @@ IPAddress local_ip(192, 168, 1, 1);
 IPAddress gateway(192, 168, 1, 1);
 IPAddress subnet(255, 255, 255, 0);
 
-// объявляем объект библиотеки WebServer
+/* Объявляем объект библиотеки WebServer */
 WebServer server(80);
 
 uint8_t LED1pin = 4;
@@ -96,7 +96,7 @@ bool LED1status = LOW;
 uint8_t LED2pin = 5;
 bool LED2status = LOW;
 
-void setup() {
+void setup () {
   Serial.begin(115200);
   pinMode(LED1pin, OUTPUT);
   pinMode(LED2pin, OUTPUT);
@@ -116,7 +116,7 @@ void setup() {
   Serial.println("HTTP сервер запущен");
 }
 
-void loop() {
+void loop () {
   server.handleClient();
 
   if (LED1status) {
@@ -132,42 +132,42 @@ void loop() {
   }
 }
 
-void handle_OnConnect() {
+void handle_OnConnect () {
   LED1status = LOW;
   LED2status = LOW;
   Serial.println("Статус GPIO4: Выкл | Статус GPIO5: Вкл");
   server.send(200, "text/html", SendHTML(LED1status,LED2status));
 }
 
-void handle_led1on() {
+void handle_led1on () {
   LED1status = HIGH;
   Serial.println("Статус GPIO4: Вкл");
   server.send(200, "text/html", SendHTML(true,LED2status));
 }
 
-void handle_led1off() {
+void handle_led1off () {
   LED1status = LOW;
   Serial.println("Статус GPIO4: Выкл");
   server.send(200, "text/html", SendHTML(false,LED2status));
 }
 
-void handle_led2on() {
+void handle_led2on () {
   LED2status = HIGH;
   Serial.println("Статус GPIO5: Вкл");
   server.send(200, "text/html", SendHTML(LED1status,true));
 }
 
-void handle_led2off() {
+void handle_led2off () {
   LED2status = LOW;
   Serial.println("Статус GPIO5: Выкл");
   server.send(200, "text/html", SendHTML(LED1status,false));
 }
 
-void handle_NotFound() {
+void handle_NotFound () {
   server.send(404, "text/plain", "Не найдено");
 }
 
-String SendHTML(uint8_t led1stat,uint8_t led2stat) {
+String SendHTML (uint8_t led1stat, uint8_t led2stat) {
   String ptr = "<!DOCTYPE html> <html>\n";
   ptr += "<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
   ptr += "<title>LED Control</title>\n";
@@ -311,7 +311,7 @@ Serial.println("HTTP server started");
 Для обработки входящих HTTP-запросов используется метод handleClient() объекта server. После получения запроса проверяем изменение состояния светодиодов.
 
 ```cpp
-void loop() {
+void loop () {
   server.handleClient();
 
   if (LED1status) {
@@ -333,7 +333,7 @@ void loop() {
 В нашем случае мы отправляем код 200 (один из кодов состояния HTTP), который соответствует ответу OK. Затем указываем тип содержимого «text/html» и вызываем пользовательскую функцию SendHTML(), которая создает динамическую HTML-страницу, и передаем ей состояние светодиодов в качестве параметров.
 
 ```cpp
-void handle_OnConnect() {
+void handle_OnConnect () {
   LED1status = LOW;
   LED2status = LOW;
   Serial.println("GPIO4 Status: OFF | GPIO5 Status: OFF");
@@ -344,31 +344,31 @@ void handle_OnConnect() {
 Аналогично, создаем четыре функции для обработки запросов на включение/выключение светодиодов, а так же страницу ошибки 404.
 
 ```cpp
-void handle_led1on() {
+void handle_led1on () {
   LED1status = HIGH;
   Serial.println("GPIO4 Status: ON");
   server.send(200, "text/html", SendHTML(true,LED2status));
 }
 
-void handle_led1off() {
+void handle_led1off () {
   LED1status = LOW;
   Serial.println("GPIO4 Status: OFF");
   server.send(200, "text/html", SendHTML(false,LED2status));
 }
 
-void handle_led2on() {
+void handle_led2on () {
   LED2status = HIGH;
   Serial.println("GPIO5 Status: ON");
   server.send(200, "text/html", SendHTML(LED1status,true));
 }
 
-void handle_led2off() {
+void handle_led2off () {
   LED2status = LOW;
   Serial.println("GPIO5 Status: OFF");
   server.send(200, "text/html", SendHTML(LED1status,false));
 }
 
-void handle_NotFound() {
+void handle_NotFound () {
   server.send(404, "text/plain", "Not found");
 }
 ```
@@ -380,7 +380,7 @@ void handle_NotFound() {
 Вначале HTML документа всегда должен стоять — элемент который указывает, что мы отправляем HTML-код.
 
 ```cpp
-String SendHTML(uint8_t led1stat,uint8_t led2stat) {
+String SendHTML (uint8_t led1stat,uint8_t led2stat) {
 String ptr = "<!DOCTYPE html> <html>\n";
 ```
 
@@ -505,7 +505,7 @@ void setup() {
   Serial.println("HTTP server started");
 }
 
-void loop() {
+void loop () {
   server.handleClient();
 
   if (LED1status) {
