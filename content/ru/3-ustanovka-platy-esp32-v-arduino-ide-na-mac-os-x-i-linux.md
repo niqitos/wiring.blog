@@ -30,9 +30,11 @@ sitemap: true
 
 1. Откройте окно настроек в Arduino IDE перейдя в *Файл > Настройки*
 2. В поле **«Additional Board Manager URLs»** введите следующее:
+
 ```text
   https://dl.espressif.com/dl/package_esp32_index.json
 ```
+
 3. Нажмите **«ОК»**:
 
 Если у вас уже есть URL-адрес плат ESP8266, вы указать их через запятую: `https://dl.espressif.com/dl/package_esp32_index.json, http://arduino.esp8266.com/stable/package_esp8266com_index.json`
