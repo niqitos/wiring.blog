@@ -7,14 +7,14 @@ tags:
   - Arduino
   - ESP32
 title: ESP32 pinout
-description: ESP32 — популярный микроконтроллер с встроенным Wi-Fi и Bluetooth,
-  используемый в IoT-проектах. Для успешной работы с платой важно понимать
-  назначение её контактов.
+description: ESP32 is a popular microcontroller with built-in Wi-Fi and Bluetooth,
+  used in IoT projects. To successfully work with the board, it is important
+  to understand the purpose of its contacts.
 seo:
   title: ESP32 pinout
-  description: ESP32 — популярный микроконтроллер с встроенным Wi-Fi и Bluetooth,
-    используемый в IoT-проектах. Для успешной работы с платой важно понимать
-    назначение её контактов.
+  description: ESP32 is a popular microcontroller with built-in Wi-Fi and Bluetooth,
+    used in IoT projects. To successfully work with the board, it is important
+    to understand the purpose of its contacts.
 published: true
 date: 2025-09-04T00:00:00.000Z
 sitemap: true

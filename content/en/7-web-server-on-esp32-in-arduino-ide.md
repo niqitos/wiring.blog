@@ -7,16 +7,16 @@ tags:
   - Arduino
   - ESP32
 title: Web server on ESP32 in Arduino IDE
-description: Веб-сервер — это программа, которая принимает и обрабатывает
-  запросы от пользователя через веб-клиент. Веб-клиентом может выступать обычный
-  веб браузер на ноутбуке или смартфоне.  Связь между клиентом и сервером
-  осуществляется по протоколу HTTP.
+description: A web server is a program that receives and processes requests
+  from a user through a web client. A web client can be a regular web browser
+  on a laptop or smartphone. Communication between the client and the server
+  is carried out via the HTTP protocol.
 seo:
   title: Web server on ESP32 in Arduino IDE
-  description: Веб-сервер — это программа, которая принимает и обрабатывает
-    запросы от пользователя через веб-клиент. Веб-клиентом может выступать
-    обычный веб браузер на ноутбуке или смартфоне.  Связь между клиентом и
-    сервером осуществляется по протоколу HTTP.
+  description: A web server is a program that receives and processes requests
+    from a user through a web client. A web client can be a regular web browser
+    on a laptop or smartphone. Communication between the client and the server
+    is carried out via the HTTP protocol.
 published: true
 date: 2025-09-07T00:00:00.000Z
 sitemap: true

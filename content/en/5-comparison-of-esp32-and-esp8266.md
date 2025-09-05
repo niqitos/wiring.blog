@@ -7,12 +7,12 @@ tags:
   - Arduino
   - ESP32
 title: Comparison of ESP32 and ESP8266
-description: ESP32 и ESP8266 — это недорогие модули с поддержкой Wi-Fi, которые
-  подходят для проектов в области интернета вещей (IoT).
+description: ESP32 and ESP8266 are low-cost Wi-Fi enabled modules suitable
+  for Internet of Things (IoT) projects.
 seo:
   title: Comparison of ESP32 and ESP8266
-  description: ESP32 и ESP8266 — это недорогие модули с поддержкой Wi-Fi, которые
-    подходят для проектов в области интернета вещей (IoT).
+  description: ESP32 and ESP8266 are low-cost Wi-Fi enabled modules suitable
+    for Internet of Things (IoT) projects.
 published: true
 date: 2025-09-05T00:00:00.000Z
 sitemap: true
