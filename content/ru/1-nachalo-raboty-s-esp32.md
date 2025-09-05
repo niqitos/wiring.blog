@@ -22,7 +22,11 @@ seo:
     - uk: 1-pochatok-roboty-z-esp32
 published: true
 date: 2025-09-01T00:00:00.000Z
-sitemap: true
+sitemap:
+  videos: []
+  images: []
+navigation:
+  title: Начало работы с ESP32
 ---
 
 ## ESP32 DEVKIT V1

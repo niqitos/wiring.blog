@@ -8,21 +8,25 @@ tags:
   - ESP32
 title: Getting Started with ESP32
 description: This article is intended for those who are just getting started
-  with the ESP32 development board. If you are familiar with the ESP8266,
-  the ESP32 is its improved version. The board combines Wi-Fi and Bluetooth
-  wireless capabilities with a dual-core processor.
+  with the ESP32 development board. If you are familiar with the ESP8266, the
+  ESP32 is its improved version. The board combines Wi-Fi and Bluetooth wireless
+  capabilities with a dual-core processor.
 seo:
   title: Getting Started with ESP32
   description: This article is intended for those who are just getting started
-    with the ESP32 development board. If you are familiar with the ESP8266,
-    the ESP32 is its improved version. The board combines Wi-Fi and Bluetooth
+    with the ESP32 development board. If you are familiar with the ESP8266, the
+    ESP32 is its improved version. The board combines Wi-Fi and Bluetooth
     wireless capabilities with a dual-core processor.
   alternate:
     - ru: 1-nachalo-raboty-s-esp32
     - uk: 1-pochatok-roboty-z-esp32
 published: true
 date: 2025-09-01T00:00:00.000Z
-sitemap: true
+sitemap:
+  videos: []
+  images: []
+navigation:
+  title: Getting Started with ESP32
 ---
 
 ## ESP32 DEVKIT V1

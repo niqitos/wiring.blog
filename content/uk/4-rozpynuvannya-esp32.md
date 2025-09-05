@@ -13,11 +13,15 @@ description: ESP32 — популярний мікроконтролер із в
 seo:
   title: Розпінування ESP32
   description: ESP32 — популярний мікроконтролер із вбудованим Wi-Fi та Bluetooth,
-    використовується в IoT-проектах. Для успішної роботи з платою важливо розуміти
-    призначення її контактів.
+    використовується в IoT-проектах. Для успішної роботи з платою важливо
+    розуміти призначення її контактів.
 published: true
 date: 2025-09-04T00:00:00.000Z
-sitemap: true
+sitemap:
+  videos: []
+  images: []
+navigation:
+  title: Розпінування ESP32
 ---
 
 Чип ESP32 оснащен 48 мульти функциональными контактами. Не все контакты доступны на всех платах разработки ESP32 и некоторые контакты нельзя использовать.
@@ -120,24 +124,24 @@ ESP32 оборудована 10 ёмкостными сенсорами каса
 
 ESP32 имеет 18 входных 12-битных каналов АЦП (тогда как ESP8266 имеет только 1 10-битный АЦП). Ниже перечислены GPIO, которые можно использовать в качестве АЦП, и соответствующие каналы:
 
-- ADC1_CH0 (GPIO 36)
-- ADC1_CH1 (GPIO 37)
-- ADC1_CH2 (GPIO 38)
-- ADC1_CH3 (GPIO 39)
-- ADC1_CH4 (GPIO 32)
-- ADC1_CH5 (GPIO 33)
-- ADC1_CH6 (GPIO 34)
-- ADC1_CH7 (GPIO 35)
-- ADC2_CH0 (GPIO 4)
-- ADC2_CH1 (GPIO 0)
-- ADC2_CH2 (GPIO 2)
-- ADC2_CH3 (GPIO 15)
-- ADC2_CH4 (GPIO 13)
-- ADC2_CH5 (GPIO 12)
-- ADC2_CH6 (GPIO 14)
-- ADC2_CH7 (GPIO 27)
-- ADC2_CH8 (GPIO 25)
-- ADC2_CH9 (GPIO 26)
+- ADC1\_CH0 (GPIO 36)
+- ADC1\_CH1 (GPIO 37)
+- ADC1\_CH2 (GPIO 38)
+- ADC1\_CH3 (GPIO 39)
+- ADC1\_CH4 (GPIO 32)
+- ADC1\_CH5 (GPIO 33)
+- ADC1\_CH6 (GPIO 34)
+- ADC1\_CH7 (GPIO 35)
+- ADC2\_CH0 (GPIO 4)
+- ADC2\_CH1 (GPIO 0)
+- ADC2\_CH2 (GPIO 2)
+- ADC2\_CH3 (GPIO 15)
+- ADC2\_CH4 (GPIO 13)
+- ADC2\_CH5 (GPIO 12)
+- ADC2\_CH6 (GPIO 14)
+- ADC2\_CH7 (GPIO 27)
+- ADC2\_CH8 (GPIO 25)
+- ADC2\_CH9 (GPIO 26)
 
 Примечание: контакты АЦП2 нельзя использовать при использовании Wi-Fi. Поэтому, если вы используете Wi-Fi и у вас возникают проблемы с получением значения с выхода АЦП2 GPIO, попробуйте использовать вместо него выход АЦП1 GPIO — это должно решить проблему.
 
@@ -156,22 +160,22 @@ ESP32 имеет 18 входных 12-битных каналов АЦП (тог
 
 ESP32 поддерживает RTC GPIO. Выводы GPIO, подключенные к подсистеме RTC с низким энергопотреблением, могут использоваться, когда ESP32 находится в режиме глубокого сна. Эти RTC GPIO можно использовать для вывода ESP32 из режима глубокого сна при работе сопроцессора с ультранизким энергопотреблением (ULP). Следующие выводы GPIO можно использовать в качестве внешнего источника пробуждения:
 
-- RTC_GPIO0 (GPIO36)
-- RTC_GPIO3 (GPIO39)
-- RTC_GPIO4 (GPIO34)
-- RTC_GPIO5 (GPIO35)
-- RTC_GPIO6 (GPIO25)
-- RTC_GPIO7 (GPIO26)
-- RTC_GPIO8 (GPIO33)
-- RTC_GPIO9 (GPIO32)
-- RTC_GPIO10 (GPIO4)
-- RTC_GPIO11 (GPIO0)
-- RTC_GPIO12 (GPIO2)
-- RTC_GPIO13 (GPIO15)
-- RTC_GPIO14 (GPIO13)
-- RTC_GPIO15 (GPIO12)
-- RTC_GPIO16 (GPIO14)
-- RTC_GPIO17 (GPIO27)
+- RTC\_GPIO0 (GPIO36)
+- RTC\_GPIO3 (GPIO39)
+- RTC\_GPIO4 (GPIO34)
+- RTC\_GPIO5 (GPIO35)
+- RTC\_GPIO6 (GPIO25)
+- RTC\_GPIO7 (GPIO26)
+- RTC\_GPIO8 (GPIO33)
+- RTC\_GPIO9 (GPIO32)
+- RTC\_GPIO10 (GPIO4)
+- RTC\_GPIO11 (GPIO0)
+- RTC\_GPIO12 (GPIO2)
+- RTC\_GPIO13 (GPIO15)
+- RTC\_GPIO14 (GPIO13)
+- RTC\_GPIO15 (GPIO12)
+- RTC\_GPIO16 (GPIO14)
+- RTC\_GPIO17 (GPIO27)
 
 ## Широтно-импульсная модуляция (ШИМ)
 

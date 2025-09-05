@@ -7,15 +7,19 @@ tags:
   - Arduino
   - ESP32
 title: Comparison of ESP32 and ESP8266
-description: ESP32 and ESP8266 are low-cost Wi-Fi enabled modules suitable
-  for Internet of Things (IoT) projects.
+description: ESP32 and ESP8266 are low-cost Wi-Fi enabled modules suitable for
+  Internet of Things (IoT) projects.
 seo:
   title: Comparison of ESP32 and ESP8266
-  description: ESP32 and ESP8266 are low-cost Wi-Fi enabled modules suitable
-    for Internet of Things (IoT) projects.
+  description: ESP32 and ESP8266 are low-cost Wi-Fi enabled modules suitable for
+    Internet of Things (IoT) projects.
 published: true
 date: 2025-09-05T00:00:00.000Z
-sitemap: true
+sitemap:
+  videos: []
+  images: []
+navigation:
+  title: Comparison of ESP32 and ESP8266
 ---
 
 Оба чипа оснащены 32-битным процессором. ESP32 оснащен двухъядерным процессом с частотой от 160 до 240 МГц, а ESP8266 — одноядерным, работающим на частоте 80 МГц. Оба модуля поддерживают широкий спектр протоколов, таких как SPI, I2C, UART и другие.

@@ -17,7 +17,11 @@ seo:
     инструкции.
 published: true
 date: 2025-09-02T00:00:00.000Z
-sitemap: true
+sitemap:
+  videos: []
+  images: []
+navigation:
+  title: Установка Платы ESP32 В Arduino IDE На Windows
 ---
 
 ## Установка Arduino IDE
@@ -29,7 +33,7 @@ sitemap: true
 Чтобы установить плату ESP32 в IDE Arduino, выполните следующие действия:
 
 1. Откройте окно настроек в Arduino IDE перейдя в *Файл > Настройки*
-2. Введите `https://dl.espressif.com/dl/package_esp32_index.json&#x60; в поле **«Additional Board Manager URLs»**, как показано на рисунке ниже. Затем нажмите кнопку **«ОК»**:
+2. Введите \`<<https://dl.espressif.com/dl/package_esp32_index.json&#x60&#x3E&#x3E;;; в поле **«Additional Board Manager URLs»**, как показано на рисунке ниже. Затем нажмите кнопку **«ОК»**:
 
 Если у вас уже есть URL-адрес плат ESP8266, вы указать их через запятую: `https://dl.espressif.com/dl/package_esp32_index.json, http://arduino.esp8266.com/stable/package_esp8266com_index.json`
 
@@ -53,4 +57,4 @@ sitemap: true
 
 ## В завершение
 
-Это простое руководство, которое иллюстрирует, как подготовить вашу Arduino IDE для работы с ESP32 на ПК с Windows. 
+Это простое руководство, которое иллюстрирует, как подготовить вашу Arduino IDE для работы с ESP32 на ПК с Windows.

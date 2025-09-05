@@ -19,7 +19,11 @@ seo:
     сервером осуществляется по протоколу HTTP.
 published: true
 date: 2025-09-07T00:00:00.000Z
-sitemap: true
+sitemap:
+  videos: []
+  images: []
+navigation:
+  title: Веб сервер на ESP32 в Arduino IDE
 ---
 
 Клиент отправляет запрос по определенному адресу, а сервер в ответ отправляет веб-страницу или сообщение об ошибке. Например, ошибка 404 означает, что по адресу запроса ничего нет. Веб страницы — это чаще всего HTML-документы.
@@ -27,6 +31,7 @@ sitemap: true
 ## Режимы работы ESP32
 
 ESP32 имеет 3 режима работы:
+
 1. режим станции (STA)
 2. режим программной точки доступа (SoftAP)
 3. оба одновременно.
@@ -48,12 +53,13 @@ ESP32 имеет 3 режима работы:
 ## Управление светодиодами с ESP32 через веб сервер
 
 Для сборки схемы нам понадобятся:
+
 1. ESP32
 2. макетная плата
 3. 2 светодиода
 4. 2 токоограничивающих резистора на 220 Ом
 5. джамперы
-Важно: убедитесь, что ноги ESP32 расположены по разные стороны макетной платы.
+   Важно: убедитесь, что ноги ESP32 расположены по разные стороны макетной платы.
 
 Подключите анод (+) светодиодов к пинам 4 и 5 через резистор на 220 Ом, как показано на схеме ниже.
 
@@ -264,9 +270,9 @@ delay(100);
 
 Чтобы обрабатывать входящие HTTP-запросы, нам нужно указать, какой код выполнять при запросе по определенному URL. Для этого мы используем метод on объекта server. Этот метод принимает два параметра: URL-адрес запроса и имя функции, которую мы хотим выполнить при запросе по этому URL.
 
-For example, the first line of below code snippet indicates that when a server receives an HTTP request on the root (/) path, it will trigger the handle_OnConnect() function. Note that the URL specified is a relative path.
+For example, the first line of below code snippet indicates that when a server receives an HTTP request on the root (/) path, it will trigger the handle\_OnConnect() function. Note that the URL specified is a relative path.
 
-Например, первая строка приведенного ниже фрагмента кода указывает, что когда сервер получает HTTP-запрос по корневому пути (/), он запускает функцию handle_OnConnect(). Обратите внимание, что указанный URL-адрес является относительным путем.
+Например, первая строка приведенного ниже фрагмента кода указывает, что когда сервер получает HTTP-запрос по корневому пути (/), он запускает функцию handle\_OnConnect(). Обратите внимание, что указанный URL-адрес является относительным путем.
 
 ```cpp
 server.on("/", handle_OnConnect);
@@ -316,7 +322,7 @@ void loop() {
 }
 ```
 
-Далее создаем функцию handle_OnConnect(), которую мы привязали к корневому URL `/` с помощью `server.on`. В начале этой функции установим изначальное состояние обоих светодиодов как LOW (выключены) и выведем состояние в монитор серийного порта. Чтобы ответить на HTTP-запрос, используется метод send(), которому передается код HTTP-ответа, тип контента и сам контент.
+Далее создаем функцию handle\_OnConnect(), которую мы привязали к корневому URL `/` с помощью `server.on`. В начале этой функции установим изначальное состояние обоих светодиодов как LOW (выключены) и выведем состояние в монитор серийного порта. Чтобы ответить на HTTP-запрос, используется метод send(), которому передается код HTTP-ответа, тип контента и сам контент.
 
 В нашем случае мы отправляем код 200 (один из кодов состояния HTTP), который соответствует ответу OK. Затем указываем тип содержимого «text/html» и вызываем пользовательскую функцию SendHTML(), которая создает динамическую HTML-страницу, и передаем ей состояние светодиодов в качестве параметров.
 
@@ -605,22 +611,22 @@ while (WiFi.status() != WL_CONNECTED)
 
 Для вашей информации эта функция возвращает следующие статусы:
 
-- WL_CONNECTED: assigned when connected to a Wi-Fi network
-- WL_NO_SHIELD: assigned when no Wi-Fi shield is present
-- WL_IDLE_STATUS: a temporary status assigned when WiFi.begin() is called and remains active until the number of attempts expires (resulting in WL_CONNECT_FAILED) or a connection is established (resulting in WL_CONNECTED)
-- WL_NO_SSID_AVAIL: assigned when no SSID are available
-- WL_SCAN_COMPLETED: assigned when the scan networks is completed
-- WL_CONNECT_FAILED: assigned when the connection fails for all the attempts
-- WL_CONNECTION_LOST: assigned when the connection is lost
-- WL_DISCONNECTED: assigned when disconnected from a network
-- WL_CONNECTED: назначается при подключении к сети Wi-Fi
-- WL_NO_SHIELD: назначается, когда нет экрана Wi-Fi
-- WL_IDLE_STATUS: временное состояние, назначаемое при вызове WiFi.begin (), и остается активным до истечения количества попыток (в результате WL_CONNECT_FAILED) или до установления соединения (в результате WL_CONNECTED)
-- WL_NO_SSID_AVAIL: назначается, когда нет доступных SSID
-- WL_SCAN_COMPLETED: назначается, когда сканирование сетей завершено
-- WL_CONNECT_FAILED: назначается при сбое подключения для всех попыток
-- WL_CONNECTION_LOST: назначается при потере соединения
-- WL_DISCONNECTED: назначается при отключении от сети
+- WL\_CONNECTED: assigned when connected to a Wi-Fi network
+- WL\_NO\_SHIELD: assigned when no Wi-Fi shield is present
+- WL\_IDLE\_STATUS: a temporary status assigned when WiFi.begin() is called and remains active until the number of attempts expires (resulting in WL\_CONNECT\_FAILED) or a connection is established (resulting in WL\_CONNECTED)
+- WL\_NO\_SSID\_AVAIL: assigned when no SSID are available
+- WL\_SCAN\_COMPLETED: assigned when the scan networks is completed
+- WL\_CONNECT\_FAILED: assigned when the connection fails for all the attempts
+- WL\_CONNECTION\_LOST: assigned when the connection is lost
+- WL\_DISCONNECTED: assigned when disconnected from a network
+- WL\_CONNECTED: назначается при подключении к сети Wi-Fi
+- WL\_NO\_SHIELD: назначается, когда нет экрана Wi-Fi
+- WL\_IDLE\_STATUS: временное состояние, назначаемое при вызове WiFi.begin (), и остается активным до истечения количества попыток (в результате WL\_CONNECT\_FAILED) или до установления соединения (в результате WL\_CONNECTED)
+- WL\_NO\_SSID\_AVAIL: назначается, когда нет доступных SSID
+- WL\_SCAN\_COMPLETED: назначается, когда сканирование сетей завершено
+- WL\_CONNECT\_FAILED: назначается при сбое подключения для всех попыток
+- WL\_CONNECTION\_LOST: назначается при потере соединения
+- WL\_DISCONNECTED: назначается при отключении от сети
 
 Как только ESP32 подключен к сети, эскиз распечатывает IP-адрес, назначенный для ESP32, отображая значение WiFi.localIP () на последовательном мониторе.
 

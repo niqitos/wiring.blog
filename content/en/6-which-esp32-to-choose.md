@@ -7,17 +7,21 @@ tags:
   - Arduino
   - ESP32
 title: Which ESP32 to choose
-description: ESP32 is an advanced version of the ESP8266 board. The board
-  is equipped with Wi-Fi and Bluetooth wireless communication modules and
-  a dual-core processor.
+description: ESP32 is an advanced version of the ESP8266 board. The board is
+  equipped with Wi-Fi and Bluetooth wireless communication modules and a
+  dual-core processor.
 seo:
   title: Which ESP32 to choose
-  description: ESP32 is an advanced version of the ESP8266 board. The board
-    is equipped with Wi-Fi and Bluetooth wireless communication modules and
-    a dual-core processor.
+  description: ESP32 is an advanced version of the ESP8266 board. The board is
+    equipped with Wi-Fi and Bluetooth wireless communication modules and a
+    dual-core processor.
 published: true
 date: 2025-09-06T00:00:00.000Z
-sitemap: true
+sitemap:
+  videos: []
+  images: []
+navigation:
+  title: Which ESP32 to choose
 ---
 
 Вы можете найти ESP32 как отдельный модуль или как полнофункциональную плату разработки. Доступно множество плат разработки ESP32. В этом обзоре мы просто рассмотрим самые популярные платы для разработки ESP32.

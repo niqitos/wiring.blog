@@ -7,17 +7,21 @@ tags:
   - Arduino
   - ESP32
 title: Встановлення плати ESP32 в Arduino IDE на Mac OS X та Linux
-description: У цьому посібнику ми розповімо, як встановити плату ESP32 в
-  Arduino IDE для Windows Якщо ви використовуєте Mac OS або Linux, дотримуйтесь цього
+description: У цьому посібнику ми розповімо, як встановити плату ESP32 в Arduino
+  IDE для Windows Якщо ви використовуєте Mac OS або Linux, дотримуйтесь цього
   інструкції.
 seo:
   title: Встановлення плати ESP32 в Arduino IDE на Mac OS X та Linux
-  description: У цьому посібнику ми розповімо, як встановити плату ESP32 в
-    Arduino IDE для Windows Якщо ви використовуєте Mac OS або Linux, дотримуйтесь цього
+  description: У цьому посібнику ми розповімо, як встановити плату ESP32 в Arduino
+    IDE для Windows Якщо ви використовуєте Mac OS або Linux, дотримуйтесь цього
     інструкції.
 published: true
 date: 2025-09-03T00:00:00.000Z
-sitemap: true
+sitemap:
+  videos: []
+  images: []
+navigation:
+  title: Встановлення плати ESP32 в Arduino IDE на Mac OS X та Linux
 ---
 
 ## Установка Arduino IDE
@@ -29,7 +33,7 @@ sitemap: true
 Чтобы установить плату ESP32 в IDE Arduino, выполните следующие действия:
 
 1. Откройте окно настроек в Arduino IDE перейдя в *Файл > Настройки*
-2. Введите `https://dl.espressif.com/dl/package_esp32_index.json` в поле **«Additional Board Manager URLs»**, как показано на рисунке ниже. Затем нажмите кнопку **«ОК»**:
+2. Введите `https://dl.espressif.com/dl/package_esp32_index.json&#x60; в поле **«Additional Board Manager URLs»**, как показано на рисунке ниже. Затем нажмите кнопку **«ОК»**:
 
 Если у вас уже есть URL-адрес плат ESP8266, вы указать их через запятую: `https://dl.espressif.com/dl/package_esp32_index.json, http://arduino.esp8266.com/stable/package_esp8266com_index.json`
 
