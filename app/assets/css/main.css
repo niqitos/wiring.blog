@@ -1,8 +1,15 @@
 @import 'tailwindcss';
 @import '@nuxt/ui';
-@plugin "@tailwindcss/typography";
+@plugin '@tailwindcss/typography';
 
-@source inline("!text-red-500");
+@source inline('block');
+@source inline('overflow-scroll');
+@source inline('whitespace-nowrap');
+@source inline('!bg-green-500');
+@source inline('!bg-yellow-500');
+@source inline('!bg-red-500');
+@source inline('!text-white');
+@source inline('!text-red-500');
 
 @theme static {
   --shadow-fixed-button: 0px -2px 2px rgba(0, 0, 0, 0.1);

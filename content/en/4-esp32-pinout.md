@@ -51,38 +51,38 @@ Pins highlighted in green are fine to use. Those highlighted in yellow are fine 
 
 | **GPIO** | **Input** | **Output** | **Features** |
 | -------- | -------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- |
-| **0** | connected via pull-up resistor | OK | outputs PWM signal at boot |
-| **1** | TX pin | OK | debug output at boot |
-| **2** | OK | OK | connected to on-chip LED, must remain floating or be LOW to enter blink mode |
-| **3** | OK | RX pin | outputs high signal at boot |
-| **4** | OK | OK | | |
-| **5** | OK | OK | outputs PWM signal at boot. |
-| **6** | x ​​| x | connected to on-chip SPI flash |
-| **7** | x ​​| x | connected to on-chip SPI flash |
-| **8** | x ​​| x | connected to on-chip SPI flash |
-| **9** | x ​​| x | connected to on-board SPI flash |
-| **10** | x ​​| x | connected to on-board SPI flash |
-| **11** | x ​​| x | connected to on-board SPI flash |
-| **12** | OK | OK | ESP32 won't boot if input is pulled HIGH, tying pin |
-| **13** | OK | OK | |
-| **14** | OK | OK | outputs PWM signal at boot |
-| **15** | OK | OK | outputs PWM signal at boot |
-| **16** | OK | OK | |
-| **17** | OK | OK | |
-| **18** | OK | OK | |
-| **19** | OK | OK | |
-| **21** | OK | OK | |
-| **22** | OK | OK | |
-| **23** | OK | OK | |
-| **25** | OK | OK | |
-| **26** | OK | OK | |
-| **27** | OK | OK | |
-| **32** | OK | OK | |
-| **33** | OK | OK | |
-| **34** | OK | | input only |
-| **35** | OK | | input only |
-| **36** | OK | | input only |
-| **39** | OK | | input only |
+| **0** | `connected via pull-up resistor`{.not-prose.block.!bg-yellow-500.!text-white}&#x20;| `OK`{.not-prose.!bg-yellow-500.!text-white}&#x20;| outputs PWM signal at boot |
+| **1** | `TX pin`{.not-prose.!bg-red-500.!text-white}&#x20;| `OK`{.not-prose.!bg-yellow-500.!text-white}&#x20;| debug output at boot |
+| **2** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| connected to on-chip LED, must remain floating or be LOW to enter blink mode |
+| **3** | `OK`{.not-prose.!bg-yellow-500.!text-white}&#x20;| `RX pin`{.not-prose.whitespace-nowrap.!bg-red-500.!text-white}&#x20;| outputs high signal at boot |
+| **4** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| | |
+| **5** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| outputs PWM signal at boot. |
+| **6** | `X`{.not-prose.!bg-red-500.!text-white}&#x20;​​| `X`{.not-prose.!bg-red-500.!text-white}&#x20;| connected to on-chip SPI flash |
+| **7** | `X`{.not-prose.!bg-red-500.!text-white}&#x20;​​| `X`{.not-prose.!bg-red-500.!text-white}&#x20;| connected to on-chip SPI flash |
+| **8** | `X`{.not-prose.!bg-red-500.!text-white}&#x20;​​| `X`{.not-prose.!bg-red-500.!text-white}&#x20;| connected to on-chip SPI flash |
+| **9** | `X`{.not-prose.!bg-red-500.!text-white}&#x20;​​| `X`{.not-prose.!bg-red-500.!text-white}&#x20;| connected to on-board SPI flash |
+| **10** | `X`{.not-prose.!bg-red-500.!text-white}&#x20;​​| `X`{.not-prose.!bg-red-500.!text-white}&#x20;| connected to on-board SPI flash |
+| **11** | `X`{.not-prose.!bg-red-500.!text-white}&#x20;​​| `X`{.not-prose.!bg-red-500.!text-white}&#x20;| connected to on-board SPI flash |
+| **12** | `OK`{.not-prose.!bg-yellow-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| ESP32 won't boot if input is pulled HIGH, tying pin |
+| **13** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **14** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| outputs PWM signal at boot |
+| **15** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| outputs PWM signal at boot |
+| **16** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **17** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **18** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **19** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **21** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **22** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **23** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **25** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **26** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **27** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **32** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **33** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **34** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| | `input only`{.not-prose.!bg-yellow-500.!text-white}&#x20;|
+| **35** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| | `input only`{.not-prose.!bg-yellow-500.!text-white}&#x20;|
+| **36** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| | `input only`{.not-prose.!bg-yellow-500.!text-white}&#x20;|
+| **39** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| | `input only`{.not-prose.!bg-yellow-500.!text-white}&#x20;|
 
 ## Input pins
 

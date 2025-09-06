@@ -51,38 +51,38 @@ navigation:
 
 | **GPIO** | **Введення** | **Контакт** | **Особливості** |
 | -------- | -------------------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **0** | підключений через підтягуючий резистор Добре | виводить ШІМ сигнал під час завантаження |
-| **1** | TX пін | Добре | налагоджувальний контакт під час завантаження |
-| **2** | Добре | Добре | підключений до вбудованого світлодіода, повинен залишатися плаваючим або перебувати у стані LOW для переходу в режим миготіння |
-| **3** | Добре | RX пін | виводить сигнал високого рівня під час завантаження |
-| **4** | Добре | Добре | |
-| **5** | Добре | Добре | виводить ШИМ сигнал під час завантаження. |
-| **6** | x | x | підключений до вбудованої флеш-пам'яті SPI
-| **7** | x | x | підключений до вбудованої флеш-пам'яті SPI
-| **8** | x | x | підключений до вбудованої флеш-пам'яті SPI
-| **9** | x | x | підключений до вбудованої флеш-пам'яті SPI
-| **10** | x | x | підключений до вбудованої флеш-пам'яті SPI
-| **11** | x | x | підключений до вбудованої флеш-пам'яті SPI
-| **12** | Добре | Добре | ESP32 не завантажується, якщо вхід підтягнутий до HIGH, що з'єднує контакт |
-| **13** | Добре | Добре | |
-| **14** | Добре | Добре | виводить ШІМ сигнал під час завантаження |
-| **15** | Добре | Добре | виводить ШІМ сигнал під час завантаження |
-| **16** | Добре | Добре | |
-| **17** | Добре | Добре | |
-| **18** | Добре | Добре | |
-| **19** | Добре | Добре | |
-| **21** | Добре | Добре | |
-| **22** | Добре | Добре | |
-| **23** | Добре | Добре | |
-| **25** | Добре | Добре | |
-| **26** | Добре | Добре | |
-| **27** | Добре | Добре | |
-| **32** | Добре | Добре | |
-| **33** | Добре | Добре | |
-| **34** | Добре | | лише вхід |
-| **35** | Добре | | лише вхід |
-| **36** | Добре | | лише вхід |
-| **39** | Добре | | лише вхід |
+| **0** | `підключений через підтягуючий резистор`{.not-prose.block.!bg-yellow-500.!text-white}&#x20;| `OK`{.not-prose.!bg-yellow-500.!text-white}&#x20;| виводить ШІМ сигнал під час завантаження |
+| **1** | `TX пін`{.not-prose.!bg-red-500.!text-white}&#x20;| `OK`{.not-prose.!bg-yellow-500.!text-white}&#x20;| налагоджувальний контакт під час завантаження |
+| **2** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| підключений до вбудованого світлодіода, повинен залишатися плаваючим або перебувати у стані LOW для переходу в режим миготіння |
+| **3** | `OK`{.not-prose.!bg-yellow-500.!text-white}&#x20;| `RX пін`{.not-prose.whitespace-nowrap.!bg-red-500.!text-white}&#x20;| виводить сигнал високого рівня під час завантаження |
+| **4** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **5** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| виводить ШИМ сигнал під час завантаження. |
+| **6** | `X`{.not-prose.!bg-red-500.!text-white}&#x20;| `X`{.not-prose.!bg-red-500.!text-white}&#x20;| підключений до вбудованої флеш-пам'яті SPI
+| **7** | `X`{.not-prose.!bg-red-500.!text-white}&#x20;| `X`{.not-prose.!bg-red-500.!text-white}&#x20;| підключений до вбудованої флеш-пам'яті SPI
+| **8** | `X`{.not-prose.!bg-red-500.!text-white}&#x20;| `X`{.not-prose.!bg-red-500.!text-white}&#x20;| підключений до вбудованої флеш-пам'яті SPI
+| **9** | `X`{.not-prose.!bg-red-500.!text-white}&#x20;| `X`{.not-prose.!bg-red-500.!text-white}&#x20;| підключений до вбудованої флеш-пам'яті SPI
+| **10** | `X`{.not-prose.!bg-red-500.!text-white}&#x20;| `X`{.not-prose.!bg-red-500.!text-white}&#x20;| підключений до вбудованої флеш-пам'яті SPI
+| **11** | `X`{.not-prose.!bg-red-500.!text-white}&#x20;| `X`{.not-prose.!bg-red-500.!text-white}&#x20;| підключений до вбудованої флеш-пам'яті SPI
+| **12** | `OK`{.not-prose.!bg-yellow-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| ESP32 не завантажується, якщо вхід підтягнутий до HIGH, що з'єднує контакт |
+| **13** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **14** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| виводить ШІМ сигнал під час завантаження |
+| **15** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| виводить ШІМ сигнал під час завантаження |
+| **16** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **17** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **18** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **19** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **21** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **22** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **23** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **25** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **26** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **27** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **32** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **33** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
+| **34** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| | `лише вхід`{.not-prose.!bg-yellow-500.!text-white}&#x20;|
+| **35** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| | `лише вхід`{.not-prose.!bg-yellow-500.!text-white}&#x20;|
+| **36** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| | `лише вхід`{.not-prose.!bg-yellow-500.!text-white}&#x20;|
+| **39** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| | `лише вхід`{.not-prose.!bg-yellow-500.!text-white}&#x20;|{.overflow-scroll}
 
 ## Піни входу
 
