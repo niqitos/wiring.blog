@@ -28,6 +28,8 @@ The ESP32 chip has 48 multi-functional pins. Not all pins are available on all E
 
 The image below shows the pinout of the ESP-WROOM-32 chip. You can use it as a reference if you are using a bare ESP32 chip to build your own board:
 
+![esp32-pinout.webp](/images/esp32-pinout.webp)
+
 Not all GPIOs are available on all development boards, but each specific GPIO works the same regardless of the development board you are using. If you are just starting out with the ESP32, we recommend reading our guide: Getting Started with the ESP32 Development Board.
 
 ## ESP32 Peripherals
@@ -49,40 +51,40 @@ In addition, there are pins with specific functions that make them suitable or u
 
 Pins highlighted in green are fine to use. Those highlighted in yellow are fine to use, but should be watched carefully as they may have unexpected behavior, mainly during boot. Pins highlighted in red are not recommended for use as inputs or outputs.
 
-| **GPIO** | **Input** | **Output** | **Features** |
-| -------- | -------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- |
-| **0** | `connected via pull-up resistor`{.not-prose.block.!bg-yellow-500.!text-white}&#x20;| `OK`{.not-prose.!bg-yellow-500.!text-white}&#x20;| outputs PWM signal at boot |
-| **1** | `TX pin`{.not-prose.!bg-red-500.!text-white}&#x20;| `OK`{.not-prose.!bg-yellow-500.!text-white}&#x20;| debug output at boot |
-| **2** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| connected to on-chip LED, must remain floating or be LOW to enter blink mode |
-| **3** | `OK`{.not-prose.!bg-yellow-500.!text-white}&#x20;| `RX pin`{.not-prose.whitespace-nowrap.!bg-red-500.!text-white}&#x20;| outputs high signal at boot |
-| **4** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| | |
-| **5** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| outputs PWM signal at boot. |
-| **6** | `X`{.not-prose.!bg-red-500.!text-white}&#x20;​​| `X`{.not-prose.!bg-red-500.!text-white}&#x20;| connected to on-chip SPI flash |
-| **7** | `X`{.not-prose.!bg-red-500.!text-white}&#x20;​​| `X`{.not-prose.!bg-red-500.!text-white}&#x20;| connected to on-chip SPI flash |
-| **8** | `X`{.not-prose.!bg-red-500.!text-white}&#x20;​​| `X`{.not-prose.!bg-red-500.!text-white}&#x20;| connected to on-chip SPI flash |
-| **9** | `X`{.not-prose.!bg-red-500.!text-white}&#x20;​​| `X`{.not-prose.!bg-red-500.!text-white}&#x20;| connected to on-board SPI flash |
-| **10** | `X`{.not-prose.!bg-red-500.!text-white}&#x20;​​| `X`{.not-prose.!bg-red-500.!text-white}&#x20;| connected to on-board SPI flash |
-| **11** | `X`{.not-prose.!bg-red-500.!text-white}&#x20;​​| `X`{.not-prose.!bg-red-500.!text-white}&#x20;| connected to on-board SPI flash |
-| **12** | `OK`{.not-prose.!bg-yellow-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| ESP32 won't boot if input is pulled HIGH, tying pin |
-| **13** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **14** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| outputs PWM signal at boot |
-| **15** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| outputs PWM signal at boot |
-| **16** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **17** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **18** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **19** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **21** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **22** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **23** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **25** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **26** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **27** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **32** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **33** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **34** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| | `input only`{.not-prose.!bg-yellow-500.!text-white}&#x20;|
-| **35** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| | `input only`{.not-prose.!bg-yellow-500.!text-white}&#x20;|
-| **36** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| | `input only`{.not-prose.!bg-yellow-500.!text-white}&#x20;|
-| **39** | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| | `input only`{.not-prose.!bg-yellow-500.!text-white}&#x20;|
+| **GPIO** | **Input**                        | **Output** | **Features**                                                                 |
+| -------- | -------------------------------- | ---------- | ---------------------------------------------------------------------------- |
+| **0**    | `connected via pull-up resistor` | `OK`       | outputs PWM signal at boot                                                   |
+| **1**    | `TX pin`                         | `OK`       | debug output at boot                                                         |
+| **2**    | `OK`                             | `OK`       | connected to on-chip LED, must remain floating or be LOW to enter blink mode |
+| **3**    | `OK`                             | `RX pin`   | outputs high signal at boot                                                  |
+| **4**    | `OK`                             | `OK`       |                                                                              |
+| **5**    | `OK`                             | `OK`       | outputs PWM signal at boot.                                                  |
+| **6**    | `X` ​​                           | `X`        | connected to on-chip SPI flash                                               |
+| **7**    | `X` ​​                           | `X`        | connected to on-chip SPI flash                                               |
+| **8**    | `X` ​​                           | `X`        | connected to on-chip SPI flash                                               |
+| **9**    | `X` ​​                           | `X`        | connected to on-board SPI flash                                              |
+| **10**   | `X` ​​                           | `X`        | connected to on-board SPI flash                                              |
+| **11**   | `X` ​​                           | `X`        | connected to on-board SPI flash                                              |
+| **12**   | `OK`                             | `OK`       | ESP32 won't boot if input is pulled HIGH, tying pin                          |
+| **13**   | `OK`                             | `OK`       |                                                                              |
+| **14**   | `OK`                             | `OK`       | outputs PWM signal at boot                                                   |
+| **15**   | `OK`                             | `OK`       | outputs PWM signal at boot                                                   |
+| **16**   | `OK`                             | `OK`       |                                                                              |
+| **17**   | `OK`                             | `OK`       |                                                                              |
+| **18**   | `OK`                             | `OK`       |                                                                              |
+| **19**   | `OK`                             | `OK`       |                                                                              |
+| **21**   | `OK`                             | `OK`       |                                                                              |
+| **22**   | `OK`                             | `OK`       |                                                                              |
+| **23**   | `OK`                             | `OK`       |                                                                              |
+| **25**   | `OK`                             | `OK`       |                                                                              |
+| **26**   | `OK`                             | `OK`       |                                                                              |
+| **27**   | `OK`                             | `OK`       |                                                                              |
+| **32**   | `OK`                             | `OK`       |                                                                              |
+| **33**   | `OK`                             | `OK`       |                                                                              |
+| **34**   | `OK`                             |            | `input only`                                                                 |
+| **35**   | `OK`                             |            | `input only`                                                                 |
+| **36**   | `OK`                             |            | `input only`                                                                 |
+| **39**   | `OK`                             |            | `input only`                                                                 |
 
 ## Input pins
 
@@ -199,10 +201,10 @@ When using the ESP32 with the Arduino IDE, you should use the standard ESP32 I2C
 
 The default pin assignments for SPI are as follows:
 
-| **SPI** | **MOSI** | **MISO** | **CLK** | **CS** |
-| --------- | -------- | -------- | ------- | ------- |
-| **VSPI** | GPIO 23 | GPIO 19 | GPIO 18 | GPIO 5 |
-| **HSPI** | GPIO 13 | GPIO 12 | GPIO 14 | GPIO 15 |
+| **SPI**  | **MOSI** | **MISO** | **CLK** | **CS**  |
+| -------- | -------- | -------- | ------- | ------- |
+| **VSPI** | GPIO 23  | GPIO 19  | GPIO 18 | GPIO 5  |
+| **HSPI** | GPIO 13  | GPIO 12  | GPIO 14 | GPIO 15 |
 
 # UART
 
@@ -213,11 +215,11 @@ UART1 and UART2: Available for communicating with external devices.
 Like I2C and SPI, these UART pins can be mapped to any GPIO pin on the ESP32. However, on most board models, they have a standard pin assignment.
 For most ESP32 boards, the UART pin assignments are as follows:
 
-| UART Port | TX | RX | Remarks |
-| --------- | ------- | ------------------------------------------------------------------------- |
-| UART0 | GPIO 1 | GPIO 3 | Used for Serial Monitor and uploading code; Can be assigned to other GPIOs; |
-| UART1 | GPIO 10 | GPIO 9 | Must be assigned to other GPIOs |
-| UART2 | GPIO 17 | GPIO 16 | Can be assigned to other GPIOs |
+\| UART Port | TX | RX | Remarks |
+\| --------- | ------- | ------------------------------------------------------------------------- |
+\| UART0 | GPIO 1 | GPIO 3 | Used for Serial Monitor and uploading code; Can be assigned to other GPIOs; |
+\| UART1 | GPIO 10 | GPIO 9 | Must be assigned to other GPIOs |
+\| UART2 | GPIO 17 | GPIO 16 | Can be assigned to other GPIOs |
 
 As for UART1 (GPIO 9 and GPIO10), these GPIO pins are connected to the ESP32 SPI flash memory, so they cannot be used in this way. To use UART1 to communicate with other devices, you need to define other pins using the HardwareSerial library.
 

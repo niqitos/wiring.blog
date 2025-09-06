@@ -28,6 +28,8 @@ navigation:
 
 На рисунке ниже показана распиновка чипа ESP-WROOM-32. Вы можете использовать его в качестве справочного материала, если вы используете голую микросхему ESP32 для сборки собственной платы:
 
+![esp32-pinout.webp](/images/esp32-pinout.webp)
+
 Не все GPIO доступны на всех платах разработки, но каждый конкретный GPIO работает одинаково, независимо от используемой платы разработки. Если вы только начинаете работать с ESP32, рекомендуем прочитать наше руководство: [Начало работы с платой разработки ESP32](1-nachalo-raboty-s-esp32).
 
 ## Периферия ESP32
@@ -49,40 +51,40 @@ navigation:
 
 Контакты, выделенные зеленым цветом, подходят для использования. Те, которые выделены желтым цветом, подходят для использования, но на них стоит обратить внимание, так как они могут иметь неожиданное поведение, в основном при загрузке. Контакты, выделенные красным, не рекомендуется использовать в качестве входов или выходов.
 
-| **GPIO** | **Ввод**                               | **Вывод** | **Особенности**                                                                                                             |
-| -------- | -------------------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **0**    | `подключен через подтягивающий резистор`{.not-prose.block.!bg-yellow-500.!text-white}&#x20;| `OK`{.not-prose.!bg-yellow-500.!text-white}&#x20;| выводит ШИМ сигнал при загрузке |
-| **1**    | `TX пин`{.not-prose.!bg-red-500.!text-white}&#x20;| `OK`{.not-prose.!bg-yellow-500.!text-white}&#x20;| отладочный вывод при загрузке |
-| **2**    | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| подключен к встроенному светодиоду, должен оставаться плавающим или находиться в состоянии LOW для перехода в режим мигания |
-| **3**    | `OK`{.not-prose.!bg-yellow-500.!text-white}&#x20;| `RX пин`{.not-prose.whitespace-nowrap.!bg-red-500.!text-white}&#x20;| выводит сигнал высокого уровня при загрузке |
-| **4**    | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **5**    | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| выводит ШИМ сигнал при загрузке. |
-| **6**    | `X`{.not-prose.!bg-red-500.!text-white}&#x20; | `X`{.not-prose.!bg-red-500.!text-white}&#x20; | подключен к встроенной флэш-памяти SPI |
-| **7**    | `X`{.not-prose.!bg-red-500.!text-white}&#x20; | `X`{.not-prose.!bg-red-500.!text-white}&#x20; | подключен к встроенной флэш-памяти SPI |
-| **8**    | `X`{.not-prose.!bg-red-500.!text-white}&#x20; | `X`{.not-prose.!bg-red-500.!text-white}&#x20; | подключен к встроенной флэш-памяти SPI |
-| **9**    | `X`{.not-prose.!bg-red-500.!text-white}&#x20; | `X`{.not-prose.!bg-red-500.!text-white}&#x20; | подключен к встроенной флэш-памяти SPI |
-| **10**   | `X`{.not-prose.!bg-red-500.!text-white}&#x20; | `X`{.not-prose.!bg-red-500.!text-white}&#x20; | подключен к встроенной флэш-памяти SPI |
-| **11**   | `X`{.not-prose.!bg-red-500.!text-white}&#x20; | `X`{.not-prose.!bg-red-500.!text-white}&#x20; | подключен к встроенной флэш-памяти SPI |
-| **12**   | `OK`{.not-prose.!bg-yellow-500.!text-white}&#x20; | `OK`{.not-prose.!bg-green-500.!text-white}&#x20; | ESP32 не загружается, если вход подтянут к HIGH, связывающий вывод |
-| **13**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **14**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| выводит ШИМ сигнал при загрузке |
-| **15**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| выводит ШИМ сигнал при загрузке |
-| **16**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **17**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **18**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **19**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **21**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **22**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **23**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **25**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **26**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **27**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **32**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **33**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| |
-| **34**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| | `только вход`{.not-prose.!bg-yellow-500.!text-white}&#x20; |
-| **35**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| | `только вход`{.not-prose.!bg-yellow-500.!text-white}&#x20; |
-| **36**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| | `только вход`{.not-prose.!bg-yellow-500.!text-white}&#x20; |
-| **39**   | `OK`{.not-prose.!bg-green-500.!text-white}&#x20;| | `только вход`{.not-prose.!bg-yellow-500.!text-white}&#x20; |
+| **GPIO** | **Ввод**                                 | **Вывод** | **Особенности**                                                                                                             |
+| -------- | ---------------------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------- |
+| **0**    | `подключен через подтягивающий резистор` | `OK`      | выводит ШИМ сигнал при загрузке                                                                                             |
+| **1**    | `TX пин`                                 | `OK`      | отладочный вывод при загрузке                                                                                               |
+| **2**    | `OK`                                     | `OK`      | подключен к встроенному светодиоду, должен оставаться плавающим или находиться в состоянии LOW для перехода в режим мигания |
+| **3**    | `OK`                                     | `RX пин`  | выводит сигнал высокого уровня при загрузке                                                                                 |
+| **4**    | `OK`                                     | `OK`      |                                                                                                                             |
+| **5**    | `OK`                                     | `OK`      | выводит ШИМ сигнал при загрузке.                                                                                            |
+| **6**    | `X`                                      | `X`       | подключен к встроенной флэш-памяти SPI                                                                                      |
+| **7**    | `X`                                      | `X`       | подключен к встроенной флэш-памяти SPI                                                                                      |
+| **8**    | `X`                                      | `X`       | подключен к встроенной флэш-памяти SPI                                                                                      |
+| **9**    | `X`                                      | `X`       | подключен к встроенной флэш-памяти SPI                                                                                      |
+| **10**   | `X`                                      | `X`       | подключен к встроенной флэш-памяти SPI                                                                                      |
+| **11**   | `X`                                      | `X`       | подключен к встроенной флэш-памяти SPI                                                                                      |
+| **12**   | `OK`                                     | `OK`      | ESP32 не загружается, если вход подтянут к HIGH, связывающий вывод                                                          |
+| **13**   | `OK`                                     | `OK`      |                                                                                                                             |
+| **14**   | `OK`                                     | `OK`      | выводит ШИМ сигнал при загрузке                                                                                             |
+| **15**   | `OK`                                     | `OK`      | выводит ШИМ сигнал при загрузке                                                                                             |
+| **16**   | `OK`                                     | `OK`      |                                                                                                                             |
+| **17**   | `OK`                                     | `OK`      |                                                                                                                             |
+| **18**   | `OK`                                     | `OK`      |                                                                                                                             |
+| **19**   | `OK`                                     | `OK`      |                                                                                                                             |
+| **21**   | `OK`                                     | `OK`      |                                                                                                                             |
+| **22**   | `OK`                                     | `OK`      |                                                                                                                             |
+| **23**   | `OK`                                     | `OK`      |                                                                                                                             |
+| **25**   | `OK`                                     | `OK`      |                                                                                                                             |
+| **26**   | `OK`                                     | `OK`      |                                                                                                                             |
+| **27**   | `OK`                                     | `OK`      |                                                                                                                             |
+| **32**   | `OK`                                     | `OK`      |                                                                                                                             |
+| **33**   | `OK`                                     | `OK`      |                                                                                                                             |
+| **34**   | `OK`                                     |           | `только вход`                                                                                                               |
+| **35**   | `OK`                                     |           | `только вход`                                                                                                               |
+| **36**   | `OK`                                     |           | `только вход`                                                                                                               |
+| **39**   | `OK`                                     |           | `только вход`                                                                                                               |
 
 ## Пины входа
 
