@@ -28,8 +28,6 @@ The ESP32 chip has 48 multi-functional pins. Not all pins are available on all E
 
 The image below shows the pinout of the ESP-WROOM-32 chip. You can use it as a reference if you are using a bare ESP32 chip to build your own board:
 
-![esp32-pinout.webp](/images/esp32-pinout.webp)
-
 Not all GPIOs are available on all development boards, but each specific GPIO works the same regardless of the development board you are using. If you are just starting out with the ESP32, we recommend reading our guide: Getting Started with the ESP32 Development Board.
 
 ## ESP32 Peripherals
