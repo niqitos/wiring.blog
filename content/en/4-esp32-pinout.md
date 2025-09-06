@@ -15,7 +15,7 @@ seo:
   description: ESP32 is a popular microcontroller with built-in Wi-Fi and
     Bluetooth, used in IoT projects. To successfully work with the board, it is
     important to understand the purpose of its contacts.
-published: false
+published: true
 date: 2025-09-04T00:00:00.000Z
 sitemap:
   videos: []
@@ -24,78 +24,78 @@ navigation:
   title: ESP32 pinout
 ---
 
-Чип ESP32 оснащен 48 мульти функциональными контактами. Не все контакты доступны на всех платах разработки ESP32 и некоторые контакты нельзя использовать.
+The ESP32 chip has 48 multi-functional pins. Not all pins are available on all ESP32 development boards, and some pins cannot be used.
 
-На рисунке ниже показана распиновка чипа ESP-WROOM-32. Вы можете использовать его в качестве справочного материала, если вы используете голую микросхему ESP32 для сборки собственной платы:
+The image below shows the pinout of the ESP-WROOM-32 chip. You can use it as a reference if you are using a bare ESP32 chip to build your own board:
 
-Не все GPIO доступны на всех платах разработки, но каждый конкретный GPIO работает одинаково, независимо от используемой платы разработки. Если вы только начинаете работать с ESP32, рекомендуем прочитать наше руководство: Начало работы с платой разработки ESP32.
+Not all GPIOs are available on all development boards, but each specific GPIO works the same regardless of the development board you are using. If you are just starting out with the ESP32, we recommend reading our guide: Getting Started with the ESP32 Development Board.
 
-## Периферия ESP32
+## ESP32 Peripherals
 
-- 18 каналов аналого-цифрового преобразователя (АЦП)
-- 3 интерфейса SPI
-- 3 интерфейса UART
-- 2 интерфейса I2C
-- 16 выходных каналов ШИМ
-- 2 цифро-аналоговых преобразователя (ЦАП)
-- 2 интерфейса I2S
-- 10 емкостных датчиков GPIO
+- 18 channels of analog-to-digital converter (ADC)
+- 3 SPI interfaces
+- 3 UART interfaces
+- 2 I2C interfaces
+- 16 PWM output channels
+- 2 digital-to-analog converters (DAC)
+- 2 I2S interfaces
+- 10 capacitive GPIO sensors
 
-Функции АЦП (аналого-цифровой преобразователь) и ЦАП (цифро-аналоговый преобразователь) назначаются определенным статическим контактам. Тем не менее, в коде программы вы можете назначить какие контакты в качестве UART, I2C, SPI, PWM и т. д. Это возможно благодаря функции мультиплексирования чипа ESP32.
+The ADC (Analog-to-Digital Converter) and DAC (Digital-to-Analog Converter) functions are assigned to specific static pins. However, in the program code, you can assign which pins as UART, I2C, SPI, PWM, etc. This is possible thanks to the multiplexing function of the ESP32 chip.
 
-Хотя вы можете определять свойства контактов в программном обеспечении, есть контакты, назначенные по умолчанию, как показано на следующем рисунке (это пример платы ESP32 DEVKIT V1 DOIT с 36 контактами - расположение контактов может меняться в зависимости от производителя).
+While you can define pin properties in software, there are pins that are assigned by default, as shown in the following image (this is an example of an ESP32 DEVKIT V1 DOIT board with 36 pins - pin layouts may vary by manufacturer).
 
-Кроме того, есть контакты с определенными функциями, которые делают их подходящими или не подходящими для конкретного проекта. В следующей таблице показано, какие выводы лучше всего использовать в качестве входов, выходов, а с какими следует быть осторожными.
+In addition, there are pins with specific functions that make them suitable or unsuitable for a particular project. The following table shows which pins are best used as inputs, outputs, and which ones to be careful with.
 
-Контакты, выделенные зеленым цветом, подходят для использования. Те, которые выделены желтым цветом, подходят для использования, но на них стоит обратить внимание, так как они могут иметь неожиданное поведение, в основном при загрузке. Контакты, выделенные красным, не рекомендуется использовать в качестве входов или выходов.
+Pins highlighted in green are fine to use. Those highlighted in yellow are fine to use, but should be watched carefully as they may have unexpected behavior, mainly during boot. Pins highlighted in red are not recommended for use as inputs or outputs.
 
-| **GPIO** | **Ввод**                               | **Вывод** | **Особенности**                                                                                                             |
-| -------- | -------------------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **0**    | подключен через подтягивающий резистор | OK        | выводит ШИМ сигнал при загрузке                                                                                             |
-| **1**    | TX пин                                 | OK        | отладочный вывод при загрузке                                                                                               |
-| **2**    | OK                                     | OK        | подключен к встроенному светодиоду, должен оставаться плавающим или находиться в состоянии LOW для перехода в режим мигания |
-| **3**    | OK                                     | RX пин    | выводит сигнал высокого уровня при загрузке                                                                                 |
-| **4**    | OK                                     | OK        |                                                                                                                             |
-| **5**    | OK                                     | OK        | выводит ШИМ сигнал при загрузке.                                                                                            |
-| **6**    | x                                      | x         | подключен к встроенной флэш-памяти SPI                                                                                      |
-| **7**    | x                                      | x         | подключен к встроенной флэш-памяти SPI                                                                                      |
-| **8**    | x                                      | x         | подключен к встроенной флэш-памяти SPI                                                                                      |
-| **9**    | x                                      | x         | подключен к встроенной флэш-памяти SPI                                                                                      |
-| **10**   | x                                      | x         | подключен к встроенной флэш-памяти SPI                                                                                      |
-| **11**   | x                                      | x         | подключен к встроенной флэш-памяти SPI                                                                                      |
-| **12**   | OK                                     | OK        | ESP32 не загружается, если вход подтянут к HIGH, связывающий вывод                                                          |
-| **13**   | OK                                     | OK        |                                                                                                                             |
-| **14**   | OK                                     | OK        | выводит ШИМ сигнал при загрузке                                                                                             |
-| **15**   | OK                                     | OK        | выводит ШИМ сигнал при загрузке                                                                                             |
-| **16**   | OK                                     | OK        |                                                                                                                             |
-| **17**   | OK                                     | OK        |                                                                                                                             |
-| **18**   | OK                                     | OK        |                                                                                                                             |
-| **19**   | OK                                     | OK        |                                                                                                                             |
-| **21**   | OK                                     | OK        |                                                                                                                             |
-| **22**   | OK                                     | OK        |                                                                                                                             |
-| **23**   | OK                                     | OK        |                                                                                                                             |
-| **25**   | OK                                     | OK        |                                                                                                                             |
-| **26**   | OK                                     | OK        |                                                                                                                             |
-| **27**   | OK                                     | OK        |                                                                                                                             |
-| **32**   | OK                                     | OK        |                                                                                                                             |
-| **33**   | OK                                     | OK        |                                                                                                                             |
-| **34**   | OK                                     |           | только вход                                                                                                                 |
-| **35**   | OK                                     |           | только вход                                                                                                                 |
-| **36**   | OK                                     |           | только вход                                                                                                                 |
-| **39**   | OK                                     |           | только вход                                                                                                                 |
+| **GPIO** | **Input** | **Output** | **Features** |
+| -------- | -------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- |
+| **0** | connected via pull-up resistor | OK | outputs PWM signal at boot |
+| **1** | TX pin | OK | debug output at boot |
+| **2** | OK | OK | connected to on-chip LED, must remain floating or be LOW to enter blink mode |
+| **3** | OK | RX pin | outputs high signal at boot |
+| **4** | OK | OK | | |
+| **5** | OK | OK | outputs PWM signal at boot. |
+| **6** | x ​​| x | connected to on-chip SPI flash |
+| **7** | x ​​| x | connected to on-chip SPI flash |
+| **8** | x ​​| x | connected to on-chip SPI flash |
+| **9** | x ​​| x | connected to on-board SPI flash |
+| **10** | x ​​| x | connected to on-board SPI flash |
+| **11** | x ​​| x | connected to on-board SPI flash |
+| **12** | OK | OK | ESP32 won't boot if input is pulled HIGH, tying pin |
+| **13** | OK | OK | |
+| **14** | OK | OK | outputs PWM signal at boot |
+| **15** | OK | OK | outputs PWM signal at boot |
+| **16** | OK | OK | |
+| **17** | OK | OK | |
+| **18** | OK | OK | |
+| **19** | OK | OK | |
+| **21** | OK | OK | |
+| **22** | OK | OK | |
+| **23** | OK | OK | |
+| **25** | OK | OK | |
+| **26** | OK | OK | |
+| **27** | OK | OK | |
+| **32** | OK | OK | |
+| **33** | OK | OK | |
+| **34** | OK | | input only |
+| **35** | OK | | input only |
+| **36** | OK | | input only |
+| **39** | OK | | input only |
 
-## Пины входа
+## Input pins
 
-GPIOs 34–39 являются GPI — то есть работают только в режиме ввода, так как они не оснащены подтягивающим резистором.
+GPIOs 34–39 are GPI — that is, they only work in input mode, since they do not have a pull-up resistor.
 
 - GPIO 34
 - GPIO 35
 - GPIO 36
 - GPIO 39
 
-## SPI flash на ESP-WROOM-32
+## SPI flash on ESP-WROOM-32
 
-GPIO с 6 по 11 имеют выводы на некоторых платах разработки ESP32, но эти выводы подсоединены к встроенному модулю SPI flash на чипе ESP-WROOM-32 и не рекомендуется их использовать в других целях.
+GPIOs 6–11 have pins on some ESP32 development boards, but these pins are connected to the built-in SPI flash module on the ESP-WROOM-32 chip and are not recommended for other purposes.
 
 - GPIO 6 (SCK/CLK)
 - GPIO 7 (SDO/SD0)
@@ -104,10 +104,10 @@ GPIO с 6 по 11 имеют выводы на некоторых платах �
 - GPIO 10 (SWP/SD3)
 - GPIO 11 (CSC/CMD)
 
-## GPIO с поддержкой ёмкостного касания
+## Capacitive Touch GPIOs
 
-ESP32 оборудована 10 ёмкостными сенсорами касания. Эти датчики могут улавливать изменения в чем угодно, что имеет электрический заряд, например, в коже человека. Таким образом, они могут обнаруживать изменения, возникающие при прикосновении пальцем к контактам GPIO. Эти контакты легко интегрируются в ёмкостные контактные площадки и заменяют механические кнопки. Ёмкостные сенсорные контакты также можно использовать для вывода ESP32 из режима глубокого сна.
-Эти внутренние датчики касания подключены к этим контактам GPIO:
+The ESP32 is equipped with 10 capacitive touch sensors. These sensors can sense changes in anything that has an electrical charge, such as human skin. This means they can detect changes when you touch the GPIO pins with your finger. These pins can be easily integrated into capacitive pads and replace mechanical buttons. The capacitive touch pins can also be used to wake the ESP32 from deep sleep mode.
+These internal touch sensors are connected to these GPIO pins:
 
 - T0 (GPIO 4)
 - T1 (GPIO 0)
@@ -120,9 +120,9 @@ ESP32 оборудована 10 ёмкостными сенсорами каса
 - T8 (GPIO 33)
 - T9 (GPIO 32)
 
-## Аналого-цифровой преобразователь (АЦП)
+## Analog to Digital Converter (ADC)
 
-ESP32 имеет 18 входных 12-битных каналов АЦП (тогда как ESP8266 имеет только 1 10-битный АЦП). Ниже перечислены GPIO, которые можно использовать в качестве АЦП, и соответствующие каналы:
+The ESP32 has 18 12-bit ADC input channels (whereas the ESP8266 only has 1 10-bit ADC). The GPIOs that can be used as ADCs are listed below, and their corresponding relevant channels:
 
 - ADC1\_CH0 (GPIO 36)
 - ADC1\_CH1 (GPIO 37)
@@ -143,22 +143,22 @@ ESP32 имеет 18 входных 12-битных каналов АЦП (тог
 - ADC2\_CH8 (GPIO 25)
 - ADC2\_CH9 (GPIO 26)
 
-Примечание: контакты АЦП2 нельзя использовать при использовании Wi-Fi. Поэтому, если вы используете Wi-Fi и у вас возникают проблемы с получением значения с выхода АЦП2 GPIO, попробуйте использовать вместо него выход АЦП1 GPIO — это должно решить проблему.
+Note: ADC2 pins cannot be used when using WiFi. So if you are using WiFi and have problems getting a value from the ADC2 GPIO output, try using the ADC1 GPIO output instead - this should solve the problem.
 
-Входные каналы АЦП имеют разрешение 12 бит. Это означает, что вы можете получать аналоговые показания в диапазоне от 0 до 4095, где 0 соответствует 0 В, а 4095 — 3,3 В. Вы также можете задать разрешение каналов в коде, а также диапазон АЦП.
+The ADC input channels have 12-bit resolution. This means that you can get analog readings in the range from 0 to 4095, where 0 corresponds to 0 V and 4095 corresponds to 3.3 V. You can also set the channel resolution in code, as well as the ADC range.
 
-Выводы АЦП ESP32 не имеют линейного поведения. Вы, вероятно, не сможете отличить 0 от 0,1 В или 3,2 от 3,3 В. Это необходимо учитывать при использовании выводов АЦП. Вы получите поведение, похожее на показанное на следующем рисунке.
+The ESP32 ADC pins do not have a linear behavior. You probably won't be able to tell the difference between 0 and 0.1 V or 3.2 and 3.3 V. This is something to keep in mind when using the ADC pins. You'll get behavior similar to the following image.
 
-## Цифро-аналоговый преобразователь (ЦАП)
+## Digital-to-Analog Converter (DAC)
 
-На ESP32 имеется два 8-битных канала ЦАП для преобразования цифровых сигналов в аналоговые выходные сигналы напряжения. Каналы ЦАП:
+The ESP32 has two 8-bit DAC channels for converting digital signals into analog voltage output signals. The DAC channels are:
 
 - DAC1 (GPIO25)
 - DAC2 (GPIO26)
 
 ## RTC GPIOs
 
-ESP32 поддерживает RTC GPIO. Выводы GPIO, подключенные к подсистеме RTC с низким энергопотреблением, могут использоваться, когда ESP32 находится в режиме глубокого сна. Эти RTC GPIO можно использовать для вывода ESP32 из режима глубокого сна при работе сопроцессора с ультранизким энергопотреблением (ULP). Следующие выводы GPIO можно использовать в качестве внешнего источника пробуждения:
+The ESP32 supports RTC GPIOs. The GPIOs connected to the low-power RTC subsystem can be used when the ESP32 is in deep sleep mode. These RTC GPIOs can be used to wake the ESP32 from deep sleep mode when the ultra-low power (ULP) coprocessor is running. The following GPIO pins can be used as an external wake-up source:
 
 - RTC\_GPIO0 (GPIO36)
 - RTC\_GPIO3 (GPIO39)
@@ -177,57 +177,57 @@ ESP32 поддерживает RTC GPIO. Выводы GPIO, подключенн
 - RTC\_GPIO16 (GPIO14)
 - RTC\_GPIO17 (GPIO27)
 
-## Широтно-импульсная модуляция (ШИМ)
+## Pulse Width Modulation (PWM)
 
-Контроллер светодиодов ESP32 с ШИМ имеет 16 независимых каналов, которые можно настроить для генерации ШИМ-сигналов с различными характеристиками. Все выводы, которые могут работать как выходы, могут использоваться как выводы ШИМ (выводы GPIO с 34 по 39 не поддерживают генерацию ШИМ).
+The ESP32 PWM LED controller has 16 independent channels that can be configured to generate PWM signals with different characteristics. All pins that can work as outputs can be used as PWM outputs (GPIO pins 34 to 39 do not support PWM generation).
 
-Для установки ШИМ-сигнала необходимо определить следующие параметры в коде:
+To set up a PWM signal, you need to define the following parameters in the code:
 
-- Частота сигнала;
-- Коэффициент заполнения;
-- Канал ШИМ;
-- Порт GPIO, на который вы хотите подать сигнал.
+- Signal frequency;
+- Duty cycle;
+- PWM channel;
+- GPIO port you want to send the signal to.
 
 ## I2C
 
-При использовании ESP32 с Arduino IDE следует использовать стандартные контакты ESP32 I2C (поддерживаемые библиотекой Wire):
+When using the ESP32 with the Arduino IDE, you should use the standard ESP32 I2C pins (supported by the Wire library):
 
 - GPIO 21 (SDA)
 - GPIO 22 (SCL)
 
 ## Serial Peripheral Interface (SPI)
 
-По умолчанию назначение контактов для SPI следующее:
+The default pin assignments for SPI are as follows:
 
-| **SPI**  | **MOSI** | **MISO** | **CLK** | **CS**  |
-| -------- | -------- | -------- | ------- | ------- |
-| **VSPI** | GPIO 23  | GPIO 19  | GPIO 18 | GPIO 5  |
-| **HSPI** | GPIO 13  | GPIO 12  | GPIO 14 | GPIO 15 |
+| **SPI** | **MOSI** | **MISO** | **CLK** | **CS** |
+| --------- | -------- | -------- | ------- | ------- |
+| **VSPI** | GPIO 23 | GPIO 19 | GPIO 18 | GPIO 5 |
+| **HSPI** | GPIO 13 | GPIO 12 | GPIO 14 | GPIO 15 |
 
 # UART
 
-ESP32 поддерживает до трех интерфейсов UART: UART0, UART1 и UART2, в зависимости от используемой модели платы ESP32.
+The ESP32 supports up to three UART interfaces: UART0, UART1, and UART2, depending on the ESP32 board model you are using.
 
-Порт UART0 обычно резервируется для связи с последовательным монитором во время загрузки и отладки. Однако его также можно использовать для связи с другими устройствами после загрузки кода, если последовательный монитор не нужен.
-UART1 и UART2: доступны для связи с внешними устройствами.
-Как и I2C и SPI, эти контакты UART можно назначить любому контакту GPIO на ESP32. Однако на большинстве моделей плат они имеют стандартное назначение контактов.
-Для большинства плат ESP32 назначение контактов UART следующее:
+The UART0 port is typically reserved for communicating with the serial monitor during upload and debugging. However, it can also be used to communicate with other devices after the code has been uploaded, if the serial monitor is not needed.
+UART1 and UART2: Available for communicating with external devices.
+Like I2C and SPI, these UART pins can be mapped to any GPIO pin on the ESP32. However, on most board models, they have a standard pin assignment.
+For most ESP32 boards, the UART pin assignments are as follows:
 
-| UART Port | TX      | RX      | Remarks                                                                     |
-| --------- | ------- | ------- | --------------------------------------------------------------------------- |
-| UART0     | GPIO 1  | GPIO 3  | Used for Serial Monitor and uploading code; Can be assigned to other GPIOs; |
-| UART1     | GPIO 10 | GPIO 9  | Must be assigned to other GPIOs                                             |
-| UART2     | GPIO 17 | GPIO 16 | Can be assigned to other GPIOs                                              |
+| UART Port | TX | RX | Remarks |
+| --------- | ------- | ------------------------------------------------------------------------- |
+| UART0 | GPIO 1 | GPIO 3 | Used for Serial Monitor and uploading code; Can be assigned to other GPIOs; |
+| UART1 | GPIO 10 | GPIO 9 | Must be assigned to other GPIOs |
+| UART2 | GPIO 17 | GPIO 16 | Can be assigned to other GPIOs |
 
-Что касается UART1 (GPIO 9 и GPIO10), эти выводы GPIO подключены к флэш-памяти ESP32 SPI, поэтому использовать их таким образом нельзя. Чтобы использовать UART1 для связи с другими устройствами, необходимо определить другие выводы с помощью библиотеки HardwareSerial.
+As for UART1 (GPIO 9 and GPIO10), these GPIO pins are connected to the ESP32 SPI flash memory, so they cannot be used in this way. To use UART1 to communicate with other devices, you need to define other pins using the HardwareSerial library.
 
-## Прерывания
+## Interrupts
 
-Все GPIO можно настроить на прерывания.
+All GPIOs can be configured as interrupts.
 
-## Связывающие выводы
+## Communication Pins
 
-Чип ESP32 имеет следующие связывающие выводы:
+The ESP32 chip has the following communication pins:
 
 - GPIO 0
 - GPIO 2
@@ -236,32 +236,32 @@ UART1 и UART2: доступны для связи с внешними устр�
 - GPIO 12
 - GPIO 15
 
-Они используются для перевода ESP32 в режим загрузчика или прошивки. На большинстве плат разработки со встроенным USB/последовательным портом вам не нужно беспокоиться о состоянии этих контактов. Плата сама переводит контакты в состояние, необходимое для прошивки или загрузки. Подробнее о выборе режима загрузки ESP32 можно узнать здесь.
-Однако, если к этим контактам подключены периферийные устройства, могут возникнуть проблемы с загрузкой нового кода, прошивкой ESP32 или сбросом настроек платы. Если к этим контактам подключены периферийные устройства, и возникают проблемы с загрузкой кода или прошивкой ESP32, возможно, эти устройства мешают ESP32 перейти в нужный режим. Ознакомьтесь с документацией по выбору режима загрузки, чтобы узнать, как это сделать. После сброса настроек, прошивки или загрузки эти контакты работают как положено.
+These are used to put the ESP32 into bootloader or flash mode. On most development boards with built-in USB/serial, you don't need to worry about the state of these pins. The board automatically puts the pins into the state The pins are required to flash or upload a file. You can learn more about selecting the ESP32 boot mode here.
+However, if you have peripherals connected to these pins, you may have problems uploading new code, flashing the ESP32, or resetting the board. If you have peripherals connected to these pins and you have problems uploading code or flashing the ESP32, it is possible that these peripherals are preventing the ESP32 from entering the correct mode. Please refer to the documentation on selecting the boot mode to learn how to do this. After a reset, flashing, or booting, these pins work as expected.
 
-## Контакты HIGH при загрузке
+## Pins are HIGH on boot
 
-Некоторые GPIO меняют состояние на HIGH или выводят ШИМ-сигналы при загрузке или сбросе. Это означает, что если к этим GPIO подключены выходы, вы можете получить неожиданные результаты при сбросе или загрузке ESP32.
+Some GPIOs go HIGH or output PWM signals when booting or resetting. This means that if you have outputs connected to these GPIOs, you may get unexpected results when resetting or booting the ESP32.
 
 - GPIO 1
 - GPIO 3
 - GPIO 5
-- GPIO 6–GPIO 11 (подключен к интегрированной флэш-памяти SPI ESP32 — не рекомендуется использовать).
+- GPIO 6–GPIO 11 (connected to the ESP32 integrated SPI flash memory – not recommended).
 - GPIO 14
 - GPIO 15
 
 ## Enable (EN)
 
-Вывод «Enable» (EN) — это контакт включения регулятора напряжения 3,3 В. Он подтянут к потенциалу, поэтому для отключения регулятора напряжения 3,3 В его следует подключить к заземлению. Это означает, что вы можете использовать этот контакт, подключив его к кнопке, например, для перезапуска ESP32.
+The Enable (EN) pin is the enable pin for the 3.3V voltage regulator. It is pulled up, so it should be connected to ground to disable the 3.3V voltage regulator. This means you can use this pin by connecting it to a button, for example to reset the ESP32.
 
-## Потребляемый ток GPIO
+## GPIO Current Draw
 
-Абсолютный максимальный ток, потребляемый каждым GPIO, составляет 40 мА в соответствии с разделом «Рекомендуемые условия эксплуатации» в техническом описании ESP32.
+The absolute maximum current draw of each GPIO is 40mA, as per the Recommended Operating Conditions section of the ESP32 datasheet.
 
-## Встроенный датчик Холла ESP32
+## ESP32 Built-in Hall Sensor
 
-ESP32 также оснащен встроенным датчиком Холла, который обнаруживает изменения магнитного поля вокруг него.
+The ESP32 also has a built-in Hall sensor that detects changes in the magnetic field around it.
 
-## В завершение
+## In Conclusion
 
-Надеемся, это справочное руководство по GPIO-портам ESP32 было вам полезно. Если у вас есть дополнительные советы по GPIO-портам ESP32, пожалуйста, поделитесь ими в комментариях ниже.
+We hope you found this ESP32 GPIO Reference Guide helpful. If you have any additional ESP32 GPIO tips, please share them in the comments below.
