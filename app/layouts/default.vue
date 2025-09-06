@@ -1,7 +1,10 @@
 <template>
   <div>
     <AppHeader />
+
     <NuxtPage />
+
+    <CookieConsent />
   </div>
 </template>
 

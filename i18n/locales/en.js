@@ -20,6 +20,16 @@ export default {
     light: 'Light',
     system: 'System'
   },
+  cookie: {
+    title: 'Privacy policy',
+    // disclaimer: 'We use cookies. See our {0}.',
+    disclaimer: 'We use cookies.',
+    link: 'privacy policy',
+    buttons: {
+      accept: 'Accept',
+      deny: 'Deny'
+    }
+  },
   error: {
     404: 'Page not found'
   }
