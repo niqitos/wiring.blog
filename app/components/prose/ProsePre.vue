@@ -20,7 +20,7 @@
 
     <pre
       :class="[
-        'bg-elevated',
+        'bg-elevated text-default',
         filename ? 'pt-8' : '',
         $props.class
       ]"
