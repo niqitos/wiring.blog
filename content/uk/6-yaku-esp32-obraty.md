@@ -13,7 +13,7 @@ seo:
   title: Яку ESP32 вибрати
   description: ESP32 – це вдосконалена версія плати ESP8266. Плата оснащена
     модулями бездротового зв'язку Wi-Fi та Bluetooth та двоядерний процесор.
-published: true
+published: false
 date: 2025-09-06T00:00:00.000Z
 sitemap:
   videos: []

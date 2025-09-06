@@ -13,7 +13,7 @@ seo:
   title: Порівняння ESP32 та ESP8266
   description: ESP32 і ESP8266 - це недорогі модулі з підтримкою Wi-Fi, які
     підходять для проектів у галузі інтернету речей (IoT).
-published: true
+published: false
 date: 2025-09-05T00:00:00.000Z
 sitemap:
   videos: []

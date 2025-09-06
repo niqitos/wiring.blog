@@ -6,12 +6,12 @@ authors:
 tags:
   - Arduino
   - ESP32
-title: Встановлення Плати ESP32 В Arduino IDE На Windows
+title: Установка Плати ESP32 В Arduino IDE На Windows
 description: У цьому посібнику ми розповімо, як встановити плату ESP32 в Arduino
   IDE для Windows Якщо ви використовуєте Mac OS або Linux, дотримуйтесь цього
   інструкції.
 seo:
-  title: Встановлення Плати ESP32 В Arduino IDE На Windows
+  title: Установка Плати ESP32 В Arduino IDE На Windows
   description: У цьому посібнику ми розповімо, як встановити плату ESP32 в Arduino
     IDE для Windows Якщо ви використовуєте Mac OS або Linux, дотримуйтесь цього
     інструкції.
@@ -21,14 +21,14 @@ sitemap:
   videos: []
   images: []
 navigation:
-  title: Встановлення Плати ESP32 В Arduino IDE На Windows
+  title: Установка Плати ESP32 В Arduino IDE На Windows
 ---
 
 ## Установка Arduino IDE
 
 Завантажити установник можна з офіційного сайту [arduino.cc/en/software](https://www.arduino.cc/en/software)
 
-## Встановлення ESP32 
+## Установка ESP32 
 
 Щоб встановити плату ESP32 у IDE Arduino, виконайте такі дії:
 
@@ -59,7 +59,7 @@ https://dl.espressif.com/dl/package_esp32_index.json
 6. Натисніть `Завантажити` до Arduino IDE. Зачекайте кілька секунд, поки код компілюється та завантажується у плату.
 7. Якщо все гаразд, ви повинні побачити повідомлення **Done uploading**
 8. Відкрийте монітор серійного порту Arduino IDE і встановіть швидкість `115200` бод: 
-9. Натисніть `EN` ESP32 на платі, і ви побачите мережі, доступні поряд з ESP32:
+9. Натисніть `EN` на платі ESP32, і ви побачите мережі, доступні поряд з ESP32:
 
 ## На завершення
 

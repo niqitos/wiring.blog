@@ -15,7 +15,7 @@ seo:
   description: ESP32 — это усовершенствованная версия платы ESP8266. Плата
     оснащена модулями беспроводной связи Wi-Fi и Bluetooth и двухъядерный
     процессор.
-published: true
+published: false
 date: 2025-09-06T00:00:00.000Z
 sitemap:
   videos: []

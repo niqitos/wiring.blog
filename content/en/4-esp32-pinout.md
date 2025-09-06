@@ -15,7 +15,7 @@ seo:
   description: ESP32 is a popular microcontroller with built-in Wi-Fi and
     Bluetooth, used in IoT projects. To successfully work with the board, it is
     important to understand the purpose of its contacts.
-published: true
+published: false
 date: 2025-09-04T00:00:00.000Z
 sitemap:
   videos: []

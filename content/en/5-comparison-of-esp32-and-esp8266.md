@@ -13,7 +13,7 @@ seo:
   title: Comparison of ESP32 and ESP8266
   description: ESP32 and ESP8266 are low-cost Wi-Fi enabled modules suitable for
     Internet of Things (IoT) projects.
-published: true
+published: false
 date: 2025-09-05T00:00:00.000Z
 sitemap:
   videos: []

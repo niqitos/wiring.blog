@@ -15,7 +15,7 @@ seo:
   description: ESP32 is an advanced version of the ESP8266 board. The board is
     equipped with Wi-Fi and Bluetooth wireless communication modules and a
     dual-core processor.
-published: true
+published: false
 date: 2025-09-06T00:00:00.000Z
 sitemap:
   videos: []

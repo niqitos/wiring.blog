@@ -8,12 +8,12 @@ tags:
   - ESP32
 title: Installing ESP32 Board in Arduino IDE on Mac OS X and Linux
 description: In this tutorial, we will show you how to install the ESP32 board
-  in the Arduino IDE for Windows. If you are using Mac OS or Linux, follow these
+  in Arduino IDE for Windows. If you are using Mac OS or Linux, follow these
   instructions.
 seo:
   title: Installing ESP32 Board in Arduino IDE on Mac OS X and Linux
   description: In this tutorial, we will show you how to install the ESP32 board
-    in the Arduino IDE for Windows. If you are using Mac OS or Linux, follow
+    in Arduino IDE for Windows. If you are using Mac OS or Linux, follow
     these instructions.
 published: true
 date: 2025-09-03T00:00:00.000Z
@@ -24,43 +24,43 @@ navigation:
   title: Installing ESP32 Board in Arduino IDE on Mac OS X and Linux
 ---
 
-## Установка Arduino IDE
+## Install Arduino IDE
 
-Скачать установщик можно с официального сайта [arduino.cc/en/software](https://www.arduino.cc/en/software)
+You can download the installer from the official website [arduino.cc/en/software](https://www.arduino.cc/en/software)
 
-## Установка ESP32
+## Install ESP32
 
-Чтобы установить плату ESP32 в IDE Arduino, выполните следующие действия:
+To install the ESP32 board in Arduino IDE, follow these steps:
 
-1. Откройте окно настроек в Arduino IDE перейдя в *Файл > Настройки*
-2. В поле **«Additional Board Manager URLs»** введите следующее:
+1. Open the settings window in Arduino IDE by going to **File > Settings**
+2. In the `Additional Board Manager URLs` field, enter the following:
 
 ```text
 https://dl.espressif.com/dl/package_esp32_index.json
 ```
 
-3. Нажмите **«ОК»**:
+3. Click `OK`:
 
-Если у вас уже есть URL-адрес плат ESP8266, вы указать их через запятую: `https://dl.espressif.com/dl/package_esp32_index.json, http://arduino.esp8266.com/stable/package_esp8266com_index.json`
+If you already have the URL of the ESP8266 boards, you can specify them separated by commas: `https://dl.espressif.com/dl/package_esp32_index.json, http://arduino.esp8266.com/stable/package_esp8266com_index.json`
 
-1. Откройте менеджер плат перейдя в *Инструменты > Плата > Диспетчер Плат…*
-2. В строке поиска введите ESP32 и нажмите кнопку «Установить» напротив “ESP32 by Espressif Systems“
-3. Готово. Установка займет несколько секунд.
+4. Open the board manager by going to **Tools > Board > Board Manager…**
+5. In the search bar, type ESP32 and click `Install` next to **ESP32 by Espressif Systems**
+6. Done. Installation will take a few seconds.
 
-## Настройка
+## Configuration
 
-Подключите плату ESP32 к вашему компьютеру и выполните следующие действия:
+Connect the ESP32 board to your computer and follow these steps:
 
-1. Откройте Arduino IDE
-2. Выберите свою плату в меню *Инструменты > Плата* (в моем случае это плата ESP32 DEVKIT V1)
-3. Выберите порт. Если вы не видите COM-порт в Arduino IDE, необходимо установить ESP32 CP210x USB to UART Bridge VCP Drivers:
-4. Откройте следующий пример в меню *Файл > Примеры > WiFiScan*.
-5. Откроется новый скетч:
-6. Нажмите кнопку «Загрузить» в Arduino IDE. Подождите несколько секунд, пока код компилируется и загружается в плату.
-7. Если все хорошо, вы должны увидеть сообщение «Done uploading»
-8. Откройте монитор серийного порта Arduino IDE и установите скорость 115200 бод:
-9. Нажмите кнопку «EN» ESP32 на плате, и вы увидите сети, доступные рядом с вашим ESP32:
+1. Open Arduino IDE
+2. Select your board in **Tools > Board** (in my case it's the ESP32 DEVKIT V1 board)
+3. Select the port. If you don't see the COM port in Arduino IDE, you need to install the `ESP32 CP210x USB` to `UART Bridge VCP Drivers`:
+4. Open the following example in **File > Examples > WiFiScan**.
+5. A new sketch will open:
+6. Press `Upload` in Arduino IDE. Wait a few seconds for the code to compile and upload to the board.
+7. If all is well, you should see the message **Done uploading**
+8. Open Arduino IDE serial monitor and set the baud rate to `115200`:
+9. Press `EN` on the ESP32 board and you will see the networks available near your ESP32:
 
-## В завершение
+## In conclusion
 
-Это простое руководство, которое иллюстрирует, как подготовить вашу Arduino IDE для работы с ESP32 на ПК с Mac или Linux.
+This is a simple guide that illustrates how to prepare your Arduino IDE to work with the ESP32 on a Windows PC.

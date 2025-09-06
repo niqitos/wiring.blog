@@ -8,12 +8,12 @@ tags:
   - ESP32
 title: Installing ESP32 Board In Arduino IDE On Windows
 description: In this tutorial, we will show you how to install the ESP32 board
-  in the Arduino IDE for Windows. If you are using Mac OS or Linux, follow these
+  in Arduino IDE for Windows. If you are using Mac OS or Linux, follow these
   instructions.
 seo:
   title: Installing ESP32 Board In Arduino IDE On Windows
   description: In this tutorial, we will show you how to install the ESP32 board
-    in the Arduino IDE for Windows. If you are using Mac OS or Linux, follow
+    in Arduino IDE for Windows. If you are using Mac OS or Linux, follow
     these instructions.
 published: true
 date: 2025-09-02T00:00:00.000Z
@@ -28,11 +28,11 @@ navigation:
 
 You can download the installer from the official website [arduino.cc/en/software](https://www.arduino.cc/en/software)
 
-## Installing ESP32
+## Install ESP32
 
-To install the ESP32 board in the Arduino IDE, follow these steps:
+To install the ESP32 board in Arduino IDE, follow these steps:
 
-1. Open the settings window in the Arduino IDE by going to **File > Settings**
+1. Open the settings window in Arduino IDE by going to **File > Settings**
 2. In the `Additional Board Manager URLs` field, enter the following:
 
 ```text
@@ -51,16 +51,15 @@ If you already have the URL of the ESP8266 boards, you can specify them separate
 
 Connect the ESP32 board to your computer and follow these steps:
 
-1. Open the Arduino IDE
+1. Open Arduino IDE
 2. Select your board in **Tools > Board** (in my case it's the ESP32 DEVKIT V1 board)
-3. Select the port. If you don't see the COM port in the Arduino IDE, you need to install the `ESP32 CP210x USB` to `UART Bridge VCP Drivers`:
+3. Select the port. If you don't see the COM port in Arduino IDE, you need to install the `ESP32 CP210x USB` to `UART Bridge VCP Drivers`:
 4. Open the following example in **File > Examples > WiFiScan**.
 5. A new sketch will open:
-6. Press `Upload` in the Arduino IDE. Wait a few seconds for the code to compile and upload to the board.
+6. Press `Upload` in Arduino IDE. Wait a few seconds for the code to compile and upload to the board.
 7. If all is well, you should see the message **Done uploading**
-8. Open the Arduino IDE serial monitor and set the baud rate to `115200`:
-
-9. Press `EN` ESP32 on the board and you will see the networks available near your ESP32:
+8. Open Arduino IDE serial monitor and set the baud rate to `115200`:
+9. Press `EN` on the ESP32 board and you will see the networks available near your ESP32:
 
 ## In conclusion
 

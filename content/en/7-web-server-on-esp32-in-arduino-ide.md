@@ -17,7 +17,7 @@ seo:
     a user through a web client. A web client can be a regular web browser on a
     laptop or smartphone. Communication between the client and the server is
     carried out via the HTTP protocol.
-published: true
+published: false
 date: 2025-09-07T00:00:00.000Z
 sitemap:
   videos: []
