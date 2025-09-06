@@ -116,6 +116,7 @@ export default defineNuxtConfig({
         'lucide:chevron-down',
         'lucide:copy',
         'lucide:copy-check',
+        'lucide:cookie',
       ]
     }
   },

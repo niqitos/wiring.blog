@@ -41,13 +41,13 @@
     <UCard
       :ui="{
         root: '!hidden sm:!block shadow-md shadow-gray-200 dark:shadow-gray-800',
-        body: 'border-0 !pb-0',
-        footer: '!flex items-center justify-end gap-2 border-0'
+        body: 'border-0 p-4 sm:p-4 !pb-0',
+        footer: '!flex items-center justify-end gap-2 border-0 p-4 sm:p-4'
       }"
     >
       <div class="!text-xl sm:!text-2xl !font-bold mb-4 !flex !items-center">
         <UIcon
-          name="fa7-solid:cookie"
+          name="i-lucide:cookie"
           class="!size-8 !min-w-8"
         />
 
