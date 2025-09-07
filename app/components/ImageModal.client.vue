@@ -11,7 +11,7 @@
         variant="ghost"
         icon="i-lucide:x"
         :ui="{
-          base: 'absolute top-4 right-4 !border-none'
+          base: 'absolute top-2 sm:top-4 right-2 sm:right-4 !border-none'
         }"
         @click="isOpen = !isOpen"
       />
@@ -19,7 +19,7 @@
       <NuxtImg
         v-if="modalImg"
         :src="modalImg"
-        class="w-full max-h-full rounded-xl shadow-xl transition-transform duration-300 ease-out"
+        class="w-full max-h-full rounded-xl"
       />
     </template>
   </UModal>
