@@ -42,6 +42,7 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/i18n',
+    '@nuxtjs/robots',
     '@nuxtjs/sitemap',
     '@nuxt/content',
     '@nuxt/eslint',
@@ -140,6 +141,13 @@ export default defineNuxtConfig({
           autoAds: true
         }
       }
+    }
+  },
+  nitro: {
+    prerender: {
+      routes: [
+        '/ads.txt'
+      ]
     }
   },
   hooks: {
