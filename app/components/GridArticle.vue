@@ -3,7 +3,7 @@
     <UCard
       :ui="{
         root: 'hover:shadow-lg transition p-0 divide-none h-full flex flex-col',
-        header: 'p-0 sm:px-0',
+        header: 'p-4 sm:px-4 !pb-0',
         body: 'p-4 sm:p-4 space-y-1',
         footer: 'flex items-end flex-1 p-4 sm:p-4 !pt-0'
       }"

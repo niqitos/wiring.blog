@@ -7,7 +7,7 @@
 
     <TagCloud />
 
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 mb-6">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6">
       <GridArticle
         v-for="(article, index) in articles"
         :key="`article-${index}`"

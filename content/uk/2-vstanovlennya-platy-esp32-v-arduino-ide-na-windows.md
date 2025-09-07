@@ -6,6 +6,7 @@ authors:
 tags:
   - Arduino
   - ESP32
+cover: /images/2/cover.webp
 title: Установка Плати ESP32 В Arduino IDE На Windows
 description: У цьому посібнику ми розповімо, як встановити плату ESP32 в Arduino
   IDE для Windows Якщо ви використовуєте Mac OS або Linux, дотримуйтесь цього

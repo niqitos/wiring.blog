@@ -6,6 +6,7 @@ authors:
 tags:
   - Arduino
   - ESP32
+cover: /images/3/cover.webp
 title: Установка платы ESP32 в Arduino IDE на Mac OS X и Linux
 description: В этом руководстве мы расскажем, как установить плату ESP32 в
   Arduino IDE для Windows. Если вы используете Mac OS или Linux, следуйте этой

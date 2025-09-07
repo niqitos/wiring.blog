@@ -4,8 +4,8 @@ authors:
   - name: Niqitos
     avatar: /images/avatars/niqitos.jpg
 tags:
-  - Arduino
   - ESP32
+cover: /images/4/cover.webp
 title: Розпінування ESP32
 description: ESP32 — популярний мікроконтролер із вбудованим Wi-Fi та Bluetooth,
   використовується в IoT-проектах. Для успішної роботи з платою важливо розуміти
