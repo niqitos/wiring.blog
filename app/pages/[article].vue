@@ -1,5 +1,5 @@
 <template>
-  <UContainer class="py-6">
+  <UContainer class="py-6 relative">
     <UBreadcrumb
       :items="breadcrumbs"
       class="mb-5"
@@ -99,7 +99,7 @@
 
       <NuxtImg
         src="/404.gif"
-        class="fixed bottom-0"
+        class="absolute bottom-0"
       />
     </div>
   </UContainer>
