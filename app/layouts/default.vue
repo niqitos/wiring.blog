@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <UApp :locale="locales[locale]">
     <AppHeader />
 
     <NuxtPage />
@@ -7,5 +7,11 @@
     <AppFooter />
 
     <CookieConsent />
-  </div>
+  </UApp>
 </template>
+
+<script lang="ts" setup>
+import * as locales from '@nuxt/ui/locale'
+
+const { locale } = useI18n()
+</script>
