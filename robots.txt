@@ -1,1 +1,6 @@
+# START nuxt-robots (indexable)
+User-agent: *
+Disallow: 
 
+Sitemap: https://wire.nuxt.space/sitemap_index.xml
+# END nuxt-robots
