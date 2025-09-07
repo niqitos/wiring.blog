@@ -15,6 +15,9 @@ export default {
   tags: {
     all: 'Все'
   },
+  zoom: {
+    reset: 'Сбросить'
+  },
   theme: {
     dark: 'Тёмная',
     light: 'Светлая',

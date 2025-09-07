@@ -16,10 +16,50 @@
         @click="isOpen = !isOpen"
       />
 
+      <div class="flex gap-2 absolute bottom-2 sm:bottom-4 right-4 z-1 !border-none">
+        <UButton
+          color="neutral"
+          variant="subtle"
+          icon="i-lucide:minus"
+          :ui="{
+            base: 'flex justify-center'
+          }"
+          :disabled="scale <= 1"
+          @click="zoomOut"
+        />
+
+        <UTooltip :text="$t('zoom.reset')">
+          <UButton
+            :label="scale"
+            color="neutral"
+            variant="subtle"
+            :ui="{
+              base: 'flex justify-center w-14'
+            }"
+            :disabled="scale <= 1"
+            @click="resetZoom"
+          />
+        </UTooltip>
+
+        <UButton
+          color="neutral"
+          variant="subtle"
+          icon="i-lucide:plus"
+          :ui="{
+            base: 'flex justify-center'
+          }"
+          :disabled="scale >= 3"
+          @click="zoomIn"
+        />
+      </div>
+
       <NuxtImg
         v-if="modalImg"
         :src="modalImg"
         class="w-full max-h-full rounded-xl"
+        :style="{
+          transform: `scale(${scale})`
+        }"
       />
     </template>
   </UModal>
@@ -31,6 +71,7 @@ import { UModal } from '#components'
 
 const isOpen = ref(false)
 const modalImg = ref<string | null>(null)
+const scale = ref(1)
 
 const containerSelector = '.prose'
 
@@ -45,6 +86,7 @@ onMounted(() => {
   images.forEach(img => {
     const handler = () => {
       modalImg.value = img.src
+      scale.value = 1
       isOpen.value = true
     }
     img.style.cursor = 'zoom-in'
@@ -58,4 +100,17 @@ onBeforeUnmount(() => {
   cleanupFns.forEach(fn => fn())
   cleanupFns = []
 })
+
+
+const zoomIn = () => {
+  scale.value = Math.min(scale.value + 0.25, 5)
+}
+
+const zoomOut = () => {
+  scale.value = Math.max(scale.value - 0.25, 0.25)
+}
+
+const resetZoom = () => {
+  scale.value = 1
+}
 </script>

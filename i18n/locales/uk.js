@@ -15,6 +15,9 @@ export default {
   tags: {
     all: 'Всі'
   },
+  zoom: {
+    reset: 'Скинути'
+  },
   themeswitcher: {
     title: 'Вибір теми'
   },

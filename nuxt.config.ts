@@ -128,6 +128,8 @@ export default defineNuxtConfig({
         'lucide:cookie',
         'lucide:file-text',
         'lucide:search',
+        'lucide:minus',
+        'lucide:plus',
       ]
     }
   },
