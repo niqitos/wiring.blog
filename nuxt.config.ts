@@ -33,6 +33,8 @@ export default defineNuxtConfig({
     }
   },
   runtimeConfig: {
+    googleAdsenseId: process.env.GOOGLE_ADSENSE_ID,
+    googleAdsensePrivateId: process.env.GOOGLE_ADSENSE_PRIVATE_ID,
     public: {
       email: process.env.EMAIL
     }
