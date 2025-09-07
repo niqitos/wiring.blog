@@ -4,10 +4,8 @@
 
     <NuxtPage />
 
+    <AppFooter />
+
     <CookieConsent />
   </div>
 </template>
-
-<script lang="ts" setup>
-
-</script>

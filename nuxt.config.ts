@@ -32,6 +32,11 @@ export default defineNuxtConfig({
       ]
     }
   },
+  runtimeConfig: {
+    public: {
+      email: process.env.EMAIL
+    }
+  },
   modules: [
     '@nuxtjs/i18n',
     '@nuxtjs/sitemap',
