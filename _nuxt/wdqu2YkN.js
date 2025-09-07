@@ -1,0 +1,1 @@
+import{u as o}from"#entry";const u=()=>{const{$i18n:e}=o();return{formatDate:t=>new Date(t).toLocaleDateString(e.locales.value.find(a=>a.code===e.locale.value)?.language,{year:"numeric",month:"short",day:"numeric"})}};export{u};
