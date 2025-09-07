@@ -25,8 +25,8 @@
         </div>
       </aside>
 
-      <article class="col-span-12 md:col-span-8 lg:col-span-8 xl:col-span-9 wrap-break-word">
-        <header class="space-y-5 mb-5 prose dark:prose-invert">
+      <article class="col-span-12 md:col-span-8 lg:col-span-8 xl:col-span-9 wrap-break-word prose dark:prose-invert">
+        <header class="space-y-5 mb-5">
           <h1 v-text="article.title" />
 
           <NuxtImg
@@ -66,10 +66,9 @@
         <ContentRenderer
           v-if="article"
           :value="article"
-          class="prose dark:prose-invert"
         />
 
-        <footer class="mt-8">
+        <footer class="mt-8 not-prose">
           <div class="flex flex-wrap gap-2">
             <UButton
               v-for="tag in article.tags"
@@ -84,6 +83,8 @@
             />
           </div>
         </footer>
+
+        <ImageModal />
       </article>
     </div>
 
