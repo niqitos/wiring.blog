@@ -16,7 +16,7 @@
         @click="isOpen = !isOpen"
       />
 
-      <div class="flex gap-2 absolute bottom-2 sm:bottom-4 right-4 z-1 !border-none">
+      <div class="flex gap-2 absolute bottom-2 sm:bottom-4 right-2 sm:right-4 z-1 !border-none">
         <UButton
           color="neutral"
           variant="subtle"
