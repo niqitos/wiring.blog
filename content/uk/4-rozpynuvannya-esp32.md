@@ -1,5 +1,4 @@
 ---
-id: 4
 authors:
   - name: Niqitos
     avatar: /images/avatars/niqitos.jpg
@@ -15,11 +14,15 @@ seo:
   description: ESP32 — популярний мікроконтролер із вбудованим Wi-Fi та Bluetooth,
     використовується в IoT-проектах. Для успішної роботи з платою важливо
     розуміти призначення її контактів.
+  alternate:
+    - en: 4-esp32-pinout
+    - ru: 4-raspinovka-esp32
 published: true
 date: 2025-09-04T00:00:00.000Z
 sitemap:
-  videos: []
-  images: []
+  lastmod: 2025-09-04
+  changefreq: monthly
+  priority: 0.8
 navigation:
   title: Розпінування ESP32
 ---

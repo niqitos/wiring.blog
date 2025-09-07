@@ -1,5 +1,4 @@
 ---
-id: 7
 authors:
   - name: Niqitos
     avatar: /images/avatars/niqitos.jpg
@@ -17,11 +16,12 @@ seo:
     a user through a web client. A web client can be a regular web browser on a
     laptop or smartphone. Communication between the client and the server is
     carried out via the HTTP protocol.
+  alternate:
+    - ru: 7-veb-server-na-esp32-v-arduino-ide
+    - uk: 7-veb-server-na-esp32-v-arduino-ide
 published: false
 date: 2025-09-07T00:00:00.000Z
-sitemap:
-  videos: []
-  images: []
+sitemap: false
 navigation:
   title: Web server on ESP32 in Arduino IDE
 ---

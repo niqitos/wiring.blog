@@ -1,5 +1,4 @@
 ---
-id: 1
 authors:
   - name: Niqitos
     avatar: /images/avatars/niqitos.jpg
@@ -23,8 +22,9 @@ seo:
 published: true
 date: 2025-09-01T00:00:00.000Z
 sitemap:
-  videos: []
-  images: []
+  lastmod: 2025-09-01
+  changefreq: monthly
+  priority: 0.8
 navigation:
   title: Начало работы с ESP32
 ---

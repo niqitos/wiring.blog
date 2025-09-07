@@ -20,6 +20,18 @@ export default {
     light: 'Light',
     system: 'System'
   },
+  themeswitcher: {
+    title: 'Theme Switcher'
+  },
+  langswitcher: {
+    title: 'Language Switcher'
+  },
+  search: {
+    title: 'Search'
+  },
+  menu: {
+    title: 'Menu'
+  },
   cookie: {
     title: 'Privacy policy',
     // disclaimer: 'We use cookies. See our {0}.',

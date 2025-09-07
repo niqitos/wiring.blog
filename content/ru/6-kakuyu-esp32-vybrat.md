@@ -1,5 +1,4 @@
 ---
-id: 6
 authors:
   - name: Niqitos
     avatar: /images/avatars/niqitos.jpg
@@ -15,11 +14,12 @@ seo:
   description: ESP32 — это усовершенствованная версия платы ESP8266. Плата
     оснащена модулями беспроводной связи Wi-Fi и Bluetooth и двухъядерный
     процессор.
+  alternate:
+    - en: 6-which-esp32-to-choose
+    - uk: 6-yaku-esp32-obraty
 published: false
 date: 2025-09-06T00:00:00.000Z
-sitemap:
-  videos: []
-  images: []
+sitemap: false
 navigation:
   title: Какую ESP32 выбрать
 ---

@@ -1,5 +1,4 @@
 ---
-id: 6
 authors:
   - name: Niqitos
     avatar: /images/avatars/niqitos.jpg
@@ -13,11 +12,12 @@ seo:
   title: Яку ESP32 вибрати
   description: ESP32 – це вдосконалена версія плати ESP8266. Плата оснащена
     модулями бездротового зв'язку Wi-Fi та Bluetooth та двоядерний процесор.
+  alternate:
+    - en: 6-which-esp32-to-choose
+    - ru: 6-kakuyu-esp32-vybrat
 published: false
 date: 2025-09-06T00:00:00.000Z
-sitemap:
-  videos: []
-  images: []
+sitemap: false
 navigation:
   title: Яку ESP32 вибрати
 ---

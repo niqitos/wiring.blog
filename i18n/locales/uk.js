@@ -15,6 +15,18 @@ export default {
   tags: {
     all: 'Всі'
   },
+  themeswitcher: {
+    title: 'Вибір теми'
+  },
+  langswitcher: {
+    title: 'Вибір мови'
+  },
+  search: {
+    title: 'Пошук'
+  },
+  menu: {
+    title: 'Меню'
+  },
   theme: {
     dark: 'Темна',
     light: 'Світла',

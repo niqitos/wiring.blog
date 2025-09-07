@@ -117,6 +117,7 @@ export default defineNuxtConfig({
         'lucide:copy',
         'lucide:copy-check',
         'lucide:cookie',
+        'lucide:file-text',
       ]
     }
   },

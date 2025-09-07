@@ -20,6 +20,18 @@ export default {
     light: 'Светлая',
     system: 'Системная'
   },
+  themeswitcher: {
+    title: 'Выбор темы'
+  },
+  langswitcher: {
+    title: 'Выбор языка'
+  },
+  search: {
+    title: 'Поиск'
+  },
+  menu: {
+    title: 'Меню'
+  },
   cookie: {
     title: 'Политика конфиденциальности',
     // disclaimer: 'Мы используем файлы cookie. Подробнее о нашей {0}.',

@@ -1,5 +1,4 @@
 ---
-id: 5
 authors:
   - name: Niqitos
     avatar: /images/avatars/niqitos.jpg
@@ -13,11 +12,12 @@ seo:
   title: Comparison of ESP32 and ESP8266
   description: ESP32 and ESP8266 are low-cost Wi-Fi enabled modules suitable for
     Internet of Things (IoT) projects.
+  alternate:
+    - ru: 5-sravneniye-esp32-i-esp8266
+    - uk: 5-porivnyannya-esp32-i-esp8266
 published: false
 date: 2025-09-05T00:00:00.000Z
-sitemap:
-  videos: []
-  images: []
+sitemap: false
 navigation:
   title: Comparison of ESP32 and ESP8266
 ---

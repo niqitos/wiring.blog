@@ -1,5 +1,4 @@
 ---
-id: 4
 authors:
   - name: Niqitos
     avatar: /images/avatars/niqitos.jpg
@@ -15,11 +14,15 @@ seo:
   description: ESP32 is a popular microcontroller with built-in Wi-Fi and
     Bluetooth, used in IoT projects. To successfully work with the board, it is
     important to understand the purpose of its contacts.
+  alternate:
+    - ru: 4-raspinovka-esp32
+    - uk: 4-rozpynuvannya-esp32
 published: true
 date: 2025-09-04T00:00:00.000Z
 sitemap:
-  videos: []
-  images: []
+  lastmod: 2025-09-05
+  changefreq: monthly
+  priority: 0.8
 navigation:
   title: ESP32 pinout
 ---

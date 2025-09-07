@@ -1,5 +1,4 @@
 ---
-id: 6
 authors:
   - name: Niqitos
     avatar: /images/avatars/niqitos.jpg
@@ -15,11 +14,12 @@ seo:
   description: ESP32 is an advanced version of the ESP8266 board. The board is
     equipped with Wi-Fi and Bluetooth wireless communication modules and a
     dual-core processor.
+  alternate:
+    - ru: 6-kakuyu-esp32-vybrat
+    - uk: 6-yaku-esp32-obraty
 published: false
 date: 2025-09-06T00:00:00.000Z
-sitemap:
-  videos: []
-  images: []
+sitemap: false
 navigation:
   title: Which ESP32 to choose
 ---

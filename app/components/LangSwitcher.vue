@@ -20,6 +20,7 @@
       variant="ghost"
       size="lg"
       :label="locales.find((l: LocaleObject) => l.code === locale)?.name?.substring(0, 3)"
+      :title="$t('langswitcher.title')"
       :ui="{
         leadingIcon: '!size-5'
       }"

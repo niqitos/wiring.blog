@@ -1,5 +1,4 @@
 ---
-id: 7
 authors:
   - name: Niqitos
     avatar: /images/avatars/niqitos.jpg
@@ -17,11 +16,12 @@ seo:
     користувача через веб-клієнт. Веб-клієнтом може бути звичайний веб-браузер
     на ноутбуці або смартфоні. Зв'язок між клієнтом та сервером здійснюється за
     протоколом HTTP.
+  alternate:
+    - en: 7-web-server-on-esp32-in-arduino-ide
+    - ru: 7-veb-server-na-esp32-v-arduino-ide
 published: false
 date: 2025-09-07T00:00:00.000Z
-sitemap:
-  videos: []
-  images: []
+sitemap: false
 navigation:
   title: Веб сервер на ESP32 в Arduino IDE
 ---

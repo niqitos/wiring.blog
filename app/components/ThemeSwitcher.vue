@@ -16,7 +16,7 @@
       variant="ghost"
       size="lg"
       :icon="currentMode?.icon"
-      :title="currentMode?.label"
+      :title="$t('themeswitcher.title')"
       :ui="{
         leadingIcon: '!size-5'
       }"

@@ -21,6 +21,8 @@
         </ul>
 
         <div class="flex items-center gap-2">
+          <LangSwitcher />
+
           <ClientOnly v-if="mounted">
             <ThemeSwitcher />
           </ClientOnly>
@@ -30,29 +32,17 @@
             class="size-7 m-1"
           />
 
-          <LangSwitcher />
+          <SearchModal />
 
           <UButton
             class="md:hidden"
             color="neutral"
             variant="ghost"
             size="lg"
+            :icon="isOpen ? 'i-lucide:x' : 'i-lucide:menu'"
+            :title="$t('menu.title')"
             @click="isOpen = !isOpen"
-          >
-            <template #leading>
-              <UIcon
-                v-show="isOpen"
-                name="i-lucide:x"
-                class="!size-5"
-              />
-
-              <UIcon
-                v-show="!isOpen"
-                name="i-lucide:menu"
-                class="!size-5"
-              />
-            </template>
-          </UButton>
+          />
         </div>
       </nav>
     </UContainer>
