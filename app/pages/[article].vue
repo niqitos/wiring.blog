@@ -23,12 +23,12 @@
             :article="article"
           />
 
-          <ScriptGoogleAdsense
-            :data-ad-client="runtimeConfig.googleAdsenseId"
+          <!-- <ScriptGoogleAdsense
+            :data-ad-client="runtimeConfig.public.googleAdsenseId"
             :data-ad-slot="runtimeConfig.googleAdsensePrivateId"
             data-ad-format="auto"
             data-full-width-responsive="true"
-          />
+          /> -->
         </div>
       </aside>
 
@@ -117,7 +117,7 @@ import type { BreadcrumbItem } from '@nuxt/ui'
 import type { LocaleObject } from '@nuxtjs/i18n'
 
 const { t, locale, locales, defaultLocale } = useI18n()
-const runtimeConfig = useRuntimeConfig()
+// const runtimeConfig = useRuntimeConfig()
 const route = useRoute()
 const localePath = useLocalePath()
 const setI18nParams = useSetI18nParams()

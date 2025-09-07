@@ -33,9 +33,9 @@ export default defineNuxtConfig({
     }
   },
   runtimeConfig: {
-    googleAdsenseId: process.env.GOOGLE_ADSENSE_ID,
-    googleAdsensePrivateId: process.env.GOOGLE_ADSENSE_PRIVATE_ID,
+    // googleAdsensePrivateId: process.env.GOOGLE_ADSENSE_PRIVATE_ID,
     public: {
+      googleAdsenseId: process.env.GOOGLE_ADSENSE_PUBLIC_ID,
       email: process.env.EMAIL
     }
   },
@@ -135,7 +135,7 @@ export default defineNuxtConfig({
           id: process.env.GOOGLE_TAG_MANAGER_ID
         } as any,
         googleAdsense: {
-          client: process.env.GOOGLE_ADSENSE_ID,
+          client: `ca-pub-${process.env.GOOGLE_ADSENSE_ID}`,
           autoAds: true
         }
       }
