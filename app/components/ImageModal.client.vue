@@ -11,7 +11,7 @@
         variant="ghost"
         icon="i-lucide:x"
         :ui="{
-          base: 'absolute top-2 sm:top-4 right-2 sm:right-4 !border-none'
+          base: 'absolute top-2 sm:top-4 right-2 sm:right-4 !border-none z-1'
         }"
         @click="isOpen = !isOpen"
       />
