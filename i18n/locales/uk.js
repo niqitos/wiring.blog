@@ -18,6 +18,11 @@ export default {
   zoom: {
     reset: 'Скинути'
   },
+  theme: {
+    dark: 'Темна',
+    light: 'Світла',
+    system: 'Системна'
+  },
   themeswitcher: {
     title: 'Вибір теми'
   },
@@ -29,11 +34,6 @@ export default {
   },
   menu: {
     title: 'Меню'
-  },
-  theme: {
-    dark: 'Темна',
-    light: 'Світла',
-    system: 'Системна'
   },
   cookie: {
     title: 'Політика конфіденційності',
