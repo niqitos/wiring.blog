@@ -27,37 +27,11 @@
         <xhtml:link rel="alternate" href="https://wire.nuxt.space/en/1-getting-started-with-esp32" hreflang="en-UA" />
     </url>
     <url>
-        <loc>https://wire.nuxt.space/en/1-pochatok-roboty-z-esp32</loc>
-        <image:image>
-            <image:loc>https://wire.nuxt.space/_ipx/_/images/4/cover.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://wire.nuxt.space/_ipx/s_36x36/images/avatars/niqitos.jpg</image:loc>
-        </image:image>
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/1-pochatok-roboty-z-esp32" hreflang="x-default" />
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/1-pochatok-roboty-z-esp32" hreflang="uk-UA" />
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/en/1-pochatok-roboty-z-esp32" hreflang="en-UA" />
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/ru/1-pochatok-roboty-z-esp32" hreflang="ru-UA" />
-    </url>
-    <url>
         <loc>https://wire.nuxt.space/en/2-installing-esp32-board-in-arduino-ide-on-windows</loc>
         <lastmod>2025-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" href="https://wire.nuxt.space/en/2-installing-esp32-board-in-arduino-ide-on-windows" hreflang="en-UA" />
-    </url>
-    <url>
-        <loc>https://wire.nuxt.space/en/2-vstanovlennya-platy-esp32-v-arduino-ide-na-windows</loc>
-        <image:image>
-            <image:loc>https://wire.nuxt.space/_ipx/_/images/4/cover.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://wire.nuxt.space/_ipx/s_36x36/images/avatars/niqitos.jpg</image:loc>
-        </image:image>
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/2-vstanovlennya-platy-esp32-v-arduino-ide-na-windows" hreflang="x-default" />
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/2-vstanovlennya-platy-esp32-v-arduino-ide-na-windows" hreflang="uk-UA" />
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/en/2-vstanovlennya-platy-esp32-v-arduino-ide-na-windows" hreflang="en-UA" />
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/ru/2-vstanovlennya-platy-esp32-v-arduino-ide-na-windows" hreflang="ru-UA" />
     </url>
     <url>
         <loc>https://wire.nuxt.space/en/3-installing-esp32-board-in-arduino-ide-on-mac-os-x-and-linux</loc>
@@ -67,37 +41,11 @@
         <xhtml:link rel="alternate" href="https://wire.nuxt.space/en/3-installing-esp32-board-in-arduino-ide-on-mac-os-x-and-linux" hreflang="en-UA" />
     </url>
     <url>
-        <loc>https://wire.nuxt.space/en/3-vstanovlennya-platy-esp32-v-arduino-ide-na-mac-os-x-i-linux</loc>
-        <image:image>
-            <image:loc>https://wire.nuxt.space/_ipx/_/images/4/cover.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://wire.nuxt.space/_ipx/s_36x36/images/avatars/niqitos.jpg</image:loc>
-        </image:image>
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/3-vstanovlennya-platy-esp32-v-arduino-ide-na-mac-os-x-i-linux" hreflang="x-default" />
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/3-vstanovlennya-platy-esp32-v-arduino-ide-na-mac-os-x-i-linux" hreflang="uk-UA" />
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/en/3-vstanovlennya-platy-esp32-v-arduino-ide-na-mac-os-x-i-linux" hreflang="en-UA" />
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/ru/3-vstanovlennya-platy-esp32-v-arduino-ide-na-mac-os-x-i-linux" hreflang="ru-UA" />
-    </url>
-    <url>
         <loc>https://wire.nuxt.space/en/4-esp32-pinout</loc>
         <lastmod>2025-09-05</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" href="https://wire.nuxt.space/en/4-esp32-pinout" hreflang="en-UA" />
-    </url>
-    <url>
-        <loc>https://wire.nuxt.space/en/4-rozpynuvannya-esp32</loc>
-        <image:image>
-            <image:loc>https://wire.nuxt.space/_ipx/_/images/4/cover.webp</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://wire.nuxt.space/_ipx/s_36x36/images/avatars/niqitos.jpg</image:loc>
-        </image:image>
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/4-rozpynuvannya-esp32" hreflang="x-default" />
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/4-rozpynuvannya-esp32" hreflang="uk-UA" />
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/en/4-rozpynuvannya-esp32" hreflang="en-UA" />
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/ru/4-rozpynuvannya-esp32" hreflang="ru-UA" />
     </url>
     <url>
         <loc>https://wire.nuxt.space/en/about</loc>
@@ -107,4 +55,4 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://wire.nuxt.space/about" />
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.3 at 2025-09-10T11:46:07.463Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2025-09-22T22:20:27.504Z -->
