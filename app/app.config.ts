@@ -4,6 +4,9 @@ export default defineAppConfig({
       slots: {
         base: 'cursor-pointer'
       }
+    },
+    icons: {
+      check: 'i-lucide:check'
     }
   }
 })

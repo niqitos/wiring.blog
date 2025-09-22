@@ -10,7 +10,6 @@ export default {
     title: 'О нас',
     description: 'О нас'
   },
-  toc: 'Содержание',
   readingTime: '0 минут | {count} минута | {count} минуты | {count} минут',
   tags: {
     all: 'Все'

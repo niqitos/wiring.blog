@@ -1,7 +1,7 @@
 <template>
-  <header class="border-b border-gray-200 dark:border-gray-800">
-    <UContainer>
-      <nav class="flex items-center justify-between py-2">
+  <header class="bg-default/75 backdrop-blur border-b border-default sticky top-0 z-50 flex flex-col">
+    <UContainer class="h-(--ui-header-height)">
+      <nav class="flex items-center justify-between h-full">
         <NuxtLink
           :to="localePath('index')"
           class="flex items-center gap-2"
@@ -21,16 +21,9 @@
         </ul>
 
         <div class="flex items-center gap-2">
+          <ThemeSwitcher />
+
           <LangSwitcher />
-
-          <ClientOnly v-if="mounted">
-            <ThemeSwitcher />
-          </ClientOnly>
-
-          <USkeleton
-            v-else
-            class="size-7 m-1"
-          />
 
           <SearchModal />
 
@@ -64,7 +57,6 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 const { t } = useI18n()
 const localePath = useLocalePath()
 const isOpen = ref(false)
-const mounted = ref(false)
 
 const menu = ref<NavigationMenuItem[]>([
   {
@@ -76,8 +68,4 @@ const menu = ref<NavigationMenuItem[]>([
     to: localePath('about')
   }
 ])
-
-onMounted(() => {
-  mounted.value = true
-})
 </script>

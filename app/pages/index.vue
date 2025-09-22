@@ -7,13 +7,17 @@
 
     <TagCloud />
 
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6">
-      <GridArticle
-        v-for="(article, index) in articles"
-        :key="`article-${index}`"
-        :article="article"
+    <UBlogPosts>
+      <UBlogPost
+        v-for="(post, index) in articles"
+        :key="index"
+        :to="post.path"
+        v-bind="post"
+        :ui="{
+          image: 'pt-4 px-4'
+        }"
       />
-    </div>
+    </UBlogPosts>
 
     <UPagination
       v-if="total && total > itemsPerPage"
@@ -35,7 +39,7 @@ const tag = computed(() => route.query.tag || '')
 
 const { data: total } = await useAsyncData(() => {
   const query = queryCollection(`content_${locale.value}`)
-    .select('path', 'cover', 'title', 'description', 'date', 'tags', 'authors')
+    .select('path', 'image', 'title', 'description', 'date', 'tags', 'authors')
     .where('published', '=', true)
 
   if (tag.value) {
@@ -50,7 +54,7 @@ const { data: total } = await useAsyncData(() => {
 
 const { data: articles } = await useAsyncData(() => {
   const query = queryCollection(`content_${locale.value}`)
-    .select('path', 'cover', 'title', 'description', 'date', 'tags', 'authors')
+    .select('path', 'image', 'title', 'description', 'date', 'tags', 'authors')
     .where('published', '=', true)
 
   if (tag.value) {

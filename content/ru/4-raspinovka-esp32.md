@@ -4,7 +4,7 @@ authors:
     avatar: /images/avatars/niqitos.jpg
 tags:
   - ESP32
-cover: /images/4/cover.webp
+image: /images/4/cover.webp
 title: Распиновка ESP32
 description: ESP32 — популярный микроконтроллер с встроенным Wi-Fi и Bluetooth,
   используемый в IoT-проектах. Для успешной работы с платой важно понимать

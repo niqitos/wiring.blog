@@ -5,7 +5,7 @@ import { asSitemapCollection } from '@nuxtjs/sitemap/content'
 const schema = z.object({
   id: z.bigint(),
   title: z.string(),
-  cover: z.string(),
+  image: z.string(),
   description: z.string().optional(),
   date: z.string().datetime().optional(),
   tags: z.array(z.string()).optional(),

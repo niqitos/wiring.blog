@@ -4,7 +4,7 @@ authors:
     avatar: /images/avatars/niqitos.jpg
 tags:
   - ESP32
-cover: /images/1/cover.webp
+image: /images/1/cover.webp
 title: Getting Started with ESP32
 description: This article is intended for those who are just getting started
   with the ESP32 development board. If you are familiar with the ESP8266, the

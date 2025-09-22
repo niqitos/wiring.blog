@@ -9,23 +9,32 @@
       align: 'start',
       sideOffset: 8
     }"
+    size="lg"
     :ui="{
       content: 'min-w-[var(--reka-popper-anchor-width)]',
       item: 'cursor-pointer'
     }"
   >
     <UButton
-      icon="i-lucide:languages"
+      trailing-icon="i-lucide:chevron-down"
       color="neutral"
       variant="ghost"
       size="lg"
       :label="locales.find((l: LocaleObject) => l.code === locale)?.name?.substring(0, 3)"
       :title="$t('langswitcher.title')"
-      :ui="{
-        leadingIcon: '!size-5'
-      }"
     />
   </UDropdownMenu>
+  <!-- <ULocaleSelect
+    v-model="locale"
+    variant="ghost"
+    :leading="false"
+    icon="i-lucide:languages"
+    :locales="locales.map((l: LocaleObject) => ({
+      name: l.name?.substring(0, 3),
+      code: l.code
+    }))"
+    @update:model-value="setLocale($event)"
+  /> -->
 </template>
 
 <script lang="ts" setup>

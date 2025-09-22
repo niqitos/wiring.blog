@@ -4,7 +4,7 @@ authors:
     avatar: /images/avatars/niqitos.jpg
 tags:
   - ESP32
-cover: /images/1/cover.webp
+image: /images/1/cover.webp
 title: Начало работы с ESP32
 description: Статья предназначена для тех, кто только начинает знакомство с
   платой разработки ESP32. Если вы знакомы с ESP8266, ESP32 — это его

@@ -42,6 +42,7 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/i18n',
+    '@nuxtjs/mdc',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
     '@nuxt/content',
@@ -130,6 +131,7 @@ export default defineNuxtConfig({
         'lucide:search',
         'lucide:minus',
         'lucide:plus',
+        'i-lucide:check'
       ]
     }
   },

@@ -4,7 +4,7 @@ authors:
     avatar: /images/avatars/niqitos.jpg
 tags:
   - ESP32
-cover: /images/4/cover.webp
+image: /images/4/cover.webp
 title: ESP32 pinout
 description: ESP32 is a popular microcontroller with built-in Wi-Fi and
   Bluetooth, used in IoT projects. To successfully work with the board, it is

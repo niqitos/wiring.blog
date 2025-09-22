@@ -5,7 +5,7 @@ authors:
 tags:
   - Arduino
   - ESP32
-cover: /images/2/cover.webp
+image: /images/2/cover.webp
 title: Installing ESP32 Board In Arduino IDE On Windows
 description: In this tutorial, we will show you how to install the ESP32 board
   in Arduino IDE for Windows. If you are using Mac OS or Linux, follow these

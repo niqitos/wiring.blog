@@ -10,7 +10,6 @@ export default {
     title: 'About',
     description: 'About'
   },
-  toc: 'Table of Contents',
   readingTime: '0 min read | {count} min read | {count} min read',
   tags: {
     all: 'All'

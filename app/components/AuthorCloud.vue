@@ -18,16 +18,15 @@
         <span
           v-for="(author, index) in article.authors"
           :key="`author-name-${index}`"
-          class="after:content-[','] last:after:content-['']"
+          class="font-medium text-highlighted after:content-[','] last:after:content-['']"
           v-text="author?.name"
         />
       </div>
 
-      <div class="flex items-center gap-2 text-gray-400">
-        <span v-text="formatDate(String(article.date))" />
-        <span v-text="'•'" />
-        <span v-text="$t('readingTime', Number(article.readingTime))" />
-      </div>
+      <div
+        class="text-muted text-xs"
+        v-text="`${formatDate(String(article.date))} • ${$t('readingTime', Number(article.readingTime))}`"
+      />
     </div>
   </div>
 </template>

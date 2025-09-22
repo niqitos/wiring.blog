@@ -3,7 +3,7 @@
     v-if="active"
     class="w-full sm:!w-80 fixed !left-0 sm:!left-4 bottom-0 sm:!bottom-4 z-10000"
   >
-    <div class="grid grid-cols-12 gap-4 gap-y-3 p-3 !shadow-fixed-button dark:shadow-fixed-button-dark  sm:!hidden bg-elevated">
+    <div class="grid grid-cols-12 gap-4 gap-y-3 p-3 !shadow-fixed-button sm:!hidden bg-elevated">
       <div class="col-span-12 xs:col-span-7">
         <I18nT
           keypath="cookie.disclaimer"
@@ -15,7 +15,7 @@
             class="underline underline-offset-4 !decoration-dashed"
             target="_blank"
           >
-            {{ t('cookie.link') }}
+            {{ $t('cookie.link') }}
           </NuxtLink>
         </I18nT>
       </div>
@@ -25,14 +25,14 @@
           size="xs"
           color="neutral"
           variant="outline"
-          :label="t('cookie.buttons.deny')"
+          :label="$t('cookie.buttons.deny')"
           @click="deny"
         />
 
         <UButton
           size="xs"
           color="primary"
-          :label="t('cookie.buttons.accept')"
+          :label="$t('cookie.buttons.accept')"
           @click="accept"
         />
       </div>
@@ -53,7 +53,7 @@
 
         <span
           class="pl-4 text-2xl"
-          v-text="t('cookie.title')"
+          v-text="$t('cookie.title')"
         />
       </div>
 
@@ -66,7 +66,7 @@
           class="underline underline-offset-4 !decoration-dashed"
           target="_blank"
         >
-          {{ t('cookie.link') }}
+          {{ $t('cookie.link') }}
         </NuxtLink>
       </I18nT>
 
@@ -75,14 +75,14 @@
           color="neutral"
           variant="outline"
           size="sm"
-          :label="t('cookie.buttons.deny')"
+          :label="$t('cookie.buttons.deny')"
           @click="deny"
         />
 
         <UButton
           color="primary"
           size="sm"
-          :label="t('cookie.buttons.accept')"
+          :label="$t('cookie.buttons.accept')"
           @click="accept"
         />
       </template>
@@ -92,7 +92,6 @@
 
 <script lang="ts" setup>
 const localePath = useLocalePath()
-const { t } = useI18n()
 const active = ref(false)
 
 const getGDPR = () => {

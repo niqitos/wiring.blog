@@ -1,87 +1,41 @@
 <template>
-  <UModal v-model:open="open">
-    <UButton
-      icon="i-lucide:search"
-      color="neutral"
+  <div>
+    <UContentSearchButton
       variant="ghost"
       size="lg"
-      :title="$t('search.title')"
-      :ui="{
-        base: '!p-2',
-        leadingIcon: '!size-5'
-      }"
     />
 
-    <template #content>
-      <UInput
-        v-model="query"
-        icon="i-lucide:search"
-        size="xl"
-        variant="none"
-        :placeholder="$t('search.title')"
-      >
-        <template #trailing>
-          <UButton
-            icon="i-lucide:x"
-            color="neutral"
-            variant="link"
-            @click="open = !open"
-          />
-        </template>
-      </UInput>
-
-      <UNavigationMenu
-        v-if="result.length"
-        orientation="vertical"
-        color="neutral"
-        :highlight="false"
-        variant="link"
-        :items="result.map((r: any) => ({
-          to: r.id,
-          label: r.title,
-          icon: r.id.includes('#') ? 'i-lucide:hash' : 'i-lucide:file-text',
-          onSelect: (e: Event) => onSelect(r.id)
-        }))"
-        :ui="{
-          root: 'p-1 max-h-82 overflow-auto',
-          linkLeadingIcon: 'text-inherit',
-          link: '!text-muted hover:!text-highlighted'
-        }"
+    <ClientOnly>
+      <LazyUContentSearch
+        v-model:search-term="searchTerm"
+        :files="files"
+        shortcut="meta_k"
+        :navigation="navigation"
+        :links="links"
+        :fuse="{ resultLimit: 42 }"
       />
-    </template>
-  </UModal>
+    </ClientOnly>
+  </div>
 </template>
 
 <script setup lang="ts">
-import MiniSearch from 'minisearch'
+const { t, locale } = useI18n()
 
-const { locale } = useI18n()
-
-const open = ref(false)
-const query = ref('')
-
-const { data } = await useAsyncData('search', () => queryCollectionSearchSections(`content_${locale.value}`)
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation(`content_${locale.value}`)
   .where('published', '=', true)
 )
-
-const miniSearch = new MiniSearch({
-  fields: ['title', 'content'],
-  storeFields: ['title'],
-  searchOptions: {
-    boost: {
-      title: 2
-    },
-    prefix: true,
-    fuzzy: 0.2,
-  },
+const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections(`content_${locale.value}`)
+  .where('published', '=', true), {
+  server: false
 })
 
-miniSearch.addAll(toValue(data.value) as any)
-const result = computed(() => miniSearch.search(toValue(query)))
+const links = [
+  {
+    label: t('about.title'),
+    icon: 'i-lucide:presentation',
+    to: '/about'
+  }
+]
 
-const onSelect = (to: string) => {
-  open.value = ! open.value
-
-  navigateTo(to)
-}
+const searchTerm = ref('')
 </script>

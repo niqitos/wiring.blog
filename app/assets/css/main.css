@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import '@nuxt/ui';
 @plugin '@tailwindcss/typography';
+@source "../content/**/*";
 
 @source inline('block');
 @source inline('overflow-scroll');
@@ -12,8 +13,7 @@
 @source inline('!text-red-500');
 
 @theme static {
-  --shadow-fixed-button: 0px -2px 2px rgba(0, 0, 0, 0.1);
-  --shadow-fixed-button-dark: 0px -2px 2px rgba(255, 255, 255, 0.1);
+  --shadow-fixed-button: 0px -2px 2px var(--ui-border-muted);
 }
 
 img {
