@@ -131,6 +131,7 @@ export default defineNuxtConfig({
   icon: {
     clientBundle: {
       icons: [
+        // Lucide Icons
         'lucide:x',
         'lucide:menu',
         'lucide:languages',
@@ -148,7 +149,7 @@ export default defineNuxtConfig({
         'lucide:minus',
         'lucide:plus',
         'lucide:check',
-        // language
+        // VS Code Icons
         'vscode-icons:file-type-arduino',
         'vscode-icons:file-type-text',
         'vscode-icons:file-type-cpp'
