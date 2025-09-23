@@ -107,9 +107,9 @@ const copied = ref(false)
 
 const icon = computed(() => {
   if (props.filename) {
-    return `i-vscode-icons:file-type-${getIcon(props.filename)}`
+    return `i-material-icon-theme:${getIcon(props.filename)}`
   } else if (props.language) {
-    return `i-vscode-icons:file-type-${getLanguageIcon(props.language)}`
+    return `i-material-icon-theme:${getLanguageIcon(props.language)}`
   } else {
     return null
   }

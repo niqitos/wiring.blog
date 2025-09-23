@@ -1,4 +1,3 @@
-// types/vscode-icons.ts
 export interface IconConfig {
   filename: string
   icon: string
@@ -19,7 +18,7 @@ export const useVSCodeIcons = () => {
     'js': 'javascript',
     'jsx': 'react',
     'ts': 'typescript',
-    'tsx': 'react_ts',
+    'tsx': 'react-ts',
     'vue': 'vue',
     'py': 'python',
     'java': 'java',
@@ -35,10 +34,10 @@ export const useVSCodeIcons = () => {
     'kt': 'kotlin',
     'dart': 'dart',
     'scala': 'scala',
-    'sh': 'shell',
-    'bash': 'shell',
-    'zsh': 'shell',
-    'fish': 'shell',
+    'sh': 'console',
+    'bash': 'console',
+    'zsh': 'console',
+    'fish': 'console',
     'ps1': 'powershell',
 
     // Web Technologies
@@ -100,7 +99,7 @@ export const useVSCodeIcons = () => {
     'lock': 'lock',
     'gitignore': 'git',
     'dockerfile': 'docker',
-    'makefile': 'gear'
+    'makefile': 'makefile'
   } as const
 
   // Specific filename mappings
@@ -181,7 +180,7 @@ export const useVSCodeIcons = () => {
 
     // CI/CD
     '.travis.yml': 'travis',
-    '.github': 'github',
+    '.github': 'github-actions-workflow',
     'appveyor.yml': 'appveyor',
     'circle.yml': 'circleci',
     'azure-pipelines.yml': 'azure'
@@ -199,7 +198,7 @@ export const useVSCodeIcons = () => {
     'stores': 'folder-store',
 
     // Common folders
-    'node_modules': 'folder-npm',
+    'node_modules': 'folder-node',
     '.git': 'folder-git',
     '.vscode': 'folder-vscode',
     'src': 'folder-src',
@@ -214,9 +213,9 @@ export const useVSCodeIcons = () => {
     'spec': 'folder-test',
     'docs': 'folder-docs',
     'documentation': 'folder-docs',
-    'assets': 'folder-assets',
+    'assets': 'folder-resource',
     'public': 'folder-public',
-    'static': 'folder-static',
+    'static': 'folder-resource',
     'images': 'folder-images',
     'img': 'folder-images',
     'css': 'folder-css',
@@ -227,7 +226,7 @@ export const useVSCodeIcons = () => {
     'components': 'folder-components',
     'views': 'folder-views',
     'controllers': 'folder-controller',
-    'models': 'folder-model',
+    'models': 'folder-class',
     'routes': 'folder-routes',
     'helpers': 'folder-helper',
     'config': 'folder-config',
@@ -242,7 +241,7 @@ export const useVSCodeIcons = () => {
     'jsx': 'react',
     'typescript': 'typescript',
     'ts': 'typescript',
-    'tsx': 'react_ts',
+    'tsx': 'react-ts',
 
     // Web technologies
     'html': 'html',
@@ -259,7 +258,7 @@ export const useVSCodeIcons = () => {
     'angular': 'angular',
     'svelte': 'svelte',
     'nuxt': 'nuxt',
-    'next': 'nextjs',
+    'next': 'next',
 
     // Programming languages
     'python': 'python',
@@ -310,11 +309,11 @@ export const useVSCodeIcons = () => {
     'pl': 'perl',
 
     // Shell scripting
-    'bash': 'shell',
-    'sh': 'shell',
-    'shell': 'shell',
-    'zsh': 'shell',
-    'fish': 'shell',
+    'bash': 'console',
+    'sh': 'console',
+    'shell': 'console',
+    'zsh': 'console',
+    'fish': 'console',
     'powershell': 'powershell',
     'ps1': 'powershell',
     'pwsh': 'powershell',
@@ -336,7 +335,7 @@ export const useVSCodeIcons = () => {
     'md': 'markdown',
     'mdx': 'mdx',
     'tex': 'latex',
-    'latex': 'latex',
+    'latex': 'latexmk',
     'rst': 'document',
     'asciidoc': 'document',
     'org': 'document',
@@ -370,13 +369,13 @@ export const useVSCodeIcons = () => {
     'graphql': 'graphql',
     'gql': 'graphql',
     'prisma': 'prisma',
-    'proto': 'protobuf',
-    'protobuf': 'protobuf',
+    'proto': 'proto',
+    'protobuf': 'proto',
     'wasm': 'wasm',
-    'webassembly': 'wasm',
-    'asm': 'assembly',
-    'assembly': 'assembly',
-    'nasm': 'assembly',
+    'webassembly': 'webassembly',
+    'asm': 'webassembly',
+    'assembly': 'webassembly',
+    'nasm': 'webassembly',
     'vim': 'vim',
     'viml': 'vim',
     'emacs': 'emacs',
@@ -412,8 +411,8 @@ export const useVSCodeIcons = () => {
     'log': 'console',
 
     // Fallback
-    'code': 'code',
-    'source': 'code'
+    'code': 'document',
+    'source': 'document'
   } as const
 
   const getIcon = (filename: string, isFolder = false): string => {
@@ -439,7 +438,7 @@ export const useVSCodeIcons = () => {
 
     const lastDotIndex = filename.lastIndexOf('.')
     if (lastDotIndex === -1 || lastDotIndex === filename.length - 1) {
-      return 'text'
+      return 'document'
     }
 
     const extension = filename.substring(lastDotIndex + 1).toLowerCase()
@@ -448,7 +447,7 @@ export const useVSCodeIcons = () => {
       return extensionMap[extension as keyof typeof extensionMap]
     }
 
-    return 'text'
+    return 'document'
   }
 
   const getFolderIcon = (foldername: string): string => {

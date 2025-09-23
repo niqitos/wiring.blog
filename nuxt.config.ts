@@ -153,9 +153,9 @@ export default defineNuxtConfig({
         'lucide:sun',
         'lucide:x',
         // VS Code Icons
-        'vscode-icons:file-type-arduino',
-        'vscode-icons:file-type-cpp',
-        'vscode-icons:file-type-text'
+        'material-icon-theme:arduino',
+        'material-icon-theme:cpp',
+        'material-icon-theme:document'
       ]
     }
   },
