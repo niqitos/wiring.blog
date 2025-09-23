@@ -132,27 +132,30 @@ export default defineNuxtConfig({
     clientBundle: {
       icons: [
         // Lucide Icons
-        'lucide:x',
-        'lucide:menu',
-        'lucide:languages',
-        'lucide:sun',
-        'lucide:moon',
-        'lucide:monitor',
-        'lucide:house',
-        'lucide:hash',
+        'lucide:check',
         'lucide:chevron-down',
         'lucide:copy',
         'lucide:copy-check',
         'lucide:cookie',
+        'lucide:file',
         'lucide:file-text',
-        'lucide:search',
+        'lucide:hash',
+        'lucide:house',
+        'lucide:languages',
+        'lucide:mail',
+        'lucide:menu',
         'lucide:minus',
+        'lucide:monitor',
+        'lucide:moon',
         'lucide:plus',
-        'lucide:check',
+        'lucide:presentation',
+        'lucide:search',
+        'lucide:sun',
+        'lucide:x',
         // VS Code Icons
         'vscode-icons:file-type-arduino',
-        'vscode-icons:file-type-text',
-        'vscode-icons:file-type-cpp'
+        'vscode-icons:file-type-cpp',
+        'vscode-icons:file-type-text'
       ]
     }
   },
