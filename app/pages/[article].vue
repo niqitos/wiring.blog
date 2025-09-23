@@ -5,48 +5,78 @@
   >
     <UBreadcrumb
       :items="breadcrumbs"
-      class="mb-5"
     />
 
-    <div class="grid grid-cols-12 gap-8">
-      <aside
-        v-if="Array.isArray(article.body?.toc?.links) && article.body?.toc?.links.length"
-        class="hidden md:block md:col-span-4 lg:col-span-3 xl:col-span-3 sticky top-(--ui-header-height)"
-      >
-        <UContentToc
-          :links="article.body?.toc?.links"
-        />
+    <UPage>
+      <template #left>
+        <UPageAside
+          v-if="Array.isArray(article.body?.toc?.links) && article.body?.toc?.links.length"
+          class="pt-0"
+        >
+          <UContentToc
+            :links="article.body?.toc?.links"
+          />
 
-        <!-- <ScriptGoogleAdsense
-          :data-ad-client="runtimeConfig.public.googleAdsenseId"
-          :data-ad-slot="runtimeConfig.googleAdsensePrivateId"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        /> -->
-      </aside>
+          <!-- <ScriptGoogleAdsense
+            :data-ad-client="runtimeConfig.public.googleAdsenseId"
+            :data-ad-slot="runtimeConfig.googleAdsensePrivateId"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+          /> -->
+        </UPageAside>
+      </template>
 
-      <article class="col-span-12 md:col-span-8 lg:col-span-8 xl:col-span-9 wrap-break-word prose dark:prose-invert">
-        <header class="space-y-5 mb-5">
-          <h1 v-text="article.title" />
+      <UPageBody class="wrap-break-word prose dark:prose-invert mx-auto mt-0">
+        <UPageHeader
+          :title="article.title"
+          :description="article.description"
+          class="border-none mb-0"
+        >
+          <template #description>
+            <div class="flex grid-4 lg:hidden not-prose mb-4">
+              <UUser
+                v-for="(author, index) in article.authors"
+                :key="`author-${index}`"
+                v-bind="author"
+              />
+            </div>
+
+            <div class="text-sm text-muted">
+              <I18nT
+                keypath="publishedOn"
+                tag="span"
+              >
+                <time
+                  :datetime="article.date"
+                  v-text="publishedOn"
+                />
+              </I18nT>
+              •
+              <span
+                v-text="$t('readingTime', Number(article.readingTime))"
+              />
+            </div>
+
+            <p
+              class="text-default text-base/7"
+              v-text="article.description"
+            />
+          </template>
 
           <NuxtImg
             v-if="article.image"
             :src="String(article.image)"
+            :alt="article.title"
+            class="rounded-lg"
           />
+        </UPageHeader>
 
-          <p v-text="article.description" />
-
-          <AuthorCloud
-            :article="article"
-          />
-
-          <UContentToc
-            :links="article.body?.toc?.links"
-            :ui="{
-              root: 'md:hidden'
-            }"
-          />
-        </header>
+        <UContentToc
+          :links="article.body?.toc?.links"
+          :ui="{
+            root: 'lg:hidden not-prose'
+          }"
+        />
 
         <ContentRenderer :value="article" />
 
@@ -67,8 +97,18 @@
         </footer>
 
         <ImageModal />
-      </article>
-    </div>
+      </UPageBody>
+
+      <template #right>
+        <div class="space-y-2 py-8 hidden lg:block">
+          <UUser
+            v-for="(author, index) in article.authors"
+            :key="`author-${index}`"
+            v-bind="author"
+          />
+        </div>
+      </template>
+    </UPage>
   </UContainer>
 
   <UError
@@ -88,6 +128,7 @@
 <script lang="ts" setup>
 import type { BreadcrumbItem } from '@nuxt/ui'
 import type { LocaleObject } from '@nuxtjs/i18n'
+import { useDateFormat } from '@vueuse/core'
 
 const { t, locale, locales, defaultLocale } = useI18n()
 // const runtimeConfig = useRuntimeConfig()
@@ -130,10 +171,9 @@ const breadcrumbs = ref<BreadcrumbItem[]>([
   }
 ])
 
-setI18nParams(alternate.value)
+const publishedOn = ref(useDateFormat(article.value?.date, 'D MMM YYYY', { locales: locale.value }))
 
-// const i18nHead = useLocaleHead()
-// console.log(i18nHead)
+setI18nParams(alternate.value)
 
 useHead({
   htmlAttrs: {

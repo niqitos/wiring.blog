@@ -10,7 +10,8 @@ export default {
     title: 'Про нас',
     description: 'Про нас'
   },
-  readingTime: '0 хвилин | {count} хвилина | {count} хвилини | {count} хвилин',
+  publishedOn: 'Опубліковано {0}',
+  readingTime: '0 хв на читання | {count} хв на читання | {count} хв на читання | {count} хв на читання',
   tags: {
     all: 'Всі'
   },

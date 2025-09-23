@@ -10,7 +10,8 @@ export default {
     title: 'О нас',
     description: 'О нас'
   },
-  readingTime: '0 минут | {count} минута | {count} минуты | {count} минут',
+  publishedOn: 'Опубликовано {0}',
+  readingTime: '0 мин на чтение | {count} мин на чтение | {count} мин на чтение | {count} мин на чтение',
   tags: {
     all: 'Все'
   },

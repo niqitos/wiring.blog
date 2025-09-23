@@ -10,6 +10,7 @@ export default {
     title: 'About',
     description: 'About'
   },
+  publishedOn: 'Published on {0}',
   readingTime: '0 min read | {count} min read | {count} min read',
   tags: {
     all: 'All'
