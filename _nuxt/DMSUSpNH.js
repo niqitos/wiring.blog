@@ -1,0 +1,1 @@
+import{a1 as a,aS as c,aC as u,L as m}from"#entry";import{u as p}from"./BD36em88.js";function i(o){const e=a(),s=e?.type.emits,t={};return s?.length||console.warn(`No emitted event found. Please check component: ${e?.type.__name}`),s?.forEach(r=>{t[c(u(r))]=(...n)=>o(r,...n)}),t}function l(o,e){const s=p(o),t=e?i(e):{};return m(()=>({...s.value,...t}))}export{i as a,l as u};
