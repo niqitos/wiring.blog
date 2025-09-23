@@ -1,7 +1,9 @@
 ---
 authors:
-  - name: Niqitos
-    avatar: /images/avatars/niqitos.jpg
+  - name: Микита
+    description: Головний редактор
+    avatar:
+      src: /images/avatars/niqitos.jpg
 tags:
   - ESP32
 image: /images/1/cover.webp

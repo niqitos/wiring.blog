@@ -1,7 +1,9 @@
 ---
 authors:
   - name: Niqitos
-    avatar: /images/avatars/niqitos.jpg
+    description: Editor-in-chief
+    avatar:
+      src: /images/avatars/niqitos.jpg
 tags:
   - ESP32
 image: /images/4/cover.webp

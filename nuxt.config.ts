@@ -82,8 +82,8 @@ export default defineNuxtConfig({
     defaultLocale: process.env.DEFAULT_LOCALE as 'uk' | 'ru' | 'en' | undefined,
     detectBrowserLanguage: false
   },
-  content: {
-    renderer: {
+  mdc: {
+    headings: {
       anchorLinks: {
         h1: false,
         h2: false,
@@ -92,18 +92,34 @@ export default defineNuxtConfig({
         h5: false,
         h6: false,
       }
-    },
+    }
+  },
+  content: {
+    // renderer: {
+    //   anchorLinks: {
+    //     h1: false,
+    //     h2: false,
+    //     h3: false,
+    //     h4: false,
+    //     h5: false,
+    //     h6: false,
+    //   }
+    // },
     build: {
       markdown: {
         highlight: {
           theme: {
-            // default: 'github-light',
-            // light: 'github-light',
-            // dark: 'github-dark'
-            default: 'one-light',
-            dark: 'one-dark-pro'
+            default: 'github-light',
+            light: 'github-light',
+            dark: 'github-dark'
+            // default: 'one-light',
+            // light: 'one-light',
+            // dark: 'one-dark-pro'
+            // default: 'material-theme',
+            // light: 'material-theme-lighter',
+            // dark: 'material-theme-palenight'
           },
-          preload: [
+          langs: [
             'cpp',
             'js',
             'ts'

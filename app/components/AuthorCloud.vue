@@ -6,7 +6,7 @@
         :key="`author-avatar-${index}`"
         size="lg"
         :alt="author?.name"
-        :src="author?.avatar"
+        :src="author?.avatar?.src"
         :ui="{
           root: 'overflow-hidden'
         }"

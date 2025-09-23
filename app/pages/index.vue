@@ -7,7 +7,7 @@
 
     <TagCloud />
 
-    <UBlogPosts>
+    <UBlogPosts class="gap-4 lg:gap-y-4">
       <UBlogPost
         v-for="(post, index) in articles"
         :key="index"
@@ -16,7 +16,17 @@
         :ui="{
           image: 'pt-4 px-4'
         }"
-      />
+      >
+        <template #badge>
+          <UBadge
+            v-for="(postTag, postTagIndex) in post.tags"
+            :key="postTagIndex"
+            variant="subtle"
+            :label="postTag"
+            color="primary"
+          />
+        </template>
+      </UBlogPost>
     </UBlogPosts>
 
     <UPagination

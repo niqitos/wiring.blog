@@ -12,7 +12,10 @@ const schema = z.object({
   authors: z.array(
       z.object({
         name: z.string(),
-        avatar: z.string()
+        description: z.string(),
+        avatar: z.object({
+          src: z.string()
+        })
       })
     )
     .optional(),

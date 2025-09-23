@@ -24,6 +24,7 @@ export const useVSCodeIcons = () => {
     'py': 'python',
     'java': 'java',
     'cpp': 'cpp',
+    'ino': 'arduino',
     'c': 'c',
     'cs': 'csharp',
     'php': 'php',

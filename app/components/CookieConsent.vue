@@ -94,10 +94,6 @@
 const localePath = useLocalePath()
 const active = ref(false)
 
-const getGDPR = () => {
-  return localStorage.getItem('GDPR:accepted') === 'true'
-}
-
 const accept = () => {
   active.value = false
   localStorage.setItem('GDPR:accepted', 'true')
@@ -119,7 +115,7 @@ useScript('https://www.google-analytics.com/analytics.js', {
 })
 
 onMounted(() => {
-  if (!getGDPR()) {
+  if (localStorage.getItem('GDPR:accepted') !== 'true') {
     active.value = true
   }
 })

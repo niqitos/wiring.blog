@@ -60,8 +60,12 @@
     />
 
     <pre
-      class="group font-mono text-sm/6 border border-muted bg-muted rounded-md px-4 py-3 whitespace-pre-wrap break-words overflow-x-auto focus:outline-none language-md shiki shiki-themes material-theme-lighter material-theme material-theme-palenight"
-    ><code><slot /></code></pre>
+      :class="[
+        'group font-mono text-sm/6 border border-muted bg-muted text-default rounded-md px-4 py-3 whitespace-pre-wrap break-words overflow-x-auto focus:outline-none',
+        $props.class,
+        // `language-${language}`
+      ]"
+    ><slot /></pre>
   </div>
 </template>
 
@@ -106,9 +110,3 @@ const copyCode = async () => {
   setTimeout(() => (copied.value = false), 2000)
 }
 </script>
-
-<style>
-pre code .line {
-  display: block;
-}
-</style>

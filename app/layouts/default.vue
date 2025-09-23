@@ -4,7 +4,9 @@
 
     <AppHeader />
 
-    <NuxtPage />
+    <UMain>
+      <NuxtPage />
+    </UMain>
 
     <AppFooter />
 

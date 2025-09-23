@@ -1,7 +1,9 @@
 ---
 authors:
-  - name: Niqitos
-    avatar: /images/avatars/niqitos.jpg
+  - name: Никитос
+    description: Главный редактор
+    avatar:
+      src: /images/avatars/niqitos.jpg
 tags:
   - Arduino
   - ESP32
