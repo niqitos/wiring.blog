@@ -74,7 +74,7 @@
         <UContentToc
           :links="article.body?.toc?.links"
           :ui="{
-            root: 'lg:hidden not-prose'
+            root: 'lg:hidden not-prose !static'
           }"
         />
 
