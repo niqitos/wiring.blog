@@ -30,21 +30,23 @@
     :class="[
       'relative group my-5',
       {
-        '[&>pre]:rounded-t-none [&>pre]:my-0': filename
+        '[&>pre]:rounded-t-none [&>pre]:my-0': filename || language
       }
     ]"
   >
     <div
-      v-if="filename"
+      v-if="filename || language"
       class="flex items-center gap-1.5 border border-muted bg-default border-b-0 relative rounded-t-md px-4 py-3"
     >
       <UIcon
-        :name="`i-vscode-icons:file-type-${getIcon(filename)}`"
+        v-if="icon"
+        :name="icon"
       />
 
       <span
-        class="text-default text-sm/6"
-        v-text="filename"
+        v-if="filename || language"
+        class="text-default text-sm"
+        v-text="filename || language"
       />
     </div>
 
@@ -62,8 +64,7 @@
     <pre
       :class="[
         'group font-mono text-sm/6 border border-muted bg-muted text-default rounded-md px-4 py-3 whitespace-pre-wrap break-words overflow-x-auto focus:outline-none',
-        $props.class,
-        // `language-${language}`
+        $props.class
       ]"
     ><slot /></pre>
   </div>
@@ -72,7 +73,8 @@
 <script setup lang="ts">
 import { useClipboard } from '@vueuse/core'
 
-const { getIcon } = useVSCodeIcons()
+const { copy } = useClipboard()
+const { getIcon, getLanguageIcon } = useVSCodeIcons()
 
 const props = defineProps({
   code: {
@@ -102,7 +104,16 @@ const props = defineProps({
 })
 
 const copied = ref(false)
-const { copy } = useClipboard()
+
+const icon = computed(() => {
+  if (props.filename) {
+    return `i-vscode-icons:file-type-${getIcon(props.filename)}`
+  } else if (props.language) {
+    return `i-vscode-icons:file-type-${getLanguageIcon(props.language)}`
+  } else {
+    return null
+  }
+})
 
 const copyCode = async () => {
   await copy(props.code)

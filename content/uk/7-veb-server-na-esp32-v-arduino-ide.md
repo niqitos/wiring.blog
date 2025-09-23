@@ -21,7 +21,7 @@ seo:
   alternate:
     - en: 7-web-server-on-esp32-in-arduino-ide
     - ru: 7-veb-server-na-esp32-v-arduino-ide
-published: false
+published: true
 date: 2025-09-07T00:00:00.000Z
 sitemap: false
 navigation:

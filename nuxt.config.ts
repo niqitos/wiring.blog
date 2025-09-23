@@ -147,7 +147,11 @@ export default defineNuxtConfig({
         'lucide:search',
         'lucide:minus',
         'lucide:plus',
-        'i-lucide:check'
+        'lucide:check',
+        // language
+        'vscode-icons:file-type-arduino',
+        'vscode-icons:file-type-text',
+        'vscode-icons:file-type-cpp'
       ]
     }
   },

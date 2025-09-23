@@ -235,6 +235,187 @@ export const useVSCodeIcons = () => {
     'db': 'folder-database'
   } as const
 
+  const markdownLanguageMap = {
+    // JavaScript variants
+    'javascript': 'javascript',
+    'js': 'javascript',
+    'jsx': 'react',
+    'typescript': 'typescript',
+    'ts': 'typescript',
+    'tsx': 'react_ts',
+
+    // Web technologies
+    'html': 'html',
+    'htm': 'html',
+    'css': 'css',
+    'scss': 'sass',
+    'sass': 'sass',
+    'less': 'less',
+    'stylus': 'stylus',
+
+    // Frameworks
+    'vue': 'vue',
+    'react': 'react',
+    'angular': 'angular',
+    'svelte': 'svelte',
+    'nuxt': 'nuxt',
+    'next': 'nextjs',
+
+    // Programming languages
+    'python': 'python',
+    'py': 'python',
+    'java': 'java',
+    'kotlin': 'kotlin',
+    'kt': 'kotlin',
+    'scala': 'scala',
+    'groovy': 'groovy',
+
+    // C-family
+    'c': 'c',
+    'cpp': 'cpp',
+    'c++': 'cpp',
+    'cxx': 'cpp',
+    'cc': 'cpp',
+    'csharp': 'csharp',
+    'cs': 'csharp',
+    'c#': 'csharp',
+
+    // Other languages
+    'php': 'php',
+    'ruby': 'ruby',
+    'rb': 'ruby',
+    'go': 'go',
+    'golang': 'go',
+    'rust': 'rust',
+    'rs': 'rust',
+    'swift': 'swift',
+    'dart': 'dart',
+    'elixir': 'elixir',
+    'ex': 'elixir',
+    'erlang': 'erlang',
+    'erl': 'erlang',
+    'haskell': 'haskell',
+    'hs': 'haskell',
+    'clojure': 'clojure',
+    'clj': 'clojure',
+    'cljs': 'clojure',
+    'f#': 'fsharp',
+    'fsharp': 'fsharp',
+    'fs': 'fsharp',
+    'r': 'r',
+    'julia': 'julia',
+    'jl': 'julia',
+    'lua': 'lua',
+    'perl': 'perl',
+    'pl': 'perl',
+
+    // Shell scripting
+    'bash': 'shell',
+    'sh': 'shell',
+    'shell': 'shell',
+    'zsh': 'shell',
+    'fish': 'shell',
+    'powershell': 'powershell',
+    'ps1': 'powershell',
+    'pwsh': 'powershell',
+    'cmd': 'console',
+    'batch': 'console',
+    'bat': 'console',
+
+    // Data formats
+    'json': 'json',
+    'xml': 'xml',
+    'yaml': 'yaml',
+    'yml': 'yaml',
+    'toml': 'toml',
+    'ini': 'settings',
+    'csv': 'table',
+
+    // Markup and documentation
+    'markdown': 'markdown',
+    'md': 'markdown',
+    'mdx': 'mdx',
+    'tex': 'latex',
+    'latex': 'latex',
+    'rst': 'document',
+    'asciidoc': 'document',
+    'org': 'document',
+
+    // Database
+    'sql': 'database',
+    'mysql': 'database',
+    'postgresql': 'database',
+    'sqlite': 'database',
+    'plsql': 'database',
+    'tsql': 'database',
+
+    // Config files
+    'dockerfile': 'docker',
+    'docker': 'docker',
+    'makefile': 'gear',
+    'make': 'gear',
+    'cmake': 'gear',
+    'nginx': 'nginx',
+    'apache': 'apache',
+    'htaccess': 'apache',
+
+    // Version control
+    'git': 'git',
+    'gitignore': 'git',
+    'gitconfig': 'git',
+    'diff': 'diff',
+    'patch': 'diff',
+
+    // Other formats
+    'graphql': 'graphql',
+    'gql': 'graphql',
+    'prisma': 'prisma',
+    'proto': 'protobuf',
+    'protobuf': 'protobuf',
+    'wasm': 'wasm',
+    'webassembly': 'wasm',
+    'asm': 'assembly',
+    'assembly': 'assembly',
+    'nasm': 'assembly',
+    'vim': 'vim',
+    'viml': 'vim',
+    'emacs': 'emacs',
+    'lisp': 'lisp',
+    'scheme': 'lisp',
+
+    // Build tools and configs
+    'webpack': 'webpack',
+    'rollup': 'rollup',
+    'vite': 'vite',
+    'gulp': 'gulp',
+    'grunt': 'grunt',
+    'babel': 'babel',
+    'eslint': 'eslint',
+    'prettier': 'prettier',
+    'tailwind': 'tailwind',
+
+    // Cloud and infrastructure
+    'terraform': 'terraform',
+    'tf': 'terraform',
+    'ansible': 'ansible',
+    'kubernetes': 'kubernetes',
+    'k8s': 'kubernetes',
+    'helm': 'helm',
+    'aws': 'aws',
+    'azure': 'azure',
+    'gcp': 'gcp',
+
+    // Text/Plain
+    'text': 'document',
+    'txt': 'document',
+    'plain': 'document',
+    'log': 'console',
+
+    // Fallback
+    'code': 'code',
+    'source': 'code'
+  } as const
+
   const getIcon = (filename: string, isFolder = false): string => {
     if (isFolder) {
       return getFolderIcon(filename)
@@ -258,7 +439,7 @@ export const useVSCodeIcons = () => {
 
     const lastDotIndex = filename.lastIndexOf('.')
     if (lastDotIndex === -1 || lastDotIndex === filename.length - 1) {
-      return 'default'
+      return 'text'
     }
 
     const extension = filename.substring(lastDotIndex + 1).toLowerCase()
@@ -267,7 +448,7 @@ export const useVSCodeIcons = () => {
       return extensionMap[extension as keyof typeof extensionMap]
     }
 
-    return 'default'
+    return 'text'
   }
 
   const getFolderIcon = (foldername: string): string => {
@@ -280,10 +461,56 @@ export const useVSCodeIcons = () => {
     return 'folder'
   }
 
+  const getLanguageIcon = (langName: string): string => {
+    if (!langName) return 'code'
+
+    const normalizedLang = langName.toLowerCase().trim()
+
+    // Direct mapping from markdown language names
+    if (markdownLanguageMap[normalizedLang as keyof typeof markdownLanguageMap]) {
+      return markdownLanguageMap[normalizedLang as keyof typeof markdownLanguageMap]
+    }
+
+    // Try to match partial names or common aliases
+    const partialMatches: Record<string, string> = {
+      'node': 'nodejs',
+      'react': 'react',
+      'angular': 'angular',
+      'vue': 'vue',
+      'nuxt': 'nuxt',
+      'next': 'nextjs',
+      'django': 'python',
+      'flask': 'python',
+      'rails': 'ruby',
+      'laravel': 'php',
+      'spring': 'java',
+      'dotnet': 'csharp',
+      '.net': 'csharp',
+      'unity': 'csharp',
+      'unreal': 'cpp'
+    }
+
+    for (const [partial, icon] of Object.entries(partialMatches)) {
+      if (normalizedLang.includes(partial)) {
+        return icon
+      }
+    }
+
+    return 'code'
+  }
+
+  const isLanguageSupported = (langName: string): boolean => {
+    if (!langName) return false
+    const normalizedLang = langName.toLowerCase().trim()
+    return normalizedLang in markdownLanguageMap
+  }
+
   return {
     getIcon,
     getFileIcon,
     getFolderIcon,
+    getLanguageIcon,
+    isLanguageSupported,
     extensionMap,
     filenameMap,
     folderMap
