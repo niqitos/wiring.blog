@@ -1,61 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/__sitemap__/style.xsl"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://wire.nuxt.space/en</loc>
-        <xhtml:link rel="alternate" hreflang="uk-UA" href="https://wire.nuxt.space/" />
-        <xhtml:link rel="alternate" hreflang="ru-UA" href="https://wire.nuxt.space/ru" />
-        <xhtml:link rel="alternate" hreflang="en-UA" href="https://wire.nuxt.space/en" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://wire.nuxt.space/" />
+        <loc>https://wiring.blog/en</loc>
+        <xhtml:link rel="alternate" hreflang="uk-UA" href="https://wiring.blog/" />
+        <xhtml:link rel="alternate" hreflang="ru-UA" href="https://wiring.blog/ru" />
+        <xhtml:link rel="alternate" hreflang="en-UA" href="https://wiring.blog/en" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://wiring.blog/" />
         <image:image>
-            <image:loc>https://wire.nuxt.space/_ipx/_/images/4/cover.webp</image:loc>
+            <image:loc>https://wiring.blog/_ipx/_/images/4/cover.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://wire.nuxt.space/_ipx/s_32x32/images/avatars/niqitos.jpg</image:loc>
+            <image:loc>https://wiring.blog/_ipx/s_32x32/images/avatars/niqitos.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://wire.nuxt.space/_ipx/_/images/3/cover.webp</image:loc>
+            <image:loc>https://wiring.blog/_ipx/_/images/3/cover.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://wire.nuxt.space/_ipx/_/images/2/cover.webp</image:loc>
+            <image:loc>https://wiring.blog/_ipx/_/images/2/cover.webp</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://wire.nuxt.space/_ipx/_/images/1/cover.webp</image:loc>
+            <image:loc>https://wiring.blog/_ipx/_/images/1/cover.webp</image:loc>
         </image:image>
     </url>
     <url>
-        <loc>https://wire.nuxt.space/en/1-getting-started-with-esp32</loc>
+        <loc>https://wiring.blog/en/1-getting-started-with-esp32</loc>
         <lastmod>2025-09-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/en/1-getting-started-with-esp32" hreflang="en-UA" />
+        <xhtml:link rel="alternate" href="https://wiring.blog/en/1-getting-started-with-esp32" hreflang="en-UA" />
     </url>
     <url>
-        <loc>https://wire.nuxt.space/en/2-installing-esp32-board-in-arduino-ide-on-windows</loc>
+        <loc>https://wiring.blog/en/2-installing-esp32-board-in-arduino-ide-on-windows</loc>
         <lastmod>2025-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/en/2-installing-esp32-board-in-arduino-ide-on-windows" hreflang="en-UA" />
+        <xhtml:link rel="alternate" href="https://wiring.blog/en/2-installing-esp32-board-in-arduino-ide-on-windows" hreflang="en-UA" />
     </url>
     <url>
-        <loc>https://wire.nuxt.space/en/3-installing-esp32-board-in-arduino-ide-on-mac-os-x-and-linux</loc>
+        <loc>https://wiring.blog/en/3-installing-esp32-board-in-arduino-ide-on-mac-os-x-and-linux</loc>
         <lastmod>2025-09-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/en/3-installing-esp32-board-in-arduino-ide-on-mac-os-x-and-linux" hreflang="en-UA" />
+        <xhtml:link rel="alternate" href="https://wiring.blog/en/3-installing-esp32-board-in-arduino-ide-on-mac-os-x-and-linux" hreflang="en-UA" />
     </url>
     <url>
-        <loc>https://wire.nuxt.space/en/4-esp32-pinout</loc>
+        <loc>https://wiring.blog/en/4-esp32-pinout</loc>
         <lastmod>2025-09-05</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" href="https://wire.nuxt.space/en/4-esp32-pinout" hreflang="en-UA" />
+        <xhtml:link rel="alternate" href="https://wiring.blog/en/4-esp32-pinout" hreflang="en-UA" />
     </url>
     <url>
-        <loc>https://wire.nuxt.space/en/about</loc>
-        <xhtml:link rel="alternate" hreflang="uk-UA" href="https://wire.nuxt.space/about" />
-        <xhtml:link rel="alternate" hreflang="ru-UA" href="https://wire.nuxt.space/ru/about" />
-        <xhtml:link rel="alternate" hreflang="en-UA" href="https://wire.nuxt.space/en/about" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://wire.nuxt.space/about" />
+        <loc>https://wiring.blog/en/about</loc>
+        <xhtml:link rel="alternate" hreflang="uk-UA" href="https://wiring.blog/about" />
+        <xhtml:link rel="alternate" hreflang="ru-UA" href="https://wiring.blog/ru/about" />
+        <xhtml:link rel="alternate" hreflang="en-UA" href="https://wiring.blog/en/about" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://wiring.blog/about" />
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2025-09-23T14:10:29.630Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2025-09-24T15:51:15.814Z -->

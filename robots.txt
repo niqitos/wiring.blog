@@ -2,5 +2,5 @@
 User-agent: *
 Disallow: 
 
-Sitemap: https://wire.nuxt.space/sitemap_index.xml
+Sitemap: https://wiring.blog/sitemap_index.xml
 # END nuxt-robots
