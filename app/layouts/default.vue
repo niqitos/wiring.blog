@@ -18,4 +18,22 @@
 import * as locales from '@nuxt/ui/locale'
 
 const { locale } = useI18n()
+const colorMode = useColorMode()
+
+const color = computed(() => colorMode.value === 'dark'
+  ? useCssVar('--ui-color-neutral-900').value
+  : useCssVar('--ui-color-white').value
+)
+
+useHead({
+  meta: [
+    {
+      name: 'theme-color',
+      content: color
+    }
+  ],
+  htmlAttrs: {
+    lang: locale.value
+  }
+})
 </script>
