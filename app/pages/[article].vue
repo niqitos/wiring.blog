@@ -142,6 +142,7 @@ const { data: article } = await useAsyncData(() => queryCollection(`content_${lo
   .where('published', '=', true)
   .first()
 )
+console.log(article)
 
 const alternate = computed(() => {
   const alternate = {}
