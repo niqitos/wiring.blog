@@ -82,6 +82,19 @@ export default defineNuxtConfig({
     defaultLocale: process.env.DEFAULT_LOCALE as 'uk' | 'ru' | 'en' | undefined,
     detectBrowserLanguage: false
   },
+  content: {
+    build: {
+      markdown: {
+        highlight: {
+          langs: [
+            'cpp',
+            'js',
+            'ts'
+          ]
+        }
+      }
+    }
+  },
   icon: {
     clientBundle: {
       icons: [
@@ -105,7 +118,11 @@ export default defineNuxtConfig({
         'lucide:presentation',
         'lucide:search',
         'lucide:sun',
-        'lucide:x'
+        'lucide:x',
+        // VS Code Icons
+        'material-icon-theme:arduino',
+        'material-icon-theme:cpp',
+        'material-icon-theme:document'
       ]
     }
   },
