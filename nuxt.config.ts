@@ -41,16 +41,15 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    '@nuxt/eslint',
     '@nuxtjs/i18n',
-    '@nuxtjs/mdc',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
+    '@nuxt/ui',
     '@nuxt/content',
-    '@nuxt/eslint',
     '@nuxt/image',
     '@nuxt/scripts',
     '@nuxt/test-utils',
-    '@nuxt/ui',
     '@pinia/nuxt',
     '@vueuse/nuxt'
   ],
@@ -83,52 +82,6 @@ export default defineNuxtConfig({
     defaultLocale: process.env.DEFAULT_LOCALE as 'uk' | 'ru' | 'en' | undefined,
     detectBrowserLanguage: false
   },
-  mdc: {
-    headings: {
-      anchorLinks: {
-        h1: false,
-        h2: false,
-        h3: false,
-        h4: false,
-        h5: false,
-        h6: false,
-      }
-    }
-  },
-  content: {
-    // renderer: {
-    //   anchorLinks: {
-    //     h1: false,
-    //     h2: false,
-    //     h3: false,
-    //     h4: false,
-    //     h5: false,
-    //     h6: false,
-    //   }
-    // },
-    build: {
-      markdown: {
-        highlight: {
-          theme: {
-            default: 'github-light',
-            light: 'github-light',
-            dark: 'github-dark'
-            // default: 'one-light',
-            // light: 'one-light',
-            // dark: 'one-dark-pro'
-            // default: 'material-theme',
-            // light: 'material-theme-lighter',
-            // dark: 'material-theme-palenight'
-          },
-          langs: [
-            'cpp',
-            'js',
-            'ts'
-          ]
-        }
-      }
-    }
-  },
   icon: {
     clientBundle: {
       icons: [
@@ -152,11 +105,7 @@ export default defineNuxtConfig({
         'lucide:presentation',
         'lucide:search',
         'lucide:sun',
-        'lucide:x',
-        // VS Code Icons
-        'material-icon-theme:arduino',
-        'material-icon-theme:cpp',
-        'material-icon-theme:document'
+        'lucide:x'
       ]
     }
   },
