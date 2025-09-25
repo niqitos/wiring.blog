@@ -23,17 +23,6 @@
         </image:image>
     </url>
     <url>
-        <loc>https://wiring.blog/1-pochatok-roboty-z-esp32</loc>
-        <image:image>
-            <image:loc>https://wiring.blog/_ipx/s_32x32/images/avatars/niqitos.jpg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://wiring.blog/_ipx/_/images/4/cover.webp</image:loc>
-        </image:image>
-        <xhtml:link rel="alternate" href="https://wiring.blog/1-pochatok-roboty-z-esp32" hreflang="x-default" />
-        <xhtml:link rel="alternate" href="https://wiring.blog/1-pochatok-roboty-z-esp32" hreflang="uk-UA" />
-    </url>
-    <url>
         <loc>https://wiring.blog/about</loc>
         <xhtml:link rel="alternate" hreflang="uk-UA" href="https://wiring.blog/about" />
         <xhtml:link rel="alternate" hreflang="ru-UA" href="https://wiring.blog/ru/about" />
@@ -41,26 +30,41 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://wiring.blog/about" />
     </url>
     <url>
-        <loc>https://wiring.blog/pochatok-roboty-z-esp32</loc>
+        <loc>https://wiring.blog/esp32/1-pochatok-roboty-z-esp32</loc>
+        <xhtml:link rel="alternate" href="https://wiring.blog/esp32/1-pochatok-roboty-z-esp32" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://wiring.blog/esp32/1-pochatok-roboty-z-esp32" hreflang="uk-UA" />
+    </url>
+    <url>
+        <loc>https://wiring.blog/esp32/2-vstanovlennya-platy-esp32-v-arduino-ide-na-windows</loc>
+        <xhtml:link rel="alternate" href="https://wiring.blog/esp32/2-vstanovlennya-platy-esp32-v-arduino-ide-na-windows" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://wiring.blog/esp32/2-vstanovlennya-platy-esp32-v-arduino-ide-na-windows" hreflang="uk-UA" />
+    </url>
+    <url>
+        <loc>https://wiring.blog/esp32/3-vstanovlennya-platy-esp32-v-arduino-ide-na-mac-os-x-i-linux</loc>
+        <xhtml:link rel="alternate" href="https://wiring.blog/esp32/3-vstanovlennya-platy-esp32-v-arduino-ide-na-mac-os-x-i-linux" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://wiring.blog/esp32/3-vstanovlennya-platy-esp32-v-arduino-ide-na-mac-os-x-i-linux" hreflang="uk-UA" />
+    </url>
+    <url>
+        <loc>https://wiring.blog/esp32/pochatok-roboty-z-esp32</loc>
         <lastmod>2025-09-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" href="https://wiring.blog/pochatok-roboty-z-esp32" hreflang="x-default" />
-        <xhtml:link rel="alternate" href="https://wiring.blog/pochatok-roboty-z-esp32" hreflang="uk-UA" />
+        <xhtml:link rel="alternate" href="https://wiring.blog/esp32/pochatok-roboty-z-esp32" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://wiring.blog/esp32/pochatok-roboty-z-esp32" hreflang="uk-UA" />
         <image:image>
             <image:loc>https://wiring.blog/_ipx/s_32x32/images/avatars/niqitos.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://wiring.blog/_ipx/_/images/4/cover.webp</image:loc>
+            <image:loc>https://wiring.blog/_ipx/_/images/1/cover.webp</image:loc>
         </image:image>
     </url>
     <url>
-        <loc>https://wiring.blog/rozpynuvannya-esp32</loc>
+        <loc>https://wiring.blog/esp32/rozpynuvannya-esp32</loc>
         <lastmod>2025-09-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" href="https://wiring.blog/rozpynuvannya-esp32" hreflang="x-default" />
-        <xhtml:link rel="alternate" href="https://wiring.blog/rozpynuvannya-esp32" hreflang="uk-UA" />
+        <xhtml:link rel="alternate" href="https://wiring.blog/esp32/rozpynuvannya-esp32" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://wiring.blog/esp32/rozpynuvannya-esp32" hreflang="uk-UA" />
         <image:image>
             <image:loc>https://wiring.blog/_ipx/s_32x32/images/avatars/niqitos.jpg</image:loc>
         </image:image>
@@ -69,32 +73,32 @@
         </image:image>
     </url>
     <url>
-        <loc>https://wiring.blog/vstanovlennya-platy-esp32-v-arduino-ide-na-mac-os-x-i-linux</loc>
+        <loc>https://wiring.blog/esp32/vstanovlennya-platy-esp32-v-arduino-ide-na-mac-os-x-i-linux</loc>
         <lastmod>2025-09-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" href="https://wiring.blog/vstanovlennya-platy-esp32-v-arduino-ide-na-mac-os-x-i-linux" hreflang="x-default" />
-        <xhtml:link rel="alternate" href="https://wiring.blog/vstanovlennya-platy-esp32-v-arduino-ide-na-mac-os-x-i-linux" hreflang="uk-UA" />
+        <xhtml:link rel="alternate" href="https://wiring.blog/esp32/vstanovlennya-platy-esp32-v-arduino-ide-na-mac-os-x-i-linux" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://wiring.blog/esp32/vstanovlennya-platy-esp32-v-arduino-ide-na-mac-os-x-i-linux" hreflang="uk-UA" />
         <image:image>
             <image:loc>https://wiring.blog/_ipx/s_32x32/images/avatars/niqitos.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://wiring.blog/_ipx/_/images/4/cover.webp</image:loc>
+            <image:loc>https://wiring.blog/_ipx/_/images/3/cover.webp</image:loc>
         </image:image>
     </url>
     <url>
-        <loc>https://wiring.blog/vstanovlennya-platy-esp32-v-arduino-ide-na-windows</loc>
+        <loc>https://wiring.blog/esp32/vstanovlennya-platy-esp32-v-arduino-ide-na-windows</loc>
         <lastmod>2025-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" href="https://wiring.blog/vstanovlennya-platy-esp32-v-arduino-ide-na-windows" hreflang="x-default" />
-        <xhtml:link rel="alternate" href="https://wiring.blog/vstanovlennya-platy-esp32-v-arduino-ide-na-windows" hreflang="uk-UA" />
+        <xhtml:link rel="alternate" href="https://wiring.blog/esp32/vstanovlennya-platy-esp32-v-arduino-ide-na-windows" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://wiring.blog/esp32/vstanovlennya-platy-esp32-v-arduino-ide-na-windows" hreflang="uk-UA" />
         <image:image>
             <image:loc>https://wiring.blog/_ipx/s_32x32/images/avatars/niqitos.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://wiring.blog/_ipx/_/images/4/cover.webp</image:loc>
+            <image:loc>https://wiring.blog/_ipx/_/images/2/cover.webp</image:loc>
         </image:image>
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2025-09-25T16:53:23.227Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2025-09-25T17:52:09.205Z -->

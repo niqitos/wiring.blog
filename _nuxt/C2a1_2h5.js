@@ -1,1 +1,0 @@
-import{t as e}from"./BgTaYvyb.js";import{y as n,L as l,d as c,i as p,I as u,n as d}from"#entry";const m={base:"bg-muted"},_={__name:"ProseThead",props:{class:{type:null,required:!1}},setup(s){const a=s,t=n(),o=l(()=>e({extend:e(m),...t.ui?.prose?.thead||{}}));return(r,i)=>(p(),c("thead",{class:d(o.value({class:a.class}))},[u(r.$slots,"default")],2))}};export{_ as default};
