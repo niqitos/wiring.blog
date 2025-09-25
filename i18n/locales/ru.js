@@ -10,6 +10,11 @@ export default {
     title: 'О нас',
     description: 'О нас'
   },
+  article: {
+    authors: {
+      title: 'Авторы | Автор | Авторы | Авторы'
+    }
+  },
   publishedOn: 'Опубликовано {0}',
   readingTime: '0 мин на чтение | {count} мин на чтение | {count} мин на чтение | {count} мин на чтение',
   tags: {

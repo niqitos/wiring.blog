@@ -9,20 +9,11 @@
 
     <UPage>
       <template #left>
-        <UPageAside
-          v-if="Array.isArray(article.body?.toc?.links) && article.body?.toc?.links.length"
-          class="pt-0"
-        >
-          <UContentToc
-            :links="article.body?.toc?.links"
+        <UPageAside>
+          <UContentNavigation
+            highlight
+            :navigation="navigation"
           />
-
-          <!-- <ScriptGoogleAdsense
-            :data-ad-client="runtimeConfig.public.googleAdsenseId"
-            :data-ad-slot="runtimeConfig.googleAdsensePrivateId"
-            data-ad-format="auto"
-            data-full-width-responsive="true"
-          /> -->
         </UPageAside>
       </template>
 
@@ -30,6 +21,7 @@
         <UPageHeader
           :title="article.title"
           :description="article.description"
+          :headline="headline"
           class="border-none mb-0"
         >
           <template #description>
@@ -41,7 +33,7 @@
               />
             </div>
 
-            <div class="text-sm text-muted">
+            <div class="text-sm text-muted mb-4">
               <I18nT
                 keypath="publishedOn"
                 tag="span"
@@ -71,13 +63,6 @@
           />
         </UPageHeader>
 
-        <UContentToc
-          :links="article.body?.toc?.links"
-          :ui="{
-            root: 'lg:hidden not-prose !static'
-          }"
-        />
-
         <ContentRenderer :value="article" />
 
         <footer class="mt-8 not-prose">
@@ -96,17 +81,32 @@
           </div>
         </footer>
 
+        <USeparator v-if="surround?.length" />
+
+        <UContentSurround :surround="surround" />
+
         <ImageModal />
       </UPageBody>
 
       <template #right>
-        <div class="space-y-2 py-8 hidden lg:block">
-          <UUser
-            v-for="(author, index) in article.authors"
-            :key="`author-${index}`"
-            v-bind="author"
-          />
-        </div>
+        <UContentToc
+          :links="article.body?.toc?.links"
+          :ui="{
+            bottom: 'gap-2'
+          }"
+        >
+          <template #bottom>
+            <p v-text="$t('article.authors.title', article?.authors?.length || 1)" />
+
+            <div class="space-y-2 hidden lg:block">
+              <UUser
+                v-for="(author, index) in article.authors"
+                :key="`author-${index}`"
+                v-bind="author"
+              />
+            </div>
+          </template>
+        </UContentToc>
       </template>
     </UPage>
   </UContainer>
@@ -129,20 +129,33 @@
 import type { BreadcrumbItem } from '@nuxt/ui'
 import type { LocaleObject } from '@nuxtjs/i18n'
 import { useDateFormat } from '@vueuse/core'
+import { findPageHeadline } from '@nuxt/content/utils'
 
 const { t, locale, locales, defaultLocale } = useI18n()
 // const runtimeConfig = useRuntimeConfig()
 const route = useRoute()
 const localePath = useLocalePath()
 const setI18nParams = useSetI18nParams()
-console.log(`${locale.value !== defaultLocale ? `/${locale.value}` : ''}/${route.params.article}`)
-const { data: article } = await useAsyncData(() => queryCollection(`content_${locale.value}`)
+
+const { data: article } = await useAsyncData(`${route.path}`, () => queryCollection(`content_${locale.value}`)
   .select('path', 'image', 'title', 'description', 'body', 'date', 'tags', 'authors', 'readingTime', 'seo')
-  .path(`${locale.value !== defaultLocale ? `/${locale.value}` : ''}/${route.params.article}`)
+  .path(route.path)
   .where('published', '=', true)
   .first()
 )
-console.log(article)
+
+const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
+  return queryCollectionItemSurroundings(`content_${locale.value}`, route.path, {
+    fields: ['description']
+  })
+  .where('published', '=', true)
+})
+
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation(`content_${locale.value}`))
+
+if (locale.value !== defaultLocale && navigation.value?.length && navigation.value[0]?.children) {
+  navigation.value = navigation.value[0]?.children
+}
 
 const alternate = computed(() => {
   const alternate = {}
@@ -182,8 +195,15 @@ useHead({
   }
 })
 
+const title = article.value?.seo?.title || article.value?.title
+const description = article.value?.seo?.description || article.value?.description
+
 useSeoMeta({
-  title: article.value?.title,
-  description: article.value?.description
+  title,
+  ogTitle: title,
+  description,
+  ogDescription: description
 })
+
+const headline = computed(() => findPageHeadline(navigation?.value, article.value?.path))
 </script>
