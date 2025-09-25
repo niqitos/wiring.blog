@@ -99,6 +99,8 @@ export default defineNuxtConfig({
     clientBundle: {
       icons: [
         // Lucide Icons
+        'lucide:arrow-left',
+        'lucide:arrow-right',
         'lucide:check',
         'lucide:chevron-down',
         'lucide:copy',
