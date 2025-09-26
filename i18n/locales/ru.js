@@ -16,7 +16,7 @@ export default {
     }
   },
   publishedOn: 'Опубликовано: {0}',
-  readingTime: '0 мин на чтение | {count} мин на чтение | {count} мин на чтение | {count} мин на чтение',
+  readingTime: '0 мин чтения | {count} мин чтения | {count} мин чтения | {count} мин чтения',
   tags: {
     all: 'Все'
   },

@@ -16,7 +16,7 @@ export default {
     }
   },
   publishedOn: 'Опубліковано: {0}',
-  readingTime: '0 хв на читання | {count} хв на читання | {count} хв на читання | {count} хв на читання',
+  readingTime: '0 хв читання | {count} хв читання | {count} хв читання | {count} хв читання',
   tags: {
     all: 'Всі'
   },
