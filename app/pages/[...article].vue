@@ -148,7 +148,6 @@
 <script lang="ts" setup>
 import type { BreadcrumbItem } from '@nuxt/ui'
 import type { LocaleObject } from '@nuxtjs/i18n'
-import { useDateFormat } from '@vueuse/core'
 import { findPageHeadline } from '@nuxt/content/utils'
 
 const { t, locale, locales, defaultLocale } = useI18n()

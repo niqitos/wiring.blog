@@ -21,13 +21,7 @@
       />
     </UDropdownMenu>
   </ClientOnly>
-  <!-- <UButton
-    v-else
-    loading
-    variant="ghost"
-    color="neutral"
-    size="lg"
-  /> -->
+
   <USkeleton
     v-else
     class="size-7 m-1"
@@ -67,8 +61,6 @@ const modes = ref([
     onSelect: () => setTheme('system')
   }
 ])
-
-// const breakpoints = useBreakpoints()
 
 const currentMode = computed(() => modes.value.find(m => m.value === colorMode.value) || modes.value[0])
 
