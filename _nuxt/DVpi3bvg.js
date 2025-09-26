@@ -1,1 +1,0 @@
-import{Y as a,aV as c,aP as u,L as m}from"#entry";import{u as p}from"./B87R7xR7.js";function i(o){const e=a(),s=e?.type.emits,t={};return s?.length||console.warn(`No emitted event found. Please check component: ${e?.type.__name}`),s?.forEach(r=>{t[c(u(r))]=(...n)=>o(r,...n)}),t}function l(o,e){const s=p(o),t=e?i(e):{};return m(()=>({...s.value,...t}))}export{i as a,l as u};
