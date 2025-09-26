@@ -99,7 +99,10 @@
           }"
         >
           <template #bottom>
-            <USeparator class="mb-4" />
+            <USeparator
+              type="dashed"
+              class="mb-4"
+            />
 
             <p
               class="font-bold"
@@ -113,7 +116,10 @@
                 v-bind="author"
               />
 
-              <USeparator class="my-6" />
+              <USeparator
+                type="dashed"
+                class="my-6"
+              />
 
               <I18nT
                 keypath="publishedOn"

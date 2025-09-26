@@ -31,6 +31,7 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "@iconify-json/fa7-brands": "^1.2.0",
     "@iconify-json/lucide": "^1.2.68",
     "@iconify-json/material-icon-theme": "^1.2.29",
     "@tailwindcss/typography": "^0.5.18",

@@ -106,6 +106,7 @@ export default defineNuxtConfig({
         'lucide:copy',
         'lucide:copy-check',
         'lucide:cookie',
+        'lucide:pin',
         'lucide:file',
         'lucide:file-text',
         'lucide:hash',
@@ -121,6 +122,10 @@ export default defineNuxtConfig({
         'lucide:search',
         'lucide:sun',
         'lucide:x',
+        // Font Awesome Brands
+        'fa7-brands:apple',
+        'fa7-brands:linux',
+        'fa7-brands:windows',
         // VS Code Icons
         'material-icon-theme:arduino',
         'material-icon-theme:cpp',
