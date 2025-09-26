@@ -51,6 +51,7 @@ export default {
     }
   },
   error: {
+    back: 'Back to home',
     404: 'Page not found'
   }
 }

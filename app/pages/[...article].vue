@@ -17,7 +17,10 @@
         </UPageAside>
       </template>
 
-      <UPageBody class="wrap-break-word prose dark:prose-invert mx-auto mt-0">
+      <UPageBody
+        id="article"
+        class="wrap-break-word mx-auto mt-0"
+      >
         <UPageHeader
           :title="article.title"
           :description="article.description"
@@ -25,7 +28,7 @@
           class="border-none mb-0"
         >
           <template #description>
-            <div class="flex grid-4 lg:hidden not-prose mb-4">
+            <div class="flex grid-4 lg:hidden mb-4">
               <UUser
                 v-for="(author, index) in article.authors"
                 :key="`author-${index}`"
@@ -65,7 +68,7 @@
 
         <ContentRenderer :value="article" />
 
-        <footer class="mt-8 not-prose">
+        <footer class="mt-8">
           <div class="flex flex-wrap gap-2">
             <UButton
               v-for="tag in article.tags"
@@ -110,19 +113,6 @@
       </template>
     </UPage>
   </UContainer>
-
-  <UError
-    v-else
-    class="h-[calc(100dvh-var(--ui-header-height))]"
-    :error="{
-      statusCode: 404,
-      statusMessage: $t('error.404'),
-      message: $t('error.404')
-    }"
-    :ui="{
-      root: 'p-4',
-    }"
-  />
 </template>
 
 <script lang="ts" setup>
@@ -143,6 +133,14 @@ const { data: article } = await useAsyncData(`${route.path}`, () => queryCollect
   .where('published', '=', true)
   .first()
 )
+
+if (!article.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: $t('error.404'),
+    fatal: true
+  })
+}
 
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
   return queryCollectionItemSurroundings(`content_${locale.value}`, route.path, {

@@ -2,7 +2,7 @@
   <UModal
     v-model:open="isOpen"
     :ui="{
-      content: 'max-w-full max-h-full flex items-center justify-center p-4'
+      content: 'bg-default/25 backdrop-blur-xs max-w-full max-h-full flex items-center justify-center p-4'
     }"
   >
     <template #content>
@@ -30,7 +30,7 @@
 
         <UTooltip :text="$t('zoom.reset')">
           <UButton
-            :label="scale"
+            :label="String(scale)"
             color="neutral"
             variant="subtle"
             :ui="{
@@ -73,7 +73,7 @@ const isOpen = ref(false)
 const modalImg = ref<string | null>(null)
 const scale = ref(1)
 
-const containerSelector = '.prose'
+const containerSelector = '#article'
 
 let cleanupFns: (() => void)[] = []
 
