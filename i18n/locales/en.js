@@ -15,7 +15,7 @@ export default {
       title: 'Authors | Author | Authors'
     }
   },
-  publishedOn: 'Published on {0}',
+  publishedOn: 'Published: {0}',
   readingTime: '0 min read | {count} min read | {count} min read',
   tags: {
     all: 'All'

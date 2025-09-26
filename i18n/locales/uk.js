@@ -15,7 +15,7 @@ export default {
       title: 'Автори | Автор | Автори | Автори'
     }
   },
-  publishedOn: 'Опубліковано {0}',
+  publishedOn: 'Опубліковано: {0}',
   readingTime: '0 хв на читання | {count} хв на читання | {count} хв на читання | {count} хв на читання',
   tags: {
     all: 'Всі'

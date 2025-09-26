@@ -36,7 +36,7 @@
               />
             </div>
 
-            <div class="text-sm text-muted mb-4">
+            <div class="text-sm text-muted mb-4 lg:hidden">
               <I18nT
                 keypath="publishedOn"
                 tag="span"
@@ -99,13 +99,37 @@
           }"
         >
           <template #bottom>
-            <p v-text="$t('article.authors.title', article?.authors?.length || 1)" />
+            <USeparator class="mb-4" />
 
-            <div class="space-y-2 hidden lg:block">
+            <p
+              class="font-bold"
+              v-text="$t('article.authors.title', article?.authors?.length || 1)"
+            />
+
+            <div class="space-y-4 hidden lg:block">
               <UUser
                 v-for="(author, index) in article.authors"
                 :key="`author-${index}`"
                 v-bind="author"
+              />
+
+              <USeparator class="my-6" />
+
+              <I18nT
+                keypath="publishedOn"
+                tag="div"
+                class="text-xs text-muted"
+              >
+                <time
+                  :datetime="article.date"
+                  class="text-default"
+                  v-text="publishedOn"
+                />
+              </I18nT>
+
+              <div
+                class="text-xs"
+                v-text="$t('readingTime', Number(article.readingTime))"
               />
             </div>
           </template>
