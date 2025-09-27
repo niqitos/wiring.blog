@@ -28,7 +28,7 @@
 
       <UPageBody
         id="article"
-        class="wrap-break-word mx-auto mt-0"
+        class="wrap-break-word break-all mx-auto mt-0"
       >
         <UPageHeader
           :title="article.title"
