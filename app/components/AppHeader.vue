@@ -57,11 +57,13 @@ const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 const menu = ref<NavigationMenuItem[]>([
   {
     label: t('home.title'),
-    to: localePath('index')
+    to: localePath('index'),
+    icon: 'i-lucide:house'
   },
   {
     label: t('about.title'),
-    to: localePath('about')
+    to: localePath('about'),
+    icon: 'i-lucide:presentation'
   }
 ])
 </script>
