@@ -181,7 +181,9 @@ const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
   .where('published', '=', true)
 })
 
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation(`content_${locale.value}`))
+const { data: navigation } = await useAsyncData(`${route.path}-navigations`, () => queryCollectionNavigation(`content_${locale.value}`)
+  .where('published', '=', true)
+)
 
 if (locale.value !== defaultLocale && navigation.value?.length && navigation.value[0]?.children) {
   navigation.value = navigation.value[0]?.children
