@@ -26,9 +26,12 @@
           :description="article.description"
           :headline="headline"
           class="border-none mb-0"
+          :ui="{
+            description: 'space-y-4 mb-4'
+          }"
         >
           <template #description>
-            <div class="flex grid-4 lg:hidden mb-4">
+            <div class="flex grid-4 lg:hidden">
               <UUser
                 v-for="(author, index) in article.authors"
                 :key="`author-${index}`"
@@ -36,7 +39,7 @@
               />
             </div>
 
-            <div class="text-sm text-muted mb-4 lg:hidden">
+            <div class="text-sm text-muted lg:hidden">
               <I18nT
                 keypath="publishedOn"
                 tag="span"

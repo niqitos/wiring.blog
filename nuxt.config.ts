@@ -24,10 +24,6 @@ export default defineNuxtConfig({
           rel: 'apple-touch-icon',
           sizes: '180x180',
           href: '/apple-touch-icon.png'
-        },
-        {
-          rel: 'manifest',
-          href: '/site.webmanifest'
         }
       ]
     }
@@ -51,6 +47,7 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/test-utils',
     '@pinia/nuxt',
+    '@vite-pwa/nuxt',
     '@vueuse/nuxt'
   ],
   css: [
@@ -93,6 +90,32 @@ export default defineNuxtConfig({
           ]
         }
       }
+    }
+  },
+  pwa: {
+    registerType: 'autoUpdate',
+    manifest: {
+      name: 'OneWire',
+      short_name: 'OW',
+      start_url: '/',
+      display: 'standalone',
+      theme_color: '#ffffff',
+      background_color: '#ffffff',
+      lang: process.env.DEFAULT_LOCALE,
+      icons: [
+        {
+          src: '/web-app-manifest-192x192.png',
+          sizes: '192x192',
+          type: 'image/png',
+          purpose: 'maskable'
+        },
+        {
+          src: '/web-app-manifest-512x512.png',
+          sizes: '512x512',
+          type: 'image/png',
+          purpose: 'maskable'
+        }
+      ],
     }
   },
   icon: {
