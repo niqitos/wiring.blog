@@ -82,6 +82,9 @@ export default defineNuxtConfig({
   content: {
     build: {
       markdown: {
+        toc: {
+          searchDepth: 1
+        },
         highlight: {
           langs: [
             'cpp',
@@ -129,7 +132,7 @@ export default defineNuxtConfig({
         'lucide:copy',
         'lucide:copy-check',
         'lucide:cookie',
-        'lucide:pin',
+        'lucide:diff',
         'lucide:file',
         'lucide:file-text',
         'lucide:hash',
@@ -140,9 +143,12 @@ export default defineNuxtConfig({
         'lucide:minus',
         'lucide:monitor',
         'lucide:moon',
+        'lucide:pin',
         'lucide:plus',
         'lucide:presentation',
+        'lucide:scale',
         'lucide:search',
+        'lucide:server',
         'lucide:sun',
         'lucide:x',
         // Font Awesome Brands
@@ -152,7 +158,11 @@ export default defineNuxtConfig({
         // VS Code Icons
         'material-icon-theme:arduino',
         'material-icon-theme:cpp',
-        'material-icon-theme:document'
+        'material-icon-theme:document',
+        // Simple icons
+        'simple-icons:arduino',
+        'simple-icons:espressif',
+        'simple-icons:raspberrypi'
       ]
     }
   },
@@ -172,8 +182,19 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: [
+        '/',
         '/ads.txt'
-      ]
+      ],
+      crawlLinks: true,
+      autoSubfolderIndex: false
+    },
+  },
+  eslint: {
+    config: {
+      stylistic: {
+        commaDangle: 'never',
+        braceStyle: '1tbs'
+      }
     }
   },
   hooks: {

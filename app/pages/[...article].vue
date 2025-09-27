@@ -12,7 +12,12 @@
         <UPageAside>
           <UContentNavigation
             highlight
-            :navigation="navigation"
+            :navigation="navigation?.map(item => ({
+              ...item,
+              children: item.children?.map(child => ({ ...child, icon: undefined }))
+            }))"
+            :type="'single'"
+            :default-open="true"
           />
         </UPageAside>
       </template>
@@ -149,11 +154,12 @@
 </template>
 
 <script lang="ts" setup>
+import type { ContentNavigationItem } from '@nuxt/content'
 import type { BreadcrumbItem } from '@nuxt/ui'
 import type { LocaleObject } from '@nuxtjs/i18n'
 import { findPageHeadline } from '@nuxt/content/utils'
 
-const { t, locale, locales, defaultLocale } = useI18n()
+const { t, locale, locales } = useI18n()
 // const runtimeConfig = useRuntimeConfig()
 const route = useRoute()
 const localePath = useLocalePath()
@@ -162,7 +168,6 @@ const setI18nParams = useSetI18nParams()
 const { data: article } = await useAsyncData(`${route.path}`, () => queryCollection(`content_${locale.value}`)
   .select('path', 'image', 'title', 'description', 'body', 'date', 'tags', 'authors', 'readingTime', 'seo')
   .path(route.path)
-  .where('published', '=', true)
   .first()
 )
 
@@ -178,16 +183,9 @@ const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
   return queryCollectionItemSurroundings(`content_${locale.value}`, route.path, {
     fields: ['description']
   })
-  .where('published', '=', true)
 })
 
-const { data: navigation } = await useAsyncData(`${route.path}-navigations`, () => queryCollectionNavigation(`content_${locale.value}`)
-  .where('published', '=', true)
-)
-
-if (locale.value !== defaultLocale && navigation.value?.length && navigation.value[0]?.children) {
-  navigation.value = navigation.value[0]?.children
-}
+const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
 const alternate = computed(() => {
   const alternate = {}

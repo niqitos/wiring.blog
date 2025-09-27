@@ -22,7 +22,10 @@
 
       <LangSwitcher />
 
-      <SearchModal />
+      <UContentSearchButton
+        variant="ghost"
+        size="lg"
+      />
     </template>
 
     <template #body>
@@ -31,15 +34,25 @@
         :items="menu"
         class="-mx-2.5"
       />
+
+      <UContentNavigation
+        highlight
+        :navigation="navigation"
+        :type="'single'"
+        :default-open="true"
+      />
     </template>
   </UHeader>
 </template>
 
 <script lang="ts" setup>
+import type { ContentNavigationItem } from '@nuxt/content'
 import type { NavigationMenuItem } from '@nuxt/ui'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
+
+const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
 const menu = ref<NavigationMenuItem[]>([
   {

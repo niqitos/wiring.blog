@@ -35,6 +35,7 @@
     "@iconify-json/fa7-brands": "^1.2.0",
     "@iconify-json/lucide": "^1.2.68",
     "@iconify-json/material-icon-theme": "^1.2.29",
+    "@iconify-json/simple-icons": "^1.2.53",
     "@tailwindcss/typography": "^0.5.18",
     "@types/node": "^24.5.2"
   }
