@@ -171,6 +171,7 @@ const setI18nParams = useSetI18nParams()
 
 const { data: article } = await useAsyncData(`${route.path}`, () => queryCollection(`content_${locale.value}`)
   .select('path', 'image', 'title', 'description', 'body', 'date', 'tags', 'authors', 'readingTime', 'seo')
+  .where('extension', '=', 'md')
   .where('_draft', '=', false)
   .path(route.path)
   .first()
@@ -184,13 +185,12 @@ if (!article.value) {
   })
 }
 
-const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
-  return queryCollectionItemSurroundings(`content_${locale.value}`, route.path, {
+const { data: surround } = await useAsyncData(`${route.path}-surround`, () => queryCollectionItemSurroundings(`content_${locale.value}`, route.path, {
     fields: ['description']
   })
   .where('extension', '=', 'md')
   .where('_draft', '=', false)
-})
+)
 
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
