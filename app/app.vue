@@ -27,13 +27,16 @@ import * as locales from '@nuxt/ui/locale'
 
 const { t, locale, defaultLocale } = useI18n()
 
-const { data: navigation } = await useAsyncData(`content_${locale.value}_navigation`, () => queryCollectionNavigation(`content_${locale.value}`))
+const { data: navigation } = await useAsyncData(`content_${locale.value}_navigation`, () => queryCollectionNavigation(`content_${locale.value}`)
+  .where('_draft', '=', false)
+)
 
 if (locale.value !== defaultLocale && navigation.value?.length && navigation.value[0]?.children) {
   navigation.value = navigation.value[0]?.children
 }
 
-const { data: files } = useLazyAsyncData(`search_${locale.value}`, () => queryCollectionSearchSections(`content_${locale.value}`), {
+const { data: files } = useLazyAsyncData(`search_${locale.value}`, () => queryCollectionSearchSections(`content_${locale.value}`)
+  .where('_draft', '=', false), {
   server: false
 })
 

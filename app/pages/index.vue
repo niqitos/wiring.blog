@@ -53,6 +53,7 @@ const tag = computed(() => route.query.tag || '')
 const { data: total } = await useAsyncData(() => {
   const query = queryCollection(`content_${locale.value}`)
     .where('extension', '=', 'md')
+    .where('_draft', '=', false)
 
   if (tag.value) {
     query.where('tags', 'LIKE', `%"${tag.value}"%`)
@@ -68,6 +69,7 @@ const { data: articles } = await useAsyncData(() => {
   const query = queryCollection(`content_${locale.value}`)
     .select('path', 'image', 'title', 'description', 'date', 'tags', 'authors')
     .where('extension', '=', 'md')
+    .where('_draft', '=', false)
 
   if (tag.value) {
     query.where('tags', 'LIKE', `%"${tag.value}"%`)

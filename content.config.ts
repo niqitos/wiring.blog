@@ -19,7 +19,8 @@ const schema = z.object({
       })
     )
     .optional(),
-  readingTime: z.number().optional()
+  readingTime: z.number().optional(),
+  _draft: z.boolean()
 })
 
 export default defineContentConfig({

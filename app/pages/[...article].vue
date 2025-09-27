@@ -9,7 +9,11 @@
 
     <UPage>
       <template #left>
-        <UPageAside>
+        <UPageAside
+          :ui="{
+            root: '!pr-0'
+          }"
+        >
           <UContentNavigation
             highlight
             :navigation="navigation?.map(item => ({
@@ -167,6 +171,7 @@ const setI18nParams = useSetI18nParams()
 
 const { data: article } = await useAsyncData(`${route.path}`, () => queryCollection(`content_${locale.value}`)
   .select('path', 'image', 'title', 'description', 'body', 'date', 'tags', 'authors', 'readingTime', 'seo')
+  .where('_draft', '=', false)
   .path(route.path)
   .first()
 )
@@ -183,6 +188,8 @@ const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
   return queryCollectionItemSurroundings(`content_${locale.value}`, route.path, {
     fields: ['description']
   })
+  .where('extension', '=', 'md')
+  .where('_draft', '=', false)
 })
 
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
