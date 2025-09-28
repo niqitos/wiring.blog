@@ -186,8 +186,8 @@ if (!article.value) {
 }
 
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () => queryCollectionItemSurroundings(`content_${locale.value}`, route.path, {
-    fields: ['description']
-  })
+  fields: ['description']
+})
   .where('extension', '=', 'md')
   .where('_draft', '=', false)
 )
