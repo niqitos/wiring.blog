@@ -108,9 +108,7 @@ useScript('https://www.google-analytics.com/analytics.js', {
   trigger: useScriptTriggerConsent({
     consent: active,
     // load 3 seconds after consent is granted
-    postConsentTrigger: () => new Promise<void>(resolve =>
-      setTimeout(resolve, 3000),
-    )
+    postConsentTrigger: () => new Promise<void>(resolve => setTimeout(resolve, 3000))
   })
 })
 
