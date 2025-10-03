@@ -37,7 +37,7 @@ useSeoMeta({
     />
 
     <img
-      src="/404.gif"
+      src="/404.webp"
       :alt="props.error.message"
       class="size-48 sm:size-64 absolute bottom-0 right-[calc(50%-6rem)] sm:right-[calc(50%-8rem)]"
     >
