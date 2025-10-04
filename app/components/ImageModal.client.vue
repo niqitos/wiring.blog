@@ -2,13 +2,13 @@
   <UModal
     v-model:open="isOpen"
     :ui="{
-      content: 'bg-default/25 backdrop-blur-xs max-w-full max-h-full flex items-center justify-center p-4'
+      content: 'bg-transparent max-w-full max-h-full flex items-center justify-center p-0'
     }"
   >
     <template #content>
       <UButton
         color="neutral"
-        variant="ghost"
+        variant="subtle"
         icon="i-lucide:x"
         :ui="{
           base: 'absolute top-2 sm:top-4 right-2 sm:right-4 !border-none z-1'
@@ -83,7 +83,7 @@ onMounted(() => {
 
   const images = container.querySelectorAll<HTMLImageElement>('img')
 
-  images.forEach(img => {
+  images.forEach((img: any) => {
     const handler = () => {
       modalImg.value = img.src
       scale.value = 1
@@ -100,7 +100,6 @@ onBeforeUnmount(() => {
   cleanupFns.forEach(fn => fn())
   cleanupFns = []
 })
-
 
 const zoomIn = () => {
   scale.value = Math.min(scale.value + 0.25, 5)

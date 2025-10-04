@@ -28,7 +28,7 @@
 
       <UPageBody
         id="article"
-        class="wrap-break-word break-all mx-auto mt-0 select-none"
+        class="mx-auto mt-0 select-none"
       >
         <UPageHeader
           :title="article.title"
@@ -98,7 +98,10 @@
           />
         </UPageHeader>
 
-        <ContentRenderer :value="article" />
+        <ContentRenderer
+          id="content"
+          :value="article"
+        />
 
         <footer class="mt-8">
           <div class="flex flex-wrap gap-2">

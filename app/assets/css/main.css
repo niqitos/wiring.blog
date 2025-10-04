@@ -23,6 +23,6 @@
   --color-arduino: hsl(182, 100%, 31%);
 }
 
-/* img {
-  border-radius: var(--radius-lg);
-} */
+#content img {
+  border-radius: var(--radius-md);
+}
