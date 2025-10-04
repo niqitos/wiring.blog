@@ -48,12 +48,12 @@ const path = ref<string>(`/${locale.value}/raw${route.path}.md`)
 const url = ref<string>(`${site.url}${path.value}`)
 
 const items = ref<any[]>([
-  {
-    label: t('article.view.markdown'),
-    icon: 'i-simple-icons:markdown',
-    target: '_blank',
-    to: url.value
-  },
+  // {
+  //   label: t('article.view.markdown'),
+  //   icon: 'i-simple-icons:markdown',
+  //   target: '_blank',
+  //   to: url.value
+  // },
   {
     label: t('article.ai.chatgpt'),
     icon: 'i-simple-icons:openai',
