@@ -126,7 +126,6 @@ export default defineNuxtConfig({
       icons: [
         // Lucide Icons
         'lucide:audio-lines',
-        'lucide:anthropic',
         'lucide:arrow-left',
         'lucide:arrow-right',
         'lucide:check',
@@ -142,12 +141,10 @@ export default defineNuxtConfig({
         'lucide:languages',
         'lucide:link',
         'lucide:mail',
-        'lucide:markdown',
         'lucide:menu',
         'lucide:minus',
         'lucide:monitor',
         'lucide:moon',
-        'lucide:openai',
         'lucide:pause',
         'lucide:pin',
         'lucide:play',
@@ -168,9 +165,12 @@ export default defineNuxtConfig({
         'material-icon-theme:cpp',
         'material-icon-theme:document',
         // Simple icons
+        'simple-icons:anthropic',
         'simple-icons:arduino',
         'simple-icons:espressif',
         'simple-icons:github',
+        'simple-icons:markdown',
+        'simple-icons:openai',
         'simple-icons:raspberrypi',
         'simple-icons:youtube'
       ]
