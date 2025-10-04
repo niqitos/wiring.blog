@@ -118,7 +118,7 @@ export default defineNuxtConfig({
           type: 'image/png',
           purpose: 'maskable'
         }
-      ],
+      ]
     }
   },
   icon: {
@@ -197,7 +197,7 @@ export default defineNuxtConfig({
       ],
       crawlLinks: true,
       autoSubfolderIndex: false
-    },
+    }
   },
   eslint: {
     config: {
@@ -209,13 +209,13 @@ export default defineNuxtConfig({
   },
   hooks: {
     'content:file:afterParse'(ctx) {
-      const { file, content } = ctx;
+      const { file, content } = ctx
 
-      const wordsPerMinute = 180;
-      const text = typeof file.body === 'string' ? file.body : '';
-      const wordCount = text.split(/\s+/).length;
+      const wordsPerMinute = 180
+      const text = typeof file.body === 'string' ? file.body : ''
+      const wordCount = text.split(/\s+/).length
 
-      content.readingTime = Math.ceil(wordCount / wordsPerMinute);
+      content.readingTime = Math.ceil(wordCount / wordsPerMinute)
     }
   }
 })
