@@ -9,10 +9,12 @@ const schema = z.object({
   audio: z.string().optional(),
   links: z.array(
     z.object({
-      label: z.string(),
-      to: z.string(),
-      icon: z.string().optional(),
-      target: z.string().optional()
+      type: z.enum([
+        'youtube',
+        'arduino',
+        'github'
+      ]),
+      to: z.string()
     })
   ).optional(),
   description: z.string().optional(),

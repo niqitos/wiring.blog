@@ -74,15 +74,10 @@
                 :src="article.audio"
               />
 
-              <UFieldGroup v-if="article.links && Array.isArray(article.links)">
-                <UButton
-                  v-for="link in article.links"
-                  :key="link.label"
-                  color="neutral"
-                  variant="outline"
-                  v-bind="link"
-                />
-              </UFieldGroup>
+              <PageHeaderResources
+                v-if="article.links && Array.isArray(article.links)"
+                :items="article.links"
+              />
             </div>
 
             <p
