@@ -10,10 +10,17 @@
 @source inline('!bg-yellow-500');
 @source inline('!bg-red-500');
 @source inline('!text-white');
+@source inline('dark:!text-white');
+@source inline('!text-black');
 @source inline('!text-red-500');
+@source inline('!text-youtube');
+@source inline('!text-arduino');
 
 @theme static {
   --shadow-fixed-button: 0px -2px 2px var(--ui-border-muted);
+
+  --color-youtube: hsl(0, 100%, 50%);
+  --color-arduino: hsl(182, 100%, 31%);
 }
 
 /* img {

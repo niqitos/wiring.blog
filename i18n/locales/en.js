@@ -11,6 +11,24 @@ export default {
     description: 'About'
   },
   article: {
+    copy: {
+      link: 'Copy link',
+      copied: 'Copied to clipboard'
+    },
+    view: {
+      markdown: 'View as Markdown'
+    },
+    ai: {
+      chatgpt: 'Open in ChatGPT',
+      claude: 'Open in Claude',
+      read: 'Read {path} so I can ask questions about it.'
+    },
+    audio: {
+      listen: 'Listen',
+      pause: 'Pause',
+      resume: 'Resume',
+      stop: 'Stop'
+    },
     authors: {
       title: 'Authors | Author | Authors'
     }

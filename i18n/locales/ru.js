@@ -11,6 +11,24 @@ export default {
     description: 'О нас'
   },
   article: {
+    copy: {
+      link: 'Копировать ссылку',
+      copied: 'Скопировано в буфер обмена'
+    },
+    view: {
+      markdown: 'Просмотреть Markdown'
+    },
+    ai: {
+      chatgpt: 'Открыть в ChatGPT',
+      claude: 'Открыть в Claude',
+      read: 'Прочитай статью {path}, чтобы я мог задать по ней вопросы.'
+    },
+    audio: {
+      listen: 'Слушать',
+      pause: 'Пауза',
+      resume: 'Продолжить',
+      stop: 'Стоп'
+    },
     authors: {
       title: 'Авторы | Автор | Авторы | Авторы'
     }

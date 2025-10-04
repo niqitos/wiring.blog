@@ -6,19 +6,27 @@ const schema = z.object({
   id: z.bigint(),
   title: z.string(),
   image: z.string(),
+  audio: z.string().optional(),
+  links: z.array(
+    z.object({
+      label: z.string(),
+      to: z.string(),
+      icon: z.string().optional(),
+      target: z.string().optional()
+    })
+  ).optional(),
   description: z.string().optional(),
   date: z.string().datetime().optional(),
   tags: z.array(z.string()).optional(),
   authors: z.array(
-      z.object({
-        name: z.string(),
-        description: z.string(),
-        avatar: z.object({
-          src: z.string()
-        })
+    z.object({
+      name: z.string(),
+      description: z.string(),
+      avatar: z.object({
+        src: z.string()
       })
-    )
-    .optional(),
+    })
+  ).optional(),
   readingTime: z.number().optional(),
   _draft: z.boolean()
 })
@@ -30,7 +38,7 @@ export default defineContentConfig({
         type: 'page',
         source: {
           include: 'uk/**',
-          prefix: '',
+          prefix: ''
         },
         schema
       })
@@ -40,7 +48,7 @@ export default defineContentConfig({
         type: 'page',
         source: {
           include: 'ru/**',
-          prefix: '/ru',
+          prefix: '/ru'
         },
         schema
       })
@@ -50,7 +58,7 @@ export default defineContentConfig({
         type: 'page',
         source: {
           include: 'en/**',
-          prefix: '/en',
+          prefix: '/en'
         },
         schema
       })

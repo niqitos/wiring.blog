@@ -125,6 +125,8 @@ export default defineNuxtConfig({
     clientBundle: {
       icons: [
         // Lucide Icons
+        'lucide:audio-lines',
+        'lucide:anthropic',
         'lucide:arrow-left',
         'lucide:arrow-right',
         'lucide:check',
@@ -138,18 +140,24 @@ export default defineNuxtConfig({
         'lucide:hash',
         'lucide:house',
         'lucide:languages',
+        'lucide:link',
         'lucide:mail',
+        'lucide:markdown',
         'lucide:menu',
         'lucide:minus',
         'lucide:monitor',
         'lucide:moon',
+        'lucide:openai',
+        'lucide:pause',
         'lucide:pin',
+        'lucide:play',
         'lucide:plus',
         'lucide:presentation',
         'lucide:scale',
         'lucide:search',
         'lucide:server',
         'lucide:sun',
+        'lucide:square',
         'lucide:x',
         // Font Awesome Brands
         'fa7-brands:apple',
@@ -162,7 +170,9 @@ export default defineNuxtConfig({
         // Simple icons
         'simple-icons:arduino',
         'simple-icons:espressif',
-        'simple-icons:raspberrypi'
+        'simple-icons:github',
+        'simple-icons:raspberrypi',
+        'simple-icons:youtube'
       ]
     }
   },

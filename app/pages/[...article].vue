@@ -28,7 +28,7 @@
 
       <UPageBody
         id="article"
-        class="wrap-break-word break-all mx-auto mt-0"
+        class="wrap-break-word break-all mx-auto mt-0 select-none"
       >
         <UPageHeader
           :title="article.title"
@@ -36,6 +36,7 @@
           :headline="headline"
           class="border-none mb-0"
           :ui="{
+            root: 'pb-0',
             description: 'space-y-4 mb-4'
           }"
         >
@@ -64,10 +65,34 @@
               />
             </div>
 
+            <div
+              v-if="article.audio || (article.links && Array.isArray(article.links))"
+              class="flex gap-4 flex-wrap-reverse justify-between"
+            >
+              <PageHeaderAudio
+                v-if="article.audio"
+                :src="article.audio"
+              />
+
+              <UFieldGroup v-if="article.links && Array.isArray(article.links)">
+                <UButton
+                  v-for="link in article.links"
+                  :key="link.label"
+                  color="neutral"
+                  variant="outline"
+                  v-bind="link"
+                />
+              </UFieldGroup>
+            </div>
+
             <p
               class="text-default text-base/7"
               v-text="article.description"
             />
+          </template>
+
+          <template #links>
+            <PageHeaderLinks />
           </template>
 
           <NuxtImg
@@ -170,7 +195,7 @@ const localePath = useLocalePath()
 const setI18nParams = useSetI18nParams()
 
 const { data: article } = await useAsyncData(`${route.path}`, () => queryCollection(`content_${locale.value}`)
-  .select('path', 'image', 'title', 'description', 'body', 'date', 'tags', 'authors', 'readingTime', 'seo')
+  .select('path', 'image', 'audio', 'links', 'title', 'description', 'body', 'date', 'tags', 'authors', 'readingTime', 'seo')
   .where('extension', '=', 'md')
   .where('_draft', '=', false)
   .path(route.path)
