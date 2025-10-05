@@ -49,7 +49,12 @@
 
       <div
         ref="imageContainer"
-        class="relative overflow-hidden w-full h-full flex items-center justify-center cursor-grab active:cursor-grabbing"
+        :class="[
+          'relative overflow-hidden w-full h-full flex items-center justify-center',
+          {
+            'cursor-grab active:cursor-grabbing': scale > 1
+          }
+        ]"
         @pointerdown="startDrag"
       >
         <NuxtImg
@@ -98,6 +103,7 @@ onMounted(() => {
       isOpen.value = true
       nextTick(updateBounds)
     }
+
     img.style.cursor = 'zoom-in'
     img.addEventListener('click', handler)
 
