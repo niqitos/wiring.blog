@@ -31,6 +31,10 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // googleAdsensePrivateId: process.env.GOOGLE_ADSENSE_PRIVATE_ID,
     public: {
+      giscusRepo: process.env.GISCUS_REPO as any,
+      giscusRepoId: process.env.GISCUS_REPO_ID,
+      giscusCategory: process.env.GISCUS_CATEGORY,
+      giscusCategoryId: process.env.GISCUS_CATEGORY_ID,
       googleAdsenseId: process.env.GOOGLE_ADSENSE_PUBLIC_ID,
       email: process.env.EMAIL
     }

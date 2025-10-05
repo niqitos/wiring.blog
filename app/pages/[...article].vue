@@ -123,6 +123,8 @@
 
         <UContentSurround :surround="surround" />
 
+        <ArticleComments />
+
         <ImageModal />
       </UPageBody>
 
