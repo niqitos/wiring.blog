@@ -1,0 +1,1 @@
+import{G as c,h as e,ac as o}from"#entry";import{_ as s}from"./DlAUqK2U.js";const r={};function t(a,_){const n=o;return e(),c(n,{name:"i-lucide:chevron-right",class:"size-4 shrink-0 align-sub"})}const m=Object.assign(s(r,[["render",t]]),{__name:"ChevronRight"});export{m as default};
