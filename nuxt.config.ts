@@ -150,7 +150,6 @@ export default defineNuxtConfig({
         'lucide:monitor',
         'lucide:moon',
         'lucide:pause',
-        'lucide:pin',
         'lucide:play',
         'lucide:plus',
         'lucide:presentation',
@@ -176,7 +175,9 @@ export default defineNuxtConfig({
         'simple-icons:markdown',
         'simple-icons:openai',
         'simple-icons:raspberrypi',
-        'simple-icons:youtube'
+        'simple-icons:youtube',
+        // Teenyicons
+        'teenyicons:curved-connector-outline'
       ]
     }
   },

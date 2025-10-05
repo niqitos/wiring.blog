@@ -15,12 +15,15 @@
 @source inline('!text-red-500');
 @source inline('!text-youtube');
 @source inline('!text-arduino');
+@source inline('!text-windows');
 
 @theme static {
   --shadow-fixed-button: 0px -2px 2px var(--ui-border-muted);
 
   --color-youtube: hsl(0, 100%, 50%);
   --color-arduino: hsl(182, 100%, 31%);
+  --color-windows: hsl(207, 100%, 42%);
+;
 }
 
 #content img {
