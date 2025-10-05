@@ -94,7 +94,7 @@
             v-if="article.image"
             :src="String(article.image)"
             :alt="article.title"
-            class="rounded-lg"
+            class="rounded-md"
           />
         </UPageHeader>
 

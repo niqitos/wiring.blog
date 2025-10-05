@@ -20,18 +20,18 @@
         <UButton
           color="neutral"
           variant="subtle"
-          icon="i-lucide:minus"
+          icon="i-lucide:zoom-out"
           :disabled="scale <= 1"
           @click="zoomOut"
         />
 
         <UTooltip :text="$t('zoom.reset')">
           <UButton
-            :label="String(scale)"
+            :label="`${scale > 1 ? '✕ ' : ''}${String(scale)}`"
             color="neutral"
             variant="subtle"
             :ui="{
-              base: 'flex justify-center w-14'
+              base: 'flex justify-center w-16'
             }"
             :disabled="scale <= 1"
             @click="resetZoom"
@@ -41,7 +41,7 @@
         <UButton
           color="neutral"
           variant="subtle"
-          icon="i-lucide:plus"
+          icon="i-lucide:zoom-in"
           :disabled="scale >= 3"
           @click="zoomIn"
         />
@@ -119,13 +119,13 @@ onBeforeUnmount(() => {
 })
 
 const zoomIn = () => {
-  scale.value = Math.min(scale.value + 0.25, 5)
+  scale.value = Math.min(scale.value + 0.5, 5)
 
   nextTick(updateBounds)
 }
 
 const zoomOut = () => {
-  scale.value = Math.max(scale.value - 0.25, 0.25)
+  scale.value = Math.max(scale.value - 0.5, 0.5)
 
   nextTick(updateBounds)
 }
