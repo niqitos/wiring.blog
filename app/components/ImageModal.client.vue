@@ -2,7 +2,7 @@
   <UModal
     v-model:open="isOpen"
     :ui="{
-      content: 'bg-default/75 backdrop-blur-xs max-w-full max-h-full flex items-center justify-center p-0'
+      content: 'bg-elevated/75 backdrop-blur-xs max-w-full max-h-full flex items-center justify-center p-0'
     }"
   >
     <template #content>

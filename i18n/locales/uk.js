@@ -33,6 +33,9 @@ export default {
       title: 'Автори | Автор | Автори | Автори'
     }
   },
+  cirkitDesigner: {
+    caption: 'Редагувати цей проєкт інтерактивно в {0}.'
+  },
   publishedOn: 'Опубліковано: {0}',
   readingTime: '0 хв читання | {count} хв читання | {count} хв читання | {count} хв читання',
   tags: {

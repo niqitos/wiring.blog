@@ -33,6 +33,9 @@ export default {
       title: 'Authors | Author | Authors'
     }
   },
+  cirkitDesigner: {
+    caption: 'Edit this project interactively in {0}.'
+  },
   publishedOn: 'Published: {0}',
   readingTime: '0 min read | {count} min read | {count} min read',
   tags: {
